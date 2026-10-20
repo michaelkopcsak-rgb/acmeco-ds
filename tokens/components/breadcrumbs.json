@@ -1,0 +1,18 @@
+{
+  "breadcrumbs": {
+    "$description": "Tokens for Breadcrumbs: the trail from the site to the page (decision 47). Measured from the audit's captures of the property detail page (desktop 1700px, phone 400px) and the map search's list column.",
+    "font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "OBSERVED: 14px on the property detail page; 15px at the end of the search results list. One size now, 14px (decision 47)." },
+    "line-height": { "$type": "dimension", "$value": "{typography.body-small.line-height}", "$description": "OBSERVED: 18px; became 21px, the system's 1.5x rhythm (decision 9)." },
+    "gap": { "$type": "dimension", "$value": "{space.1}", "$description": "OBSERVED: about 4px either side of each slash." },
+    "row-gap": { "$type": "dimension", "$value": "{space.0}", "$description": "OBSERVED: wrapped lines sit directly under each other on the phone." },
+    "separator": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: an ink slash between the links (#000000 consolidated to ink)." },
+    "current": { "$type": "color", "$value": "{color.text.subtle}", "$description": "OBSERVED: the current page in grey (#63666a) on the property detail page; black on the search results. One colour now, the grey (decision 47)." },
+    "strip": {
+      "background": { "$type": "color", "$value": "{color.gray.50}", "$description": "OBSERVED: the strip is #f9f9f9 on both pages." },
+      "border": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: 1px #dddddd lines above and below; became the system's default border (#e5e5e5). Decorative." },
+      "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px." },
+      "padding-block": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: 7px above and 3px below the text (property detail), 7px and 9px (search results); became 8px both." },
+      "padding-inline": { "$type": "dimension", "$value": "{layout.gutter}", "$description": "OBSERVED: 20px at 1700px and 400px; became the page gutter (16px)." }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "site-menu": {
+    "$description": "Tokens for SiteMenu: AcmeCo's header menu, a Popover from the Menu button (live site, 2026-10-10). The panel itself uses the popover tokens. Decision 36.",
+    "width": { "$type": "dimension", "$value": "280px", "$description": "OBSERVED: a 280px panel." },
+    "item": {
+      "min-height": { "$type": "dimension", "$value": "40px", "$description": "OBSERVED: 40px rows." },
+      "padding-x": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: the rows' text starts 16px from the panel's edge (a reference screenshot); rows run edge to edge." },
+      "background-hover": { "$type": "color", "$value": "{color.surface.hover}", "$description": "OBSERVED: rows (links and the Search button) turn grey (#f3f3f3) edge to edge on hover, with no underline (a reference screenshot)." },
+      "font-size": { "$type": "dimension", "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16px." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body.line-height}", "$description": "PROPOSED: 24px." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "OBSERVED: 500 for the menu's items; with two weights (decision 4), 600, matching the Search group's button." }
+    },
+    "sub-item": {
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: 300 for the Search group's links; became 400 (decision 4)." }
+    },
+    "external-icon-size": { "$type": "dimension", "$value": "16px", "$description": "OBSERVED: Marketing Center's external-link icon sits at the right end of its row; 16px (Lucide's ExternalLink)." },
+    "login-text": { "$type": "color", "$value": "{color.action.foreground.default}", "$description": "OBSERVED: \"Log In/Sign Up\" is dark blue (#123a7a, the action dark blue), 10.98:1 on white." },
+    "divider": {
+      "color": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: 1px #ddd lines between the menu's groups (after Log In/Sign Up, after Marketing Center, after the Search links); became the one border grey. Decorative." },
+      "width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px." },
+      "gap": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: about 8px above and below each line; the lines are inset 16px from each side, like the text." }
+    }
+  }
+}

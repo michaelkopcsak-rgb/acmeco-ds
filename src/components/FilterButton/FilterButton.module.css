@@ -1,0 +1,97 @@
+/* FilterButton and FilterMenu. Every value comes from --filter-* tokens
+   (tokens/components/filter.json). */
+
+.button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--filter-gap);
+  min-height: var(--filter-height);
+  padding-inline: var(--filter-padding-x);
+  border: var(--filter-border-width) solid var(--filter-border);
+  border-radius: var(--filter-radius);
+  background-color: var(--filter-background);
+  color: var(--filter-text);
+  font-family: inherit;
+  font-size: var(--filter-font-size);
+  line-height: var(--filter-line-height);
+  font-weight: var(--filter-font-weight);
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+}
+.button[data-hovered] { border-color: var(--filter-border-hover); background-color: var(--filter-background-hover); }
+.button[data-active] { border-color: var(--filter-border-active); background-color: var(--filter-background-active); }
+.button[data-focus-visible] {
+  outline: var(--filter-focus-ring-width) solid var(--filter-focus-ring-color);
+  outline-offset: var(--filter-focus-ring-offset);
+}
+/* Icon only (the phone's filter button): a round button, its count over the top-right edge. */
+.iconOnly { position: relative; justify-content: center; width: var(--filter-height); padding-inline: 0; }
+.iconOnly .count { position: absolute; top: var(--filter-count-inset); right: var(--filter-count-inset); }
+
+
+.icon, .chevron { display: inline-flex; flex: none; width: var(--filter-icon-size); height: var(--filter-icon-size); }
+.icon > svg { width: 100%; height: 100%; }
+.button[aria-expanded='true'] .chevron { transform: rotate(180deg); }
+
+.count {
+  display: inline-grid;
+  place-items: center;
+  min-width: var(--filter-count-size);
+  height: var(--filter-count-size);
+  border-radius: var(--filter-count-size);
+  background-color: var(--filter-count-background);
+  color: var(--filter-count-text);
+  font-size: var(--filter-count-font-size);
+}
+
+/* FilterMenu: a set, clearable pill makes room for its clear button, which sits inside the
+   pill's end (it's a separate button: a button can't hold another). */
+.menu { position: relative; display: inline-flex; }
+.menu[data-clearable] .button { padding-inline-end: calc(var(--filter-padding-x) + var(--filter-clear-size)); }
+.clear {
+  position: absolute;
+  inset-inline-end: var(--filter-gap);
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-grid;
+  place-items: center;
+  width: var(--filter-clear-size);
+  height: var(--filter-clear-size);
+  padding: 0;
+  border: 0;
+  border-radius: var(--filter-clear-size);
+  background: none;
+  color: var(--filter-text);
+  cursor: pointer;
+  outline: none;
+}
+.clear > svg { width: var(--filter-clear-icon-size); height: var(--filter-clear-icon-size); }
+.clear[data-hovered] { background-color: var(--filter-clear-background-hover); }
+.clear[data-focus-visible] {
+  outline: var(--filter-focus-ring-width) solid var(--filter-focus-ring-color);
+  outline-offset: var(--filter-focus-ring-offset);
+}
+
+.panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--filter-panel-gap);
+  width: var(--filter-panel-width);
+  padding: var(--filter-panel-padding);
+}
+
+/* Phones (below 768px): AcmeCo's larger pills, 16px text and no chevrons. */
+@media (max-width: 767px) {
+  .button {
+    min-height: var(--filter-height-touch);
+    padding-inline: var(--filter-padding-x-touch);
+    font-size: var(--filter-font-size-touch);
+    line-height: var(--filter-line-height-touch);
+  }
+  .chevron { display: none; }
+  .iconOnly { width: var(--filter-height-touch); padding-inline: 0; }
+  .menu[data-clearable] .button { padding-inline-end: calc(var(--filter-padding-x-touch) + var(--filter-clear-size)); }
+}

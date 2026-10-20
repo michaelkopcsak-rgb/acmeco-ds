@@ -1,0 +1,25 @@
+/* FactList. Every value comes from --fact-list-* tokens (tokens/components/fact-list.json). */
+
+/* The width the list gets decides one or two facts per row, wherever it sits (a card, a column). */
+.container { container-type: inline-size; }
+.list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: var(--fact-list-pair-gap);
+  row-gap: var(--fact-list-row-gap);
+  margin: 0;
+  font-size: var(--fact-list-font-size);
+  line-height: var(--fact-list-line-height);
+  font-weight: var(--fact-list-font-weight);
+}
+@container (min-width: 560px) {
+  .list[data-columns='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* OBSERVED: the label takes 45% of its pair (282 of 628px on desktop, 153 of 340px on the phone). */
+.fact {
+  display: grid;
+  grid-template-columns: minmax(0, 9fr) minmax(0, 11fr);
+  column-gap: var(--fact-list-column-gap);
+}
+.label { color: var(--fact-list-label); }
+.value { margin: 0; color: var(--fact-list-value); overflow-wrap: anywhere; }

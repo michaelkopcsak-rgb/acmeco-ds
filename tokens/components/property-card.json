@@ -1,0 +1,79 @@
+{
+  "property-card": {
+    "$description": "Tokens for the PropertyCard container and its three tier layouts. Measured from the audit's captured DOM of AcmeCo's cards (search results list and map view, desktop). AcmeCo's own tiers (card tier1 / tier2 / tier3) set the layout. Decision 27.",
+    "background": {
+      "$type": "color",
+      "$value": "{color.surface.default}",
+      "$description": "OBSERVED: white cards."
+    },
+    "border-color": {
+      "$type": "color",
+      "$value": "{color.border.default}",
+      "$description": "OBSERVED: 1px #e2e2e2 in the map view, no border in the list view; became the default border (#e5e5e5) everywhere. Decorative: the shadow and the white surface also mark the card."
+    },
+    "border-width": {
+      "$type": "dimension",
+      "$value": "{border.width.default}",
+      "$description": "OBSERVED: 1px."
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{radius.md}",
+      "$description": "OBSERVED: 0px on results and map cards, 8px on the homepage, 2-3px elsewhere; became 8px (decision 26: surfaces)."
+    },
+    "shadow": {
+      "$type": "shadow",
+      "$value": "{shadow.card}",
+      "$description": "OBSERVED: 0 1px 4px 2px at 15% black in the map view (#d4d4d4 in the list view): the card shadow of decision 11."
+    },
+    "padding-inline": {
+      "$type": "dimension",
+      "$value": "{space.4}",
+      "$description": "OBSERVED: 20px (15px for contacts); became 16px, the scale step that keeps tier 2's 308px details column readable."
+    },
+    "band-width": { "$type": "dimension", "$value": "{space.3}", "$description": "OBSERVED: on AcmeCo's phone the results are edge to edge, without borders, corners or shadows, separated by grey bands about 12px deep (a reference screenshot, 2026-10-11; decision 42)." },
+    "band-color": { "$type": "color", "$value": "{color.surface.subtle}", "$description": "OBSERVED: the bands are AcmeCo's light grey." },
+    "padding-block": {
+      "$type": "dimension",
+      "$value": "{space.3}",
+      "$description": "OBSERVED: 6-10px above the header and facts, 15-20px below; became 12px."
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{space.3}",
+      "$description": "OBSERVED: 10-20px between facts, description and contacts; became 12px."
+    },
+    "media-aspect-ratio": {
+      "$type": "number",
+      "$value": 1.8,
+      "$description": "OBSERVED: tier 1 photo 668 x 370px in the map view (1.8:1). The full-width list stretches it to a 1703 x 212px banner; the card keeps the map view's shape."
+    },
+    "compact-media-min-height": {
+      "$type": "dimension",
+      "$value": "160px",
+      "$description": "OBSERVED: tier 3 photo 170 x 155px in the list, 290 x 260px in the map view; at least 160px (4px grid)."
+    },
+    "description-max-lines": {
+      "$type": "number",
+      "$value": 3,
+      "$description": "OBSERVED: descriptions cut to 3 lines (tier 1, 70px at 23px lines) or 4 (tier 2); 3 everywhere, the full text is on the detail page."
+    },
+    "focus-ring": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.focus.ring.default}",
+        "$description": "PROPOSED: the whole card shows the system focus ring when its title link has focus (decision 27: one link per card)."
+      },
+      "width": {
+        "$type": "dimension",
+        "$value": "{focus.ring.width}",
+        "$description": "PROPOSED: 2px."
+      },
+      "offset": {
+        "$type": "dimension",
+        "$value": "{focus.ring.offset}",
+        "$description": "PROPOSED: 2px."
+      }
+    }
+  }
+}

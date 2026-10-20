@@ -1,0 +1,116 @@
+/* Shared form-control styles. Every value comes from --field-* tokens
+   (tokens/components/field.json). States come from React Aria's Group:
+   data-hovered, data-focus-within, data-invalid, data-disabled. */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-gap);
+}
+
+.label {
+  font-size: var(--field-label-font-size);
+  line-height: var(--field-label-line-height);
+  font-weight: var(--field-label-font-weight);
+  color: var(--field-label-color);
+}
+
+.hint {
+  font-size: var(--field-hint-font-size);
+  line-height: var(--field-hint-line-height);
+  color: var(--field-hint-color);
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--field-gap);
+  font-size: var(--field-hint-font-size);
+  line-height: var(--field-hint-line-height);
+  color: var(--field-error-color);
+}
+.errorIcon {
+  flex: none;
+  width: var(--field-error-icon-size);
+  height: var(--field-error-icon-size);
+  margin-block-start: 0.1875em;
+}
+
+/* The control box */
+.control {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--field-control-gap);
+  border: var(--field-control-border-width) solid var(--field-control-border-default);
+  border-radius: var(--field-control-radius);
+  background-color: var(--field-control-background-default);
+  color: var(--field-control-text-default);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .control {
+    transition-property: border-color, box-shadow;
+    transition-duration: var(--field-transition-duration);
+    transition-timing-function: var(--field-transition-easing);
+  }
+}
+.md {
+  min-height: var(--field-control-md-height);
+  padding-inline: var(--field-control-md-padding-x);
+  font-size: var(--field-control-md-font-size);
+  line-height: var(--field-control-md-line-height);
+}
+.lg {
+  min-height: var(--field-control-lg-height);
+  padding-inline: var(--field-control-lg-padding-x);
+  font-size: var(--field-control-lg-font-size);
+  line-height: var(--field-control-lg-line-height);
+}
+.pill { border-radius: var(--field-control-pill-radius); }
+.multiline { align-items: stretch; padding-block: var(--field-control-gap); }
+
+.control[data-hovered] { border-color: var(--field-control-border-hover); }
+/* Text fields show focus whenever you're typing in them, mouse or keyboard. */
+.control[data-focus-within] {
+  outline: var(--field-control-focus-ring-width) solid var(--field-control-focus-ring-color);
+  outline-offset: var(--field-control-focus-ring-offset);
+}
+/* Invalid: red and thicker (inset shadow adds width without shifting layout),
+   with an icon and message below, so it's not colour alone. */
+.control[data-invalid] {
+  border-color: var(--field-control-border-invalid);
+  box-shadow: inset 0 0 0 calc(var(--field-control-border-width-invalid) - var(--field-control-border-width)) var(--field-control-border-invalid);
+}
+.control[data-disabled] {
+  border-color: var(--field-control-border-disabled);
+  background-color: var(--field-control-background-disabled);
+  color: var(--field-control-text-disabled);
+}
+.readOnly { background-color: var(--field-control-background-read-only); }
+
+/* The input inside the box: no border or outline of its own. */
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+.input::placeholder { color: var(--field-control-text-placeholder); opacity: 1; }
+textarea.input { resize: vertical; }
+/* Hide the browser's own clear button on search inputs; SearchField draws its own. */
+.input::-webkit-search-cancel-button { appearance: none; }
+
+.counter {
+  margin-inline-start: auto;
+  font-size: var(--field-hint-font-size);
+  line-height: var(--field-hint-line-height);
+  color: var(--field-hint-color);
+}
+.meta {
+  display: flex;
+  gap: var(--field-control-gap);
+}

@@ -1,0 +1,24 @@
+/* NavigationBar. Values from --shell-nav-* tokens (tokens/components/shell.json); the
+   links bring their own (Link, subtle). */
+
+.nav { display: block; }
+.list {
+  display: flex;
+  align-items: center;
+  gap: var(--shell-nav-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--shell-nav-font-size);
+  line-height: var(--shell-nav-line-height);
+}
+.list[data-orientation='vertical'] {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--shell-nav-gap-vertical);
+}
+.list[data-orientation='vertical'] .item {
+  display: flex;
+  align-items: center;
+  min-height: var(--shell-nav-item-min-height);
+}

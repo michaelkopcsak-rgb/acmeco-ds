@@ -1,0 +1,149 @@
+{
+  "dialog": {
+    "$description": "Tokens for Dialog. Measured from the audit's captured CSS of AcmeCo's three dialogs (one csgp-modal system styled three ways: sign-in, contact broker, filters panel; audit family F31). Decision 28: the newest look (sign-in) for all three.",
+    "background": {
+      "$type": "color",
+      "$value": "{color.surface.default}",
+      "$description": "OBSERVED: white in all three."
+    },
+    "backdrop": {
+      "$type": "color",
+      "$value": "{color.overlay}",
+      "$description": "OBSERVED: black at 60% behind all three."
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{radius.md}",
+      "$description": "OBSERVED: 8px on the sign-in dialog (the newest), 4px on contact broker and filters; 8px for all (decision 28, amending decision 26)."
+    },
+    "shadow": {
+      "$type": "shadow",
+      "$value": "{shadow.raised}",
+      "$description": "OBSERVED: 0 2px 15px at 15% black on the sign-in dialog, exactly shadow.raised (contact broker: a grey 8px glow; filters: a 1px #ddd border)."
+    },
+    "width": {
+      "md": {
+        "$type": "dimension",
+        "$value": "500px",
+        "$description": "OBSERVED: contact broker, 500px. Single-column forms."
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "768px",
+        "$description": "OBSERVED: sign-in, 768px (two 384px columns). The filters panel (852px) uses it too (decision 28)."
+      }
+    },
+    "viewport-margin": {
+      "$type": "dimension",
+      "$value": "{space.6}",
+      "$description": "PROPOSED: the least space kept around the dialog on a large screen, so it never touches the window edge."
+    },
+    "padding": {
+      "$type": "dimension",
+      "$value": "{space.5}",
+      "$description": "OBSERVED: 24px around the sign-in header and body (contact broker: 25px)."
+    },
+    "header": {
+      "padding-bottom": {
+        "$type": "dimension",
+        "$value": "{space.3}",
+        "$description": "OBSERVED: 12px below the sign-in title."
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": "{space.4}",
+        "$description": "PROPOSED: between the title and the Close button."
+      }
+    },
+    "title": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{typography.heading-3.font-size}",
+        "$description": "OBSERVED: 22px (sign-in) and 19px (contact broker); became 20px, the heading-3 style."
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "{typography.heading-3.line-height}",
+        "$description": "OBSERVED: 1.5x rhythm (20/30)."
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": "{typography.heading-3.font-weight}",
+        "$description": "OBSERVED: 400; became semibold, so dialog titles match the other headings."
+      },
+      "color": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "OBSERVED: #1c1c1c (sign-in), ink."
+      }
+    },
+    "body": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{typography.body.font-size}",
+        "$description": "OBSERVED: 16px."
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "{typography.body.line-height}",
+        "$description": "OBSERVED: 24px."
+      },
+      "color": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "OBSERVED: #1c1c1c (sign-in), ink."
+      }
+    },
+    "footer": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.surface.default}",
+        "$description": "OBSERVED: the contact form's sticky white footer."
+      },
+      "border-color": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "OBSERVED: a 1px #c6c6c6 line above the contact form's footer; became the default border. Decorative: the footer is also set apart by position."
+      },
+      "border-width": {
+        "$type": "dimension",
+        "$value": "{border.width.default}",
+        "$description": "OBSERVED: 1px."
+      },
+      "padding-block": {
+        "$type": "dimension",
+        "$value": "{space.3}",
+        "$description": "OBSERVED: 10px; became 12px."
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": "{space.3}",
+        "$description": "PROPOSED: between footer buttons."
+      }
+    },
+    "transition": {
+      "duration": {
+        "$type": "duration",
+        "$value": "{duration.base}",
+        "$description": "PROPOSED: fade in and out. Code only: Figma has no motion variables (decision 15)."
+      },
+      "easing": {
+        "$type": "cubicBezier",
+        "$value": "{easing.default}",
+        "$description": "LEGACY-NAMED: ease-in-out from --legacy-cta-transition."
+      }
+    },
+    "focus-ring": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.focus.ring.default}",
+        "$description": "PROPOSED: the system focus ring, shown on the body when it scrolls and has keyboard focus."
+      },
+      "width": {
+        "$type": "dimension",
+        "$value": "{focus.ring.width}",
+        "$description": "PROPOSED: 2px, drawn inside the body's edge."
+      }
+    }
+  }
+}

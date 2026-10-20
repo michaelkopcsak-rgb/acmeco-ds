@@ -1,0 +1,132 @@
+/* Select. The field trigger uses the shared --field-* tokens, so it looks like
+   TextField; the compact trigger and the list use --select-* tokens
+   (tokens/components/select.json). States are React Aria data attributes on the
+   trigger button (data-hovered, data-pressed, data-focus-visible, data-disabled)
+   and on the Select root (data-open, data-invalid). */
+
+/* Shared by both triggers */
+.trigger,
+.compact {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--field-control-gap);
+  border: var(--field-control-border-width) solid var(--field-control-border-default);
+  background-color: var(--field-control-background-default);
+  color: var(--field-control-text-default);
+  font-family: inherit;
+  text-align: start;
+  cursor: pointer;
+  outline: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .trigger, .compact { transition: border-color var(--field-transition-duration) var(--field-transition-easing); }
+  .chevron, .compactChevron { transition: transform var(--field-transition-duration) var(--field-transition-easing); }
+}
+
+/* Field trigger: the same box as TextField */
+.trigger {
+  width: 100%;
+  border-radius: var(--field-control-radius);
+}
+.md {
+  min-height: var(--field-control-md-height);
+  padding-inline: var(--field-control-md-padding-x);
+  font-size: var(--field-control-md-font-size);
+  line-height: var(--field-control-md-line-height);
+}
+.lg {
+  min-height: var(--field-control-lg-height);
+  padding-inline: var(--field-control-lg-padding-x);
+  font-size: var(--field-control-lg-font-size);
+  line-height: var(--field-control-lg-line-height);
+}
+
+/* Compact trigger: a 32px pill for sort and filters */
+.compact {
+  align-self: flex-start;
+  min-height: var(--select-compact-height);
+  padding-inline: var(--select-compact-padding-x);
+  border-radius: var(--select-compact-radius);
+  font-size: var(--select-compact-font-size);
+  line-height: var(--select-compact-line-height);
+}
+
+.value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.value[data-placeholder] { color: var(--field-control-text-placeholder); }
+/* A compact trigger shows its label before a choice: that's its name, not a hint, so it's ink. */
+.compact .value[data-placeholder] { color: var(--field-control-text-default); }
+
+.chevron { flex: none; width: var(--select-chevron-size); height: var(--select-chevron-size); }
+.compactChevron { flex: none; width: var(--select-compact-chevron-size); height: var(--select-compact-chevron-size); }
+.select[data-open] .chevron,
+.select[data-open] .compactChevron { transform: rotate(180deg); }
+
+/* States */
+.trigger[data-hovered], .compact[data-hovered] { border-color: var(--field-control-border-hover); }
+.trigger[data-focus-visible], .compact[data-focus-visible] {
+  outline: var(--field-control-focus-ring-width) solid var(--field-control-focus-ring-color);
+  outline-offset: var(--field-control-focus-ring-offset);
+}
+.select[data-invalid] .trigger,
+.select[data-invalid] .compact {
+  border-color: var(--field-control-border-invalid);
+  box-shadow: inset 0 0 0 calc(var(--field-control-border-width-invalid) - var(--field-control-border-width)) var(--field-control-border-invalid);
+}
+.trigger[data-disabled], .compact[data-disabled] {
+  border-color: var(--field-control-border-disabled);
+  background-color: var(--field-control-background-disabled);
+  color: var(--field-control-text-disabled);
+  cursor: not-allowed;
+}
+.trigger[data-disabled] .value[data-placeholder],
+.compact[data-disabled] .value[data-placeholder] { color: var(--field-control-text-disabled); }
+
+/* The list */
+.popover {
+  box-sizing: border-box;
+  min-width: var(--trigger-width); /* set by React Aria: at least as wide as the trigger */
+  margin-block-start: var(--select-popover-offset);
+  border: var(--select-popover-border-width) solid var(--select-popover-border);
+  border-radius: var(--select-popover-radius);
+  background-color: var(--select-popover-background);
+  box-shadow: var(--select-popover-shadow);
+  overflow: auto;
+}
+.listbox {
+  max-height: var(--select-popover-max-height);
+  padding: var(--select-popover-padding);
+  outline: none;
+}
+.option {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--select-option-gap);
+  min-height: var(--select-option-min-height);
+  padding-inline: var(--select-option-padding-x);
+  border-radius: var(--select-option-radius);
+  font-size: var(--select-option-font-size);
+  line-height: var(--select-option-line-height);
+  color: var(--select-option-text);
+  cursor: pointer;
+  outline: none;
+}
+.option[data-focused] { background-color: var(--select-option-background-focused); }
+.option[data-pressed] { background-color: var(--select-option-background-pressed); }
+.option[data-selected] { font-weight: var(--select-option-selected-weight); }
+.option[data-disabled] { color: var(--select-option-text-disabled); cursor: not-allowed; }
+.check { flex: none; width: var(--select-option-icon-size); height: var(--select-option-icon-size); }
+
+/* Phones (below 768px): a compact trigger matches AcmeCo's larger pills (16px, no chevron). */
+@media (max-width: 767px) {
+  .compact {
+    min-height: var(--select-compact-height-touch);
+    padding-inline: var(--select-compact-padding-x-touch);
+    font-size: var(--select-compact-font-size-touch);
+    line-height: var(--select-compact-line-height-touch);
+  }
+  .compactChevron { display: none; }
+}

@@ -1,0 +1,3 @@
+// Deliberately wrong (a .txt so nothing compiles it): the token check's
+// self-test must flag this direct import.
+import { Heart } from 'lucide-react'

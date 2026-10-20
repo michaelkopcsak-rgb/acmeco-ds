@@ -1,0 +1,60 @@
+{
+ "$description": "Placeholder photos for Figma image fills, rendered from src/data/illustrations.ts by scripts/figma/build-images.mjs. hash = SHA-1 of the PNG, which is how Figma names an image.",
+ "images": {
+  "l01": {
+   "title": "Larkspur Commons",
+   "hash": "e242d3c00b855ed80ea8d40f8fa528299edc9a1a",
+   "bytes": 7862
+  },
+  "l02": {
+   "title": "The Foundry Lofts",
+   "hash": "7406e8d6a83068bd68721f7af947f8cbcd80aded",
+   "bytes": 8856
+  },
+  "l03": {
+   "title": "Cherry Creek Plaza",
+   "hash": "6dc49e6848429360caacedee2b4d03b23b61a0c5",
+   "bytes": 8304
+  },
+  "l05": {
+   "title": "Union Station Suites",
+   "hash": "30b4d3028e9e1ff074f5a9c8099d0b660a839033",
+   "bytes": 8861
+  },
+  "l08": {
+   "title": "Glendale Office Tower",
+   "hash": "083c46123b38530ee822fb4e6cfcbfacb60525f9",
+   "bytes": 7497
+  },
+  "l13": {
+   "title": "RiNo Creative Offices",
+   "hash": "752e2c218bd8034c520235968a67a9c14c042813",
+   "bytes": 8847
+  },
+  "l15": {
+   "title": "Capitol Hill Studio Offices",
+   "hash": "49b0678afab4e7dc46d330a228be14c61a3daa84",
+   "bytes": 9261
+  },
+  "l17": {
+   "title": "Golden Triangle Coworking",
+   "hash": "1fc61953e9d6ccec8432699d696634c94fd6f194",
+   "bytes": 7413
+  },
+  "l18": {
+   "title": "Tech Center Office Campus",
+   "hash": "9f6bfb43f3597778972577cb099e1559f0993b54",
+   "bytes": 8263
+  },
+  "s01": {
+   "title": "Sign-in promo, slide 1",
+   "hash": "2f34fc704f5b6a25272d19aa96c3f24cfcf1ffc3",
+   "bytes": 11839
+  },
+  "m03": {
+   "title": "Results map drawing",
+   "hash": "b99e51b02fcb9d822d0d637a92e3eb5ff9a19fe1",
+   "bytes": 115979
+  }
+ }
+}

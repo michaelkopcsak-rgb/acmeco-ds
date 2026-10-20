@@ -1,0 +1,30 @@
+/* Badge. Every value comes from --badge-* tokens (tokens/components/badge.json),
+   measured from AcmeCo's captured CSS. Pills float over content; the feature
+   label is square because it's attached to a photo's edge (decision 25). */
+
+.badge {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  border-radius: var(--badge-radius);
+  font-size: var(--badge-font-size);
+  line-height: var(--badge-line-height);
+  font-weight: var(--badge-font-weight);
+  white-space: nowrap;
+}
+
+.neutral { background-color: var(--badge-neutral-background); color: var(--badge-neutral-text); }
+.subtle { background-color: var(--badge-subtle-background); color: var(--badge-subtle-text); }
+.auction { background-color: var(--badge-auction-background); color: var(--badge-auction-text); }
+
+.feature {
+  padding: var(--badge-feature-padding-y) var(--badge-feature-padding-x);
+  border-radius: var(--badge-feature-radius);
+  background-color: var(--badge-feature-background);
+  color: var(--badge-feature-text);
+  font-size: var(--badge-feature-font-size);
+  line-height: var(--badge-feature-line-height);
+  letter-spacing: var(--badge-feature-letter-spacing);
+  text-transform: uppercase;
+}

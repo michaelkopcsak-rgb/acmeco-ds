@@ -1,0 +1,30 @@
+{
+  "tabs": {
+    "$description": "Tokens for Tabs: switch between panels of related content in place. Measured from AcmeCo's Language and Region dialog (live site, 2026-10-10) and the audit's F18 Tab set (34 instances, 6 experiences). Decision 36.",
+    "gap": { "$type": "dimension", "$value": "{space.5}", "$description": "OBSERVED: 24px between tabs (the dialog's tabs at 25 and 234px, the first 185px wide)." },
+    "font-size": { "$type": "dimension", "$value": "{typography.body-large.font-size}", "$description": "OBSERVED: 18px tab labels." },
+    "line-height": { "$type": "dimension", "$value": "{typography.body-large.line-height}", "$description": "PROPOSED: 27px (1.5x, decision 9)." },
+    "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: 400 for the current tab and 300 for the others; became 400 for both (decision 4: two weights), so the underline and colour mark the current tab." },
+    "padding-y": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: 11px above and below the label; became 8px, giving 43px tabs, above the 24px target minimum." },
+    "panel-gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 18px from the tab line to the options; became 16px." },
+    "text": {
+      "$type": "color",
+      "default": { "$value": "{color.text.subtle}", "$description": "OBSERVED: #4f5254 at weight 300 for the other tabs; became the secondary grey #63666a (5.77:1), so the current tab in ink stands out." },
+      "hover": { "$value": "{color.text.default}", "$description": "PROPOSED: ink on hover (not observed)." },
+      "selected": { "$value": "{color.text.default}", "$description": "OBSERVED: black (#000) for the current tab; became ink." }
+    },
+    "indicator": {
+      "color": { "$type": "color", "$value": "{color.brand.700}", "$description": "OBSERVED, LEGACY-NAMED: a 2px #123a7a (--legacy-color-brand) line under the current tab; 10.98:1 on white, so it marks the tab without relying on the text colour." },
+      "width": { "$type": "dimension", "$value": "{border.width.strong}", "$description": "OBSERVED: 2px." }
+    },
+    "line": {
+      "color": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: a 1px #ddd line under the tabs (2px #e5e5e5 in some F18 sets); became the one border grey. Decorative." },
+      "width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px." }
+    },
+    "focus-ring": {
+      "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: the system's focus ring (AcmeCo's tabs can't take focus)." },
+      "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px." },
+      "offset": { "$type": "dimension", "$value": "{focus.ring.offset}", "$description": "PROPOSED: 2px." }
+    }
+  }
+}

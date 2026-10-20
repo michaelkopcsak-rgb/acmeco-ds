@@ -1,0 +1,169 @@
+/* PropertyCard parts. Every value comes from --property-* tokens
+   (tokens/components/property.json), measured from AcmeCo's cards. */
+
+/* ---- Header row ---- */
+.headerContainer { container-type: inline-size; }
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: var(--property-header-gap);
+  font-size: var(--property-header-font-size);
+  line-height: var(--property-header-line-height);
+  font-weight: var(--property-header-font-weight);
+  color: var(--property-header-color);
+}
+.headerStart { min-width: 0; }
+.headerEnd { text-align: end; }
+/* On a narrow card the two columns stay side by side, as on AcmeCo's phone: the title and
+   address may wrap; the size and city lines are cut short with an ellipsis. */
+@container (max-width: 480px) {
+  .header { flex-wrap: nowrap; }
+  .headerStart { flex: 1 1 50%; }
+  .headerEnd { flex: 1 1 50%; min-width: 0; }
+  .headerEnd > * { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+.title, .headerLine { margin: 0; font: inherit; color: inherit; }
+/* Whole-card link: the title link's ::after covers the nearest positioned
+   ancestor (the card). Buttons on the card sit above it (see .raised). */
+.stretch > a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+/* ---- Facts ---- */
+.facts {
+  font-size: var(--property-facts-font-size);
+  line-height: var(--property-facts-line-height);
+  font-weight: var(--property-facts-font-weight);
+  color: var(--property-facts-color);
+}
+.factsWithDescription {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: var(--property-header-gap);
+}
+.factsContainer { container-type: inline-size; }
+.factsDescriptionBelow { display: grid; row-gap: var(--property-header-gap); }
+.factsDescriptionBelow .description { padding-inline-start: 0; border-inline-start: 0; }
+/* The description stays beside the facts even on a narrow card, as on AcmeCo's phone. */
+.factList { margin: 0; padding: 0; list-style: none; }
+.description {
+  margin: 0;
+  padding-inline-start: var(--property-header-gap);
+  border-inline-start: var(--property-border-width) solid var(--property-facts-divider);
+  color: var(--property-facts-description-color);
+}
+
+/* ---- Price ---- */
+.price {
+  font-size: var(--property-price-font-size);
+  line-height: var(--property-price-line-height);
+  font-weight: var(--property-price-font-weight);
+  color: var(--property-price-color);
+}
+.priceProminent {
+  font-size: var(--property-price-prominent-font-size);
+  line-height: var(--property-price-prominent-line-height);
+}
+.priceMuted { color: var(--property-price-muted-color); }
+
+/* ---- Media ---- */
+.media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--property-media-background);
+}
+.thumb { border-radius: var(--property-media-radius); }
+.photo { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Buttons sit above the card's stretched link so they stay clickable. */
+.mediaSave, .mediaPrev, .mediaNext { position: absolute; z-index: 1; }
+.mediaSave { top: var(--property-media-inset); right: var(--property-media-inset); display: flex; gap: var(--property-media-action-gap); }
+.mediaPrev, .mediaNext { top: 50%; transform: translateY(-50%); }
+.mediaPrev { left: var(--property-media-inset); }
+.mediaNext { right: var(--property-media-inset); }
+.mediaLabels {
+  position: absolute;
+  top: var(--property-media-inset);
+  left: var(--property-media-inset);
+  display: flex;
+  gap: var(--property-media-inset);
+}
+.mediaFeature { position: absolute; bottom: 0; left: 0; }
+
+/* ---- Broker identity ---- */
+.broker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--property-broker-gap);
+}
+.logo {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  max-height: var(--property-broker-logo-height);
+  min-height: var(--property-broker-logo-height);
+  padding-inline: var(--property-media-inset);
+  border: var(--property-border-width) solid var(--property-broker-logo-border);
+  border-radius: var(--property-media-radius);
+  font-size: var(--property-broker-name-font-size);
+  line-height: var(--property-broker-name-line-height);
+  font-weight: var(--property-header-font-weight);
+  color: var(--property-broker-name-color);
+}
+.broker-stacked { flex-direction: column; align-items: flex-start; }
+/* Sidebar (ContactModule): brokers in a column with large photos, the logo centred after them. */
+.broker-sidebar { flex-direction: column; align-items: stretch; }
+.broker-sidebar .brokerList { flex-direction: column; }
+.broker-sidebar .avatar {
+  width: var(--property-broker-avatar-size-lg);
+  height: var(--property-broker-avatar-size-lg);
+  font-size: var(--property-broker-name-font-size-lg);
+}
+.broker-sidebar .brokerName {
+  font-size: var(--property-broker-name-font-size-lg);
+  line-height: var(--property-broker-name-line-height-lg);
+}
+.broker-sidebar .logo { align-self: center; }
+.brokerList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--property-broker-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.brokerItem { display: flex; align-items: center; gap: var(--property-media-inset); }
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--property-broker-avatar-size);
+  height: var(--property-broker-avatar-size);
+  border-radius: var(--property-broker-avatar-radius);
+  background-color: var(--property-broker-avatar-background);
+  color: var(--property-broker-avatar-text);
+  font-size: var(--property-broker-name-font-size);
+  font-weight: var(--property-header-font-weight);
+}
+.brokerName {
+  font-size: var(--property-broker-name-font-size);
+  line-height: var(--property-broker-name-line-height);
+  color: var(--property-broker-name-color);
+}
+
+/* On a narrow card (a phone) the brokers show as photos, centred with the logo; their names
+   stay for screen readers, as on AcmeCo's phone. The contact box's sidebar keeps its names. */
+@container (max-width: 480px) {
+  .broker:not(.broker-sidebar) { justify-content: center; }
+  .broker:not(.broker-sidebar) .brokerName {
+    position: absolute;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

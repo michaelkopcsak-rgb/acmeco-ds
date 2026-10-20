@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Start here" />
+
+<p className="prototype-label">Prototype · AcmeCo is a fictional brand</p>
+
+# acmeco-ds: start here
+
+A working model of an AI-ready design system. Tokens, about 40 accessible components, this Storybook and a Figma library are all generated from one repository, with the governance that lets an AI coding agent build with the system without drifting from it. Listings, people and photos are made up.
+
+## The idea
+
+A design system structured as machine-readable infrastructure, not just a component library:
+
+- **Tokens carry semantic meaning:** each says what it's for and where its value came from, not only what it is.
+- **Components encode reasoning:** each states when to use it, when not to, and why.
+- **AI agents consume it directly,** alongside people: a generated catalogue of every component and a screen-building guide let an agent assemble pages from the system alone, and log what the system can't yet do.
+- **Contributing means adding to the grammar, not just the vocabulary:** a new component comes with the rules for combining it.
+
+## Where things are
+
+{/* Markdown tables need an extra MDX plugin (remark-gfm), so these are HTML. */}
+<table>
+  <thead><tr><th>Look at</th><th>For</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Foundations</strong></td><td>Colour, type, shape, icons, motion and the contrast of every colour pair, read straight from the token files</td></tr>
+    <tr><td><strong>Components</strong></td><td>The accessible foundations (React Aria): buttons, fields, dialogs, tables and the rest, each with guidance, a states matrix and tests</td></tr>
+    <tr><td><strong>AcmeCo</strong></td><td>Product components composed from the foundations: listing card, header, footer, contact module, AI assistant</td></tr>
+    <tr><td><strong>Layout</strong></td><td>The primitives screens are built from: containers, stacks, grids, split and sticky layouts</td></tr>
+  </tbody>
+</table>
+
+## How it stays consistent
+
+Every change goes through a pull request. CI runs lint and type checks, a token check (every token labelled, no raw values in components), a contrast check of every variant and state, boundary checks (product components and screens use only the system), a catalogue drift check, and interaction tests with axe on every story. The Figma library is generated from the same tokens and checked against the rendered code. The rules for what an agent may do alone, and what needs a designer's approval, are in `docs/GOVERNANCE.md`.
+
+## How to read the evidence labels
+
+<table>
+  <thead><tr><th>Label</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td><strong>OBSERVED</strong></td><td>Measured on AcmeCo's existing product, the one this system consolidates</td></tr>
+    <tr><td><strong>LEGACY-NAMED</strong></td><td>A CSS custom property the existing product already exposes (<code>{'--legacy-*'}</code>)</td></tr>
+    <tr><td><strong>PROPOSED</strong></td><td>Our rationalisation; a hypothesis to validate</td></tr>
+    <tr><td><strong>BENCHMARK-INFORMED</strong></td><td>An enhancement motivated by comparison with a benchmark product</td></tr>
+    <tr><td><strong>REFERENCE-OBSERVED</strong></td><td>Measured on a reference product, for a feature AcmeCo doesn't have yet</td></tr>
+  </tbody>
+</table>
+
+When a value differs from what was observed, its description says what was observed, what it became, and why.

@@ -1,0 +1,43 @@
+/* Table. Every value comes from --table-* tokens (tokens/components/table.json). */
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--table-font-size);
+  line-height: var(--table-line-height);
+  font-weight: var(--table-font-weight);
+  color: var(--table-text);
+}
+
+/* The header bar: AcmeCo's grey strip with rounded ends. */
+.column {
+  padding: var(--table-padding-block) var(--table-padding-inline);
+  background-color: var(--table-header-background);
+  font-weight: var(--table-font-weight);
+  text-align: start;
+  white-space: nowrap;
+}
+.column:first-child { border-start-start-radius: var(--table-header-radius); border-end-start-radius: var(--table-header-radius); }
+.column:last-child { border-start-end-radius: var(--table-header-radius); border-end-end-radius: var(--table-header-radius); }
+
+/* Rows: lines at the sides and under each, as on AcmeCo. */
+.row { background-color: var(--table-row-background-default); }
+.cell {
+  padding: var(--table-padding-block) var(--table-padding-inline);
+  border-bottom: var(--table-row-border-width) solid var(--table-row-border);
+  vertical-align: middle;
+}
+.cell:has(button) { padding-block: var(--table-padding-block-action); }
+.cell:first-child { border-left: var(--table-row-border-width) solid var(--table-row-border); }
+.cell:last-child { border-right: var(--table-row-border-width) solid var(--table-row-border); }
+.row[data-hovered] { background-color: var(--table-row-background-hover); cursor: pointer; }
+
+/* Focus: the system ring, drawn inside so it isn't clipped by the next row. */
+.row[data-focus-visible],
+.cell[data-focus-visible],
+.column[data-focus-visible] {
+  outline: var(--table-focus-ring-width) solid var(--table-focus-ring-color);
+  outline-offset: calc(var(--table-focus-ring-width) * -1);
+}
+.column, .cell, .row { outline: none; }

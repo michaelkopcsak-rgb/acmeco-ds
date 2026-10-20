@@ -1,0 +1,53 @@
+{
+  "name": "acmeco-ds",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run tokens && vite",
+    "build": "npm run tokens && tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "tokens": "node scripts/build-tokens.mjs",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "check:tokens": "node scripts/check-tokens.mjs --self-test && node scripts/check-tokens.mjs",
+    "check:boundaries": "node scripts/check-boundaries.mjs --self-test && node scripts/check-boundaries.mjs",
+    "catalog": "node scripts/build-catalog.mjs",
+    "figma:payload": "node scripts/figma/build-payload.mjs",
+    "figma:components": "node scripts/figma/build-components.mjs",
+    "storybook": "npm run tokens && storybook dev -p 6007",
+    "build-storybook": "npm run tokens && storybook build",
+    "typecheck": "tsc -b",
+    "test": "vitest run --project=storybook",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "figma:report": "node scripts/figma/report.mjs"
+  },
+  "dependencies": {
+    "@fontsource/outfit": "^5.2.8",
+    "lucide-react": "^1.54.0",
+    "react": "^19.2.8",
+    "react-aria-components": "^1.21.1",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^3.0.3",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/addon-vitest": "^10.6.1",
+    "@storybook/react-vite": "^10.6.1",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/browser-playwright": "^5.0.3",
+    "oxlint": "^1.81.0",
+    "playwright": "^1.64.0",
+    "storybook": "^10.6.1",
+    "storybook-addon-pseudo-states": "^10.6.1",
+    "style-dictionary": "^5.6.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.3"
+  }
+}

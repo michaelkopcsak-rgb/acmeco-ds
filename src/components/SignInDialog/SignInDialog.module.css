@@ -1,0 +1,130 @@
+/* SignInDialog. Values come from --sign-in-* tokens (tokens/components/sign-in.json);
+   the dialog's padding comes from --dialog-padding so the promo panel can reach its edges. */
+
+/* Wide: promo | form, two halves (OBSERVED 384 + 384px in the 768px dialog). */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: 'promo account';
+  column-gap: var(--dialog-padding);
+}
+.account { grid-area: account; display: grid; align-content: center; gap: var(--sign-in-gap); }
+.form { display: grid; gap: var(--sign-in-gap); }
+.intro {
+  margin: 0;
+  text-align: center;
+  font-size: var(--sign-in-intro-font-size);
+  line-height: var(--sign-in-intro-line-height);
+  color: var(--sign-in-intro-color);
+}
+
+/* "or continue with", with a line either side. */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--sign-in-gap);
+  margin: 0;
+  font-size: var(--sign-in-divider-font-size);
+  line-height: var(--sign-in-divider-line-height);
+  color: var(--sign-in-divider-text);
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  border-top: var(--dialog-footer-border-width) solid var(--sign-in-divider-line);
+}
+.providers { display: flex; justify-content: center; gap: var(--sign-in-provider-gap); }
+
+/* AcmeCo's round, grey-outlined sign-in buttons (OBSERVED 50 x 48px in a centred row),
+   with neutral placeholder marks instead of the providers' logos (decision 31). */
+.provider {
+  display: inline-grid;
+  place-items: center;
+  width: var(--sign-in-provider-size);
+  height: var(--sign-in-provider-size);
+  padding: 0;
+  border: var(--dialog-footer-border-width) solid var(--sign-in-provider-border);
+  border-radius: var(--sign-in-provider-size);
+  background: var(--sign-in-provider-background);
+  color: var(--sign-in-provider-text);
+  font-family: inherit;
+  font-size: var(--sign-in-promo-title-font-size);
+  font-weight: var(--sign-in-promo-title-font-weight);
+  cursor: pointer;
+}
+.provider::before { content: attr(data-mark); }
+.provider:hover { background: var(--sign-in-provider-hover-background); }
+.provider:focus-visible {
+  outline: var(--dialog-focus-ring-width) solid var(--dialog-focus-ring-color);
+  outline-offset: var(--dialog-focus-ring-width);
+}
+
+/* The promo panel: grey, reaching the dialog's left and bottom edges. */
+.promo {
+  grid-area: promo;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: var(--sign-in-promo-gap);
+  margin: 0 0 calc(-1 * var(--dialog-padding)) calc(-1 * var(--dialog-padding));
+  padding: var(--sign-in-promo-padding);
+  background-color: var(--sign-in-promo-background);
+  text-align: center;
+}
+.slide { display: grid; justify-items: center; gap: var(--sign-in-promo-gap); }
+.slideTitle {
+  margin: 0;
+  font-size: var(--sign-in-promo-title-font-size);
+  line-height: var(--sign-in-promo-title-line-height);
+  font-weight: var(--sign-in-promo-title-font-weight);
+  color: var(--sign-in-promo-text-color);
+}
+.slideImage {
+  display: block;
+  width: 100%;
+  max-width: var(--sign-in-promo-image-width);
+  height: var(--sign-in-promo-image-height);
+  object-fit: cover;
+  border-radius: var(--dialog-radius);
+}
+.slideText {
+  margin: 0;
+  font-size: var(--sign-in-intro-font-size);
+  line-height: var(--sign-in-intro-line-height);
+  color: var(--sign-in-promo-text-color);
+}
+
+/* Dots: 8px marks in 24px targets; the current one is a wider pill, not just darker. */
+.dots { display: flex; }
+.dot {
+  display: inline-grid;
+  place-items: center;
+  width: var(--sign-in-dot-target);
+  height: var(--sign-in-dot-target);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--dialog-radius);
+}
+.dot:focus-visible { outline: var(--dialog-focus-ring-width) solid var(--dialog-focus-ring-color); }
+.dotMark {
+  width: var(--sign-in-dot-size);
+  height: var(--sign-in-dot-size);
+  border-radius: var(--sign-in-dot-size);
+  background-color: var(--sign-in-dot-color);
+}
+.dot[aria-current='true'] .dotMark {
+  width: var(--sign-in-dot-current-width);
+  background-color: var(--sign-in-dot-current-color);
+}
+
+/* Phones and small tablets (the dialog is full screen here): the form, then the promo below it (decision 31). */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'account' 'promo';
+    row-gap: var(--dialog-padding);
+  }
+  .promo { margin: 0 calc(-1 * var(--dialog-padding)) calc(-1 * var(--dialog-padding)); }
+}

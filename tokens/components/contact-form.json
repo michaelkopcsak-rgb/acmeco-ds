@@ -1,0 +1,17 @@
+{
+  "contact-form": {
+    "$description": "Tokens for ContactForm, AcmeCo's guest contact form (audit capture of the contact broker dialog). The fields themselves use the field tokens; the dialog uses the dialog tokens (decision 28). Decision 30.",
+    "gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: about 12-20px between fields (label tops 389, 472, 556, 639, 723px); became 16px." },
+    "column-gap": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: 6px between First and Last name (626 + 222 = 848, next at 854); became 8px." },
+    "note": {
+      "font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "OBSERVED: 16px at weight 100 in #63666a for the terms and 'Already a member?'; became 14px regular, so it reads as secondary without the thin weight." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body-small.line-height}", "$description": "OBSERVED: 1.4x; 14/21 on our 1.5x scale." },
+      "color": { "$type": "color", "$value": "{color.text.subtle}", "$description": "OBSERVED: #63666a (LEGACY-NAMED --legacy-palette-dark-gray), 5.77:1 on white." }
+    },
+    "sent": {
+      "font-size": { "$type": "dimension", "$value": "{typography.body-large.font-size}", "$description": "PROPOSED: the 'Message sent' confirmation (AcmeCo's wasn't captured)." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body-large.line-height}", "$description": "PROPOSED: 18/27." },
+      "color": { "$type": "color", "$value": "{color.text.default}", "$description": "PROPOSED: ink." }
+    }
+  }
+}

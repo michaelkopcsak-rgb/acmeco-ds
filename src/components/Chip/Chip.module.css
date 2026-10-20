@@ -1,0 +1,70 @@
+/* Chip. Every value comes from --chip-* tokens (tokens/components/chip.json),
+   measured from AcmeCo's captured CSS. React Aria's Tag has data-focus-visible,
+   data-hovered and data-allows-removing; the remove button has data-hovered. */
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-gap);
+}
+.label {
+  font-size: var(--field-label-font-size);
+  line-height: var(--field-label-line-height);
+  font-weight: var(--field-label-font-weight);
+  color: var(--field-label-color);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--chip-group-gap);
+  outline: none;
+}
+
+.chip {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--chip-gap);
+  min-height: var(--chip-height);
+  padding-inline: var(--chip-padding-x);
+  border: var(--chip-border-width) solid var(--chip-border);
+  border-radius: var(--chip-radius);
+  background-color: var(--chip-background);
+  color: var(--chip-text);
+  font-size: var(--chip-font-size);
+  line-height: var(--chip-line-height);
+  font-weight: var(--chip-font-weight);
+  white-space: nowrap;
+  cursor: default;
+  outline: none;
+}
+/* With a remove button, the button runs to the chip's edge. */
+.chip[data-allows-removing] { padding-inline-end: 0; }
+
+.chip[data-focus-visible] {
+  outline: var(--chip-focus-ring-width) solid var(--chip-focus-ring-color);
+  outline-offset: var(--chip-focus-ring-offset);
+}
+
+.remove {
+  box-sizing: border-box;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  /* A full 24px target (WCAG 2.5.8): it reaches over the chip's 1px top,
+     bottom and end borders, so it isn't 22px inside them. */
+  width: var(--chip-remove-size);
+  height: var(--chip-remove-size);
+  margin-block: calc(var(--chip-border-width) * -1);
+  margin-inline-end: calc(var(--chip-border-width) * -1);
+  padding: 0;
+  border: 0;
+  border-radius: 0 var(--chip-radius) var(--chip-radius) 0;
+  background: transparent;
+  color: var(--chip-remove-icon);
+  cursor: pointer;
+  outline: none;
+}
+.remove[data-hovered] { background-color: var(--chip-remove-background-hover); }
+.removeIcon { width: var(--chip-remove-icon-size); height: var(--chip-remove-icon-size); }

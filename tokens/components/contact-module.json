@@ -1,0 +1,26 @@
+{
+  "contact-module": {
+    "$description": "Tokens for ContactModule, the contact box in the property detail page's sidebar (audit capture: 340px, phone, Message, Contact, broker, logo, Share and Favorite). Decision 30.",
+    "background": { "$type": "color", "$value": "{color.surface.default}", "$description": "OBSERVED: white." },
+    "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: 1px #e5e5e5. Decorative: the shadow also marks the box." },
+    "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px." },
+    "radius": { "$type": "dimension", "$value": "{radius.md}", "$description": "OBSERVED: 4px; became 8px, a surface (decision 26)." },
+    "shadow": { "$type": "shadow", "$value": "{shadow.raised}", "$description": "OBSERVED: 0 2px 15px at 15% black, exactly shadow.raised." },
+    "padding": { "$type": "dimension", "$value": "{space.5}", "$description": "OBSERVED: 25px; became 24px." },
+    "gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 12-23px between phone, Message, heading and broker; became 16px." },
+    "phone": {
+      "font-size": { "$type": "dimension", "$value": "{typography.heading-2.font-size}", "$description": "OBSERVED: 24px." },
+      "line-height": { "$type": "dimension", "$value": "{typography.heading-2.line-height}", "$description": "OBSERVED: 36px." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: 300 (light); became 400 (decision 4)." },
+      "icon-size": { "$type": "dimension", "$value": "{space.5}", "$description": "OBSERVED: a 23px phone icon before the number; became 24px." }
+    },
+    "heading": {
+      "font-size": { "$type": "dimension", "$value": "{typography.heading-3.font-size}", "$description": "OBSERVED: 'Contact', h3 at 22px; became the heading-3 style (20px)." },
+      "line-height": { "$type": "dimension", "$value": "{typography.heading-3.line-height}", "$description": "OBSERVED: 33px; 30px on our scale." },
+      "font-weight": { "$type": "fontWeight", "$value": "{typography.heading-3.font-weight}", "$description": "OBSERVED: 400; semibold like the other headings." },
+      "color": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: #000; became ink." }
+    },
+    "divider": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: a 1px #e5e5e5 line above Share and Favorite, and one between them. Decorative." },
+    "action-height": { "$type": "dimension", "$value": "56px", "$description": "OBSERVED: 61px Share and Favorite buttons; became 56px (4px grid), each half the width." }
+  }
+}

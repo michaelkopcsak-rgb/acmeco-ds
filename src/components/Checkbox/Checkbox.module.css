@@ -1,0 +1,101 @@
+/* Checkbox. Every value comes from --checkbox-* component tokens
+   (tokens/components/checkbox.json). React Aria's Checkbox is a <label> with the
+   real input hidden inside, and states as data attributes: data-selected,
+   data-indeterminate, data-hovered, data-pressed, data-focus-visible,
+   data-invalid, data-disabled. Later rules win. */
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--checkbox-gap);
+  min-height: var(--checkbox-target);
+  cursor: pointer;
+  outline: none;
+}
+
+.box {
+  box-sizing: border-box;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--checkbox-box-size);
+  height: var(--checkbox-box-size);
+  /* Centre the 20px box on the first 21px line of the label. */
+  margin-block-start: calc((var(--checkbox-label-line-height) - var(--checkbox-box-size)) / 2);
+  border: var(--checkbox-box-border-width) solid var(--checkbox-unchecked-border-default);
+  border-radius: var(--checkbox-box-radius);
+  background-color: var(--checkbox-unchecked-background);
+  color: var(--checkbox-checked-icon);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .box {
+    transition-property: background-color, border-color;
+    transition-duration: var(--checkbox-transition-duration);
+    transition-timing-function: var(--checkbox-transition-easing);
+  }
+}
+.icon {
+  width: var(--checkbox-box-icon-size);
+  height: var(--checkbox-box-icon-size);
+  stroke-width: 3;
+}
+
+.label {
+  font-size: var(--checkbox-label-font-size);
+  line-height: var(--checkbox-label-line-height);
+  color: var(--checkbox-label-color);
+}
+/* The description lines up under the label text, not under the box. */
+.description {
+  padding-inline-start: calc(var(--checkbox-box-size) + var(--checkbox-gap));
+  font-size: var(--field-hint-font-size);
+  line-height: var(--field-hint-line-height);
+  color: var(--field-hint-color);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--checkbox-group-gap);
+}
+
+/* States */
+.checkbox[data-hovered] .box { border-color: var(--checkbox-unchecked-border-hover); }
+
+.checkbox[data-selected] .box,
+.checkbox[data-indeterminate] .box {
+  border-color: var(--checkbox-checked-background-default);
+  background-color: var(--checkbox-checked-background-default);
+}
+.checkbox[data-selected][data-hovered] .box,
+.checkbox[data-indeterminate][data-hovered] .box {
+  border-color: var(--checkbox-checked-background-hover);
+  background-color: var(--checkbox-checked-background-hover);
+}
+.checkbox[data-selected][data-pressed] .box,
+.checkbox[data-indeterminate][data-pressed] .box {
+  border-color: var(--checkbox-checked-background-pressed);
+  background-color: var(--checkbox-checked-background-pressed);
+}
+
+.checkbox[data-focus-visible] .box {
+  outline: var(--checkbox-focus-ring-width) solid var(--checkbox-focus-ring-color);
+  outline-offset: var(--checkbox-focus-ring-offset);
+}
+
+.checkbox[data-invalid]:not([data-selected], [data-indeterminate]) .box {
+  border-color: var(--checkbox-invalid-border);
+}
+
+.checkbox[data-disabled] { cursor: not-allowed; }
+.checkbox[data-disabled] .box {
+  border-color: var(--checkbox-disabled-border);
+  background-color: var(--checkbox-disabled-background);
+  color: var(--checkbox-disabled-icon);
+}
+.checkbox[data-disabled] .label { color: var(--checkbox-disabled-label); }

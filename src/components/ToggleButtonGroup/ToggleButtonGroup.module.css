@@ -1,0 +1,45 @@
+/* ToggleButtonGroup. Every value comes from --toggle-button-group-* tokens
+   (tokens/components/toggle-button-group.json). States are React Aria data attributes
+   (data-selected, data-hovered, data-focus-visible). */
+
+.group { display: inline-flex; gap: var(--toggle-button-group-gap); }
+
+.button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--toggle-button-group-size);
+  height: var(--toggle-button-group-size);
+  padding: 0;
+  border: var(--toggle-button-group-border-width) solid transparent;
+  border-radius: var(--toggle-button-group-radius);
+  background-color: var(--toggle-button-group-background-default);
+  color: var(--toggle-button-group-icon);
+  cursor: pointer;
+  outline: none;
+}
+.button[data-hovered] { background-color: var(--toggle-button-group-background-hover); }
+/* The chosen one: a border as well as the fill, so it isn't marked by colour alone. */
+.button[data-selected] {
+  background-color: var(--toggle-button-group-background-selected);
+  border-color: var(--toggle-button-group-border-selected);
+}
+.button[data-focus-visible] {
+  outline: var(--toggle-button-group-focus-ring-width) solid var(--toggle-button-group-focus-ring-color);
+  outline-offset: var(--toggle-button-group-focus-ring-offset);
+}
+
+.icon { display: inline-flex; }
+.icon > svg { width: var(--toggle-button-group-icon-size); height: var(--toggle-button-group-icon-size); }
+
+.tooltip {
+  padding: var(--toggle-button-group-tooltip-padding-y) var(--toggle-button-group-tooltip-padding-x);
+  border-radius: var(--toggle-button-group-tooltip-radius);
+  background-color: var(--toggle-button-group-tooltip-background);
+  color: var(--toggle-button-group-tooltip-text);
+  font-size: var(--toggle-button-group-tooltip-font-size);
+  line-height: var(--toggle-button-group-tooltip-line-height);
+  margin-top: var(--toggle-button-group-tooltip-offset);
+  pointer-events: none;
+}

@@ -1,0 +1,29 @@
+{
+  "text": {
+    "$description": "Tokens for Text: paragraphs and inline text in the system's type styles and two tones, with no margins (spacing comes from the layout primitives). Found missing by the page shell pilot (docs/screens/page-shell-gaps.md, gap 2). Decision 38.",
+    "color": {
+      "default": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: body text in ink (17.04:1 on white, 15.35:1 on the light grey)." },
+      "subtle": { "$type": "color", "$value": "{color.text.subtle}", "$description": "OBSERVED: secondary text (5.77:1 on white, 5.20:1 on the light grey)." }
+    },
+    "emphasis-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "PROPOSED: strong text at 600, the loaded bold (decision 4); without it the browser draws a faux 700." },
+    "size": {
+      "body-large": {
+        "font-size": { "$type": "dimension", "$value": "{typography.body-large.font-size}", "$description": "OBSERVED: 18px." },
+        "line-height": { "$type": "dimension", "$value": "{typography.body-large.line-height}", "$description": "OBSERVED: 18/27." }
+      },
+      "body": {
+        "font-size": { "$type": "dimension", "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16/24, the most common style." },
+        "line-height": { "$type": "dimension", "$value": "{typography.body.line-height}", "$description": "OBSERVED: 16/24." }
+      },
+      "body-small": {
+        "font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "OBSERVED: 14px." },
+        "line-height": { "$type": "dimension", "$value": "{typography.body-small.line-height}", "$description": "OBSERVED: 14/21." }
+      },
+      "caption": {
+        "font-size": { "$type": "dimension", "$value": "{typography.caption.font-size}", "$description": "OBSERVED: 12px fine print." },
+        "line-height": { "$type": "dimension", "$value": "{typography.caption.line-height}", "$description": "OBSERVED: 12/18." }
+      }
+    },
+    "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: body text at regular weight." }
+  }
+}

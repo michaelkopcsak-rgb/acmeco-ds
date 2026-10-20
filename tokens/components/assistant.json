@@ -1,0 +1,84 @@
+{
+  "assistant": {
+    "$description": "Tokens for the AI Assistant (launcher, connecting bar, panel, conversation). Measured from the reference product's public CSS (--ref-ai-* custom properties, read 2026-10-09 without opening the chat) and themed for AcmeCo (decision 29).",
+    "accent": {
+      "start": { "$type": "color", "$value": "{color.navy.700}", "$description": "REFERENCE-OBSERVED, PROPOSED: the reference product's AI gradient starts at its green #04b69a; AcmeCo's starts at navy (decision 29)." },
+      "end": { "$type": "color", "$value": "{color.blue.700}", "$description": "REFERENCE-OBSERVED, PROPOSED: the reference product's ends at #0f7e07; AcmeCo's at the link blue." },
+      "text": { "$type": "color", "$value": "{color.text.inverse}", "$description": "REFERENCE-OBSERVED: white text on the filled accent (Voice Mode on). 12.6:1 on navy, 6.80:1 on blue." }
+    },
+    "edge": {
+      "light": { "$type": "color", "$value": "{color.blue.100}", "$description": "REFERENCE-OBSERVED, PROPOSED: the moving edge while connecting (the reference product: cyan, aqua, mint, lime); AcmeCo: link blue, light blue, navy. Decorative." },
+      "width": { "$type": "dimension", "$value": "{border.width.strong}", "$description": "REFERENCE-OBSERVED: the launcher's 2px gradient border (--ref-ai-button-border-width)." },
+      "duration": { "$type": "duration", "$value": "4000ms", "$description": "REFERENCE-OBSERVED: the gradient slides back and forth over 4s (orbit-gradient-div). Stops for reduced motion. Code only." },
+      "glow": { "$type": "shadow", "$value": "{shadow.glow}", "$description": "REFERENCE-OBSERVED, PROPOSED: the soft glow around the bar and panel, in blue." }
+    },
+    "launcher": {
+      "background": { "$type": "color", "$value": "{color.surface.default}", "$description": "REFERENCE-OBSERVED: white pill." },
+      "text": { "$type": "color", "$value": "{color.text.default}", "$description": "REFERENCE-OBSERVED: #000; became ink." },
+      "radius": { "$type": "dimension", "$value": "{radius.pill}", "$description": "REFERENCE-OBSERVED: 100px pill. Floats over the page (decision 26)." },
+      "height-md": { "$type": "dimension", "$value": "40px", "$description": "REFERENCE-OBSERVED: 2.5rem on results and listing pages." },
+      "height-lg": { "$type": "dimension", "$value": "48px", "$description": "REFERENCE-OBSERVED: 48px on the homepage (56px on the desktop homepage; 48px kept as one size)." },
+      "padding-start": { "$type": "dimension", "$value": "{space.4}", "$description": "REFERENCE-OBSERVED: 16px." },
+      "padding-end": { "$type": "dimension", "$value": "{space.2}", "$description": "REFERENCE-OBSERVED: 8px (the icon sits close to the end)." },
+      "gap": { "$type": "dimension", "$value": "{space.1}", "$description": "REFERENCE-OBSERVED: 4px." },
+      "icon-size": { "$type": "dimension", "$value": "{space.5}", "$description": "REFERENCE-OBSERVED: 1.5rem sparkle icon." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "REFERENCE-OBSERVED: bold label (the legacy brand typeface Bold); semibold Outfit (decision 4)." }
+    },
+    "bar": {
+      "width": { "$type": "dimension", "$value": "440px", "$description": "REFERENCE-OBSERVED: 27.5rem bar on results pages (--ref-ai-srp-bar-width); the panel uses the same width." },
+      "radius": { "$type": "dimension", "$value": "{radius.pill}", "$description": "REFERENCE-OBSERVED: 6.25rem pill. Floats over the page (decision 26)." }
+    },
+    "panel": {
+      "background": { "$type": "color", "$value": "{color.surface.default}", "$description": "REFERENCE-OBSERVED: white." },
+      "radius": { "$type": "dimension", "$value": "{radius.md}", "$description": "REFERENCE-OBSERVED: 16px (--ref-ai-chat-radius); became 8px, a surface (decision 29, decision 26)." },
+      "shadow": { "$type": "shadow", "$value": "{shadow.raised}", "$description": "REFERENCE-OBSERVED: 0 6px 16px 2px at 16% black (--ref-ai-shadow-elevated); became the raised shadow dialogs use." },
+      "padding": { "$type": "dimension", "$value": "{space.4}", "$description": "PROPOSED: 16px, from reference screenshots." },
+      "gap": { "$type": "dimension", "$value": "{space.3}", "$description": "PROPOSED: 12px between conversation, text box and controls." },
+      "conversation-max-height": { "$type": "dimension", "$value": "320px", "$description": "PROPOSED: the conversation scrolls above this height; expand for more room." },
+      "expanded-height": { "$type": "dimension", "$value": "640px", "$description": "REFERENCE-OBSERVED, PROPOSED: expanded, the reference product's panel grows to most of the window's height (a reference screenshot); 640px, never taller than the window." },
+      "header-height": { "$type": "dimension", "$value": "48px", "$description": "REFERENCE-OBSERVED: 3rem header in the expanded panel (--ref-ai-chat-header-height)." },
+      "header-line": { "$type": "dimension", "$value": "3px", "$description": "REFERENCE-OBSERVED: a 3px gradient line under the header (--ref-ai-chat-header-underline-height). Decorative." },
+      "divider": { "$type": "color", "$value": "{color.border.default}", "$description": "PROPOSED: a line above the pinned text box in the expanded panel (the reference product shows a soft band there). Decorative." }
+    },
+    "message": {
+      "font-size": { "$type": "dimension", "$value": "{typography.body.font-size}", "$description": "REFERENCE-OBSERVED: 16px." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body.line-height}", "$description": "REFERENCE-OBSERVED: 1.5x." },
+      "color": { "$type": "color", "$value": "{color.text.default}", "$description": "REFERENCE-OBSERVED: #000 (--ref-ai-text-color); became ink." },
+      "gap": { "$type": "dimension", "$value": "{space.4}", "$description": "REFERENCE-OBSERVED: about 16px between replies (screenshots)." },
+      "user-background": { "$type": "color", "$value": "{color.surface.subtle}", "$description": "REFERENCE-OBSERVED: #f5f5f5 user bubble (--ref-ai-bg-user-bubble); AcmeCo's subtle grey #f3f3f3." },
+      "user-radius": { "$type": "dimension", "$value": "{radius.md}", "$description": "REFERENCE-OBSERVED: 10px (--ref-ai-user-bubble-radius); became 8px." },
+      "user-padding-x": { "$type": "dimension", "$value": "{space.3}", "$description": "PROPOSED: 12px." },
+      "user-padding-y": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px." },
+      "user-max-width": { "$type": "number", "$value": 75, "$description": "REFERENCE-OBSERVED: user bubbles at most 75% of the width (--ref-ai-user-bubble-max-width)." }
+    },
+    "dots": {
+      "size": { "$type": "dimension", "$value": "8px", "$description": "REFERENCE-OBSERVED: 10px dots (loadingDots); became 8px (4px grid)." },
+      "travel": { "$type": "dimension", "$value": "8px", "$description": "REFERENCE-OBSERVED: each dot rises 8px." },
+      "color": { "$type": "color", "$value": "{color.text.subtle}", "$description": "PROPOSED: grey dots in the panel (the reference product's are white with a shadow, over photos). Decorative: 'Thinking' is announced as text." },
+      "gap": { "$type": "dimension", "$value": "{space.1}", "$description": "PROPOSED: 4px." },
+      "duration": { "$type": "duration", "$value": "1200ms", "$description": "REFERENCE-OBSERVED: 1.2s bounce. Stops for reduced motion. Code only." }
+    },
+    "toggle": {
+      "height": { "$type": "dimension", "$value": "32px", "$description": "REFERENCE-OBSERVED: 2rem Voice Mode pill; the same height as Button sm." },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}", "$description": "REFERENCE-OBSERVED: 6.25rem pill; became 4px, something you act on (decision 26, decision 29)." },
+      "padding-x": { "$type": "dimension", "$value": "{space.3}", "$description": "REFERENCE-OBSERVED: 8px; became 12px to match Button sm." },
+      "gap": { "$type": "dimension", "$value": "{space.1}", "$description": "REFERENCE-OBSERVED: 4px (--ref-ai-voice-pill-gap)." },
+      "font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "REFERENCE-OBSERVED: 14px (--ref-ai-voice-pill-font-size)." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body-small.line-height}", "$description": "REFERENCE-OBSERVED: 20px; 21px on our 1.5x scale." },
+      "text": { "$type": "color", "$value": "{color.text.default}", "$description": "REFERENCE-OBSERVED: #4c4c4c (--ref-ai-control-fg); became ink." },
+      "border": { "$type": "color", "$value": "{color.border.control.default}", "$description": "REFERENCE-OBSERVED: #d2d2d2 outline (1.5:1); became the 3:1 control border (decision 5)." },
+      "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "REFERENCE-OBSERVED: 1px." },
+      "hover-background": { "$type": "color", "$value": "{color.surface.hover}", "$description": "PROPOSED: the system hover grey." },
+      "icon-size": { "$type": "dimension", "$value": "{space.4}", "$description": "REFERENCE-OBSERVED: 1.25rem icon; became 16px, the Button sm icon size." }
+    },
+    "transition": {
+      "duration": { "$type": "duration", "$value": "{duration.base}", "$description": "PROPOSED: panel fade. Code only." },
+      "easing": { "$type": "cubicBezier", "$value": "{easing.default}", "$description": "LEGACY-NAMED: ease-in-out from --legacy-cta-transition." }
+    },
+    "focus-ring": {
+      "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: the system focus ring." },
+      "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px." },
+      "offset": { "$type": "dimension", "$value": "{focus.ring.offset}", "$description": "PROPOSED: 2px." }
+    }
+  }
+}

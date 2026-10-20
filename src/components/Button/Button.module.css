@@ -1,0 +1,140 @@
+/* Button. Every value comes from --button-* component tokens (tokens/components/button.json).
+   States come from React Aria's data attributes, not :hover / :active, so a tap on a
+   touch screen never leaves a "stuck" hover colour. Later rules win, so pressed comes
+   after hover, and disabled comes last. */
+
+.button {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  border: var(--button-border-width) solid transparent;
+  border-radius: var(--button-radius);
+  font-family: inherit;
+  font-weight: var(--button-font-weight);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button {
+    transition-property: background-color, color, border-color;
+    transition-duration: var(--button-transition-duration);
+    transition-timing-function: var(--button-transition-easing);
+  }
+}
+
+.button[data-focus-visible] {
+  outline: var(--button-focus-ring-width) solid var(--button-focus-ring-color);
+  outline-offset: var(--button-focus-ring-offset);
+}
+
+/* Sizes */
+.sm {
+  min-height: var(--button-sm-height);
+  padding-inline: var(--button-sm-padding-x);
+  font-size: var(--button-sm-font-size);
+  line-height: var(--button-sm-line-height);
+}
+.md {
+  min-height: var(--button-md-height);
+  padding-inline: var(--button-md-padding-x);
+  font-size: var(--button-md-font-size);
+  line-height: var(--button-md-line-height);
+}
+.lg {
+  min-height: var(--button-lg-height);
+  padding-inline: var(--button-lg-padding-x);
+  font-size: var(--button-lg-font-size);
+  line-height: var(--button-lg-line-height);
+}
+
+.icon {
+  display: inline-flex;
+  flex: none;
+}
+.sm .icon svg { width: var(--button-sm-icon-size); height: var(--button-sm-icon-size); }
+.md .icon svg { width: var(--button-md-icon-size); height: var(--button-md-icon-size); }
+.lg .icon svg { width: var(--button-lg-icon-size); height: var(--button-lg-icon-size); }
+
+.fullWidth {
+  width: 100%;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--button-primary-background-default);
+  color: var(--button-primary-text-default);
+}
+.primary[data-hovered] { background-color: var(--button-primary-background-hover); }
+.primary[data-pressed] { background-color: var(--button-primary-background-pressed); }
+
+.secondary {
+  background-color: var(--button-secondary-background-default);
+  color: var(--button-secondary-text-default);
+  border-color: var(--button-secondary-border-default);
+}
+.secondary[data-hovered] {
+  background-color: var(--button-secondary-background-hover);
+  color: var(--button-secondary-text-hover);
+  border-color: var(--button-secondary-border-hover);
+}
+.secondary[data-pressed] {
+  background-color: var(--button-secondary-background-pressed);
+  color: var(--button-secondary-text-pressed);
+  border-color: var(--button-secondary-border-pressed);
+}
+
+/* Tertiary has no fill at rest (decision 16). */
+.tertiary {
+  background-color: transparent;
+  color: var(--button-tertiary-text-default);
+}
+.tertiary[data-hovered] { background-color: var(--button-tertiary-background-hover); }
+.tertiary[data-pressed] { background-color: var(--button-tertiary-background-pressed); }
+
+/* Disabled: explicit greys, not opacity (decision 12). */
+.button[data-disabled] {
+  background-color: var(--button-disabled-background);
+  color: var(--button-disabled-text);
+  border-color: var(--button-disabled-border);
+  cursor: not-allowed;
+}
+.tertiary[data-disabled] {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* Loading: the label stays in place (so the width doesn't jump) and stays in the
+   accessibility tree (opacity, not visibility); a spinner sits on top. */
+.button[data-pending] {
+  cursor: progress;
+}
+.button[data-pending] .label,
+.button[data-pending] .icon {
+  opacity: 0;
+}
+.spinner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: var(--button-md-icon-size);
+  height: var(--button-md-icon-size);
+  box-sizing: border-box;
+  border: var(--button-spinner-width) solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+.sm .spinner { width: var(--button-sm-icon-size); height: var(--button-sm-icon-size); }
+.lg .spinner { width: var(--button-lg-icon-size); height: var(--button-lg-icon-size); }
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation-duration: 2.4s; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,19 @@
+# Who must review changes to which files. GitHub auto-requests these people
+# as reviewers on any pull request that touches a matching path.
+# Later rules win, so put the most specific paths last.
+
+# Design tokens: every colour, spacing and type decision.
+/tokens/ @michaelkopcsak-rgb
+
+# Library components (foundation, AcmeCo and patterns).
+/src/components/ @michaelkopcsak-rgb
+
+# The token pipeline, its generated output and the checks that guard it.
+/scripts/ @michaelkopcsak-rgb
+/src/tokens.css @michaelkopcsak-rgb
+
+# The governance rules and the decision log.
+/docs/GOVERNANCE.md @michaelkopcsak-rgb
+
+# Who owns the ownership rules.
+/.github/CODEOWNERS @michaelkopcsak-rgb

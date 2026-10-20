@@ -1,0 +1,10 @@
+{
+  "$description": "Imports AcmeCo components may make although check-boundaries.mjs would otherwise refuse them. Each needs a reason and is revisited when a second component needs the same thing (decision 30).",
+  "exceptions": [
+    {
+      "file": "src/components/Assistant/Assistant.tsx",
+      "import": "react-aria-components",
+      "reason": "Voice Mode (a toggle filled with the AI accent when on) and End chat (a grey outlined control) have no foundation equivalent; building two foundation components for one product wasn't worth it (decision 30, B)."
+    }
+  ]
+}

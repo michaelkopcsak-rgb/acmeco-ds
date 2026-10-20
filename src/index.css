@@ -1,0 +1,29 @@
+/* Page-wide base styles, from semantic tokens only (src/tokens.css).
+   Outfit is the labelled stand-in for AcmeCo's proprietary the legacy brand typeface
+   (docs/GOVERNANCE.md, decision 4). Only the two v1 weights are loaded. */
+@import '@fontsource/outfit/400.css';
+@import '@fontsource/outfit/600.css';
+
+:root {
+  font-family: var(--font-family-brand);
+  font-size: var(--typography-body-font-size);
+  line-height: var(--typography-body-line-height);
+  font-weight: var(--typography-body-font-weight);
+  color: var(--color-text-default);
+  background: var(--color-surface-default);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+}
+
+/* Visually hidden, still read by screen readers (e.g. a table's corner header). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

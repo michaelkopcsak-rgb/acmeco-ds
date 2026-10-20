@@ -1,0 +1,25 @@
+{
+  "disclosure": {
+    "$description": "Tokens for Disclosure: a button that shows or hides a group (the Search group in AcmeCo's menu; later accordions, audit F25). Measured from AcmeCo's menu (live site, 2026-10-10). Decision 36.",
+    "trigger": {
+      "min-height": { "$type": "dimension", "$value": "40px", "$description": "OBSERVED: 40px rows in the menu." },
+      "padding-x": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px, so the hover fill doesn't touch the text." },
+      "gap": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px between the label and the chevron." },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}", "$description": "PROPOSED: 4px, something to act on (decision 26)." },
+      "font-size": { "$type": "dimension", "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16px." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body.line-height}", "$description": "PROPOSED: 24px." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "OBSERVED: 500 for the menu's group headings over 300 for their links; with two weights (decision 4), 600 over 400." },
+      "text": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: #1c1c1c, ink." },
+      "background-hover": { "$type": "color", "$value": "{color.surface.hover}", "$description": "PROPOSED: a grey fill on hover (not observed)." },
+      "chevron-size": { "$type": "dimension", "$value": "16px", "$description": "OBSERVED: a chevron at the row's end that points up when open (AcmeCo's Search button); 16px." }
+    },
+    "panel": {
+      "padding-start": { "$type": "dimension", "$value": "{space.0}", "$description": "OBSERVED: the group's links line up with the button's text (corrected 2026-10-10 from a reference screenshot: the 10px measured earlier was the links' own box offset, not a visible indent); the lighter weight sets them apart." }
+    },
+    "focus-ring": {
+      "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: the system's focus ring." },
+      "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px." },
+      "offset": { "$type": "dimension", "$value": "{focus.ring.offset}", "$description": "PROPOSED: 2px." }
+    }
+  }
+}

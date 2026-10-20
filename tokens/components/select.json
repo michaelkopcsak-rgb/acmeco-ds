@@ -1,0 +1,166 @@
+{
+  "select": {
+    "$description": "Select component tokens. The 'field' trigger reuses the shared field tokens (border, sizes, label, hint, error); these add the compact trigger, the chevron and the pop-up list. Evidence: audit families F11 select (1 instance, custom-built, no native select anywhere) and F17 filter dropdown (70 instances, 8 variants, 11 designs).",
+    "chevron-size": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "PROPOSED: chevron on field triggers."
+    },
+    "compact": {
+      "height": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "OBSERVED: 40px outlined pills with 16px text beside the filter pills on AcmeCo's desktop results (reference screenshots, 2026-10-11). Was 32px; 40px since decision 45, the same as filter.height."
+      },
+      "padding-x": {
+        "$type": "dimension",
+        "$value": "{space.4}",
+        "$description": "OBSERVED: about 16px either side, as the filter pills (decision 45; was 12px)."
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{radius.pill}",
+        "$description": "OBSERVED: pill filter chips (34px, 281 el); compact triggers sit beside chips."
+      },
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{typography.body.font-size}",
+        "$description": "OBSERVED: 16px on AcmeCo's desktop pills (decision 45; was 14px)."
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "{typography.body.line-height}",
+        "$description": "OBSERVED: 16/24."
+      },
+      "height-touch": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "OBSERVED: AcmeCo's phone shows \"For Lease\" as a 40px pill with 16px text and no chevron (a reference screenshot, 2026-10-11); below 768px the compact Select matches the filter pills (decision 42)."
+      },
+      "font-size-touch": {
+        "$type": "dimension",
+        "$value": "{typography.body.font-size}",
+        "$description": "OBSERVED: 16px on AcmeCo's phone."
+      },
+      "line-height-touch": {
+        "$type": "dimension",
+        "$value": "{typography.body.line-height}",
+        "$description": "OBSERVED: 16/24."
+      },
+      "padding-x-touch": {
+        "$type": "dimension",
+        "$value": "{space.4}",
+        "$description": "OBSERVED: about 16px either side."
+      },
+      "chevron-size": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "PROPOSED: chevron on compact triggers."
+      }
+    },
+    "popover": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.surface.default}",
+        "$description": "OBSERVED: white dropdown panels."
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "OBSERVED: light grey outline (decorative; the shadow separates it too)."
+      },
+      "border-width": {
+        "$type": "dimension",
+        "$value": "{border.width.default}",
+        "$description": "OBSERVED: 1px."
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{radius.md}",
+        "$description": "PROPOSED: 8px panels (decision 5)."
+      },
+      "shadow": {
+        "$type": "shadow",
+        "$value": "{shadow.raised}",
+        "$description": "OBSERVED: the most widespread raised shadow (5 exp). Figma: the shadow/raised effect style."
+      },
+      "padding": {
+        "$type": "dimension",
+        "$value": "{space.1}",
+        "$description": "PROPOSED: 4px inside the panel."
+      },
+      "offset": {
+        "$type": "dimension",
+        "$value": "{space.1}",
+        "$description": "PROPOSED: 4px gap below the trigger."
+      },
+      "max-height": {
+        "$type": "dimension",
+        "$value": "320px",
+        "$description": "PROPOSED: about eight options before the list scrolls."
+      }
+    },
+    "option": {
+      "min-height": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "PROPOSED: 40px rows, comfortable to tap (above the 24px minimum)."
+      },
+      "padding-x": {
+        "$type": "dimension",
+        "$value": "{space.3}",
+        "$description": "PROPOSED: 12px."
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": "{space.3}",
+        "$description": "PROPOSED: between the label and the check mark."
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{radius.sm}",
+        "$description": "PROPOSED: 4px highlight inside the 8px panel."
+      },
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{typography.body-small.font-size}",
+        "$description": "OBSERVED: 14px list options."
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "{typography.body-small.line-height}",
+        "$description": "OBSERVED: 14/21."
+      },
+      "selected-weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.semibold}",
+        "$description": "PROPOSED: selected = semibold plus a check mark, not colour alone."
+      },
+      "icon-size": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "PROPOSED: check mark on the selected option."
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "PROPOSED: ink, 17.04:1."
+      },
+      "background-focused": {
+        "$type": "color",
+        "$value": "{color.surface.hover}",
+        "$description": "PROPOSED: the option under the keyboard or mouse. Not observed."
+      },
+      "background-pressed": {
+        "$type": "color",
+        "$value": "{color.surface.pressed}",
+        "$description": "PROPOSED: not observed."
+      },
+      "text-disabled": {
+        "$type": "color",
+        "$value": "{color.text.disabled}",
+        "$description": "PROPOSED: explicit grey (decision 12)."
+      }
+    }
+  }
+}

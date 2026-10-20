@@ -1,0 +1,57 @@
+{
+  "checkbox": {
+    "$description": "Checkbox component tokens. AcmeCo's most consistent control (audit family F09: 94 instances, 1 variant, a grey outline at 3px), so its look is kept; the border is darkened to pass 3:1 and every state is added. Group label, hint and error come from the shared field tokens.",
+    "box": {
+      "$type": "dimension",
+      "size": { "$value": "20px", "$description": "PROPOSED: 20px box on the 4px grid (observed size not captured)." },
+      "radius": { "$value": "{radius.sm}", "$description": "OBSERVED: 3px corners; became 4px on the radius scale (decision 5)." },
+      "border-width": { "$value": "{border.width.default}", "$description": "OBSERVED: 1px outline." },
+      "icon-size": { "$value": "16px", "$description": "PROPOSED: check mark inside the 20px box." }
+    },
+    "target": { "$type": "dimension", "$value": "24px", "$description": "PROPOSED: each row is at least 24px tall, the minimum target (WCAG 2.5.8); the whole label is clickable too." },
+    "gap": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px between box and label." },
+    "group-gap": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px between checkboxes in a group." },
+    "label": {
+      "font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "OBSERVED: 14px option labels in filter lists." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body-small.line-height}", "$description": "OBSERVED: 14/21, 1.5x." },
+      "color": { "$type": "color", "$value": "{color.text.default}", "$description": "PROPOSED: ink, 17.04:1." }
+    },
+    "unchecked": {
+      "$type": "color",
+      "border": {
+        "default": { "$value": "{color.border.control.default}", "$description": "PROPOSED: observed #b1b3b0 at 2.11:1 became #808386 at 3.81:1 (decision 5)." },
+        "hover": { "$value": "{color.border.control.hover}", "$description": "PROPOSED: not observed. 5.77:1." }
+      },
+      "background": { "$value": "{color.surface.default}", "$description": "OBSERVED: white box." }
+    },
+    "checked": {
+      "$type": "color",
+      "background": {
+        "default": { "$value": "{color.action.background.default}", "$description": "PROPOSED: dark blue fill marks checked (decision 1), 10.98:1 against the page. Shown by the fill and the check mark, not colour alone." },
+        "hover": { "$value": "{color.action.background.hover}", "$description": "LEGACY-NAMED: --legacy-color-brand-hover." },
+        "pressed": { "$value": "{color.action.background.pressed}", "$description": "PROPOSED: not observed." }
+      },
+      "icon": { "$value": "{color.action.text.default}", "$description": "PROPOSED: white check mark on dark blue, 10.98:1." }
+    },
+    "invalid": {
+      "$type": "color",
+      "border": { "$value": "{color.feedback.error}", "$description": "PROPOSED: error red border (decision 7), with the group's icon and message." }
+    },
+    "focus-ring": {
+      "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: the system focus ring, around the box." },
+      "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px." },
+      "offset": { "$type": "dimension", "$value": "{focus.ring.offset}", "$description": "PROPOSED: 2px." }
+    },
+    "disabled": {
+      "$type": "color",
+      "background": { "$value": "{color.surface.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." },
+      "border": { "$value": "{color.border.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." },
+      "icon": { "$value": "{color.text.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." },
+      "label": { "$value": "{color.text.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." }
+    },
+    "transition": {
+      "duration": { "$type": "duration", "$value": "{duration.fast}", "$description": "LEGACY-NAMED: --legacy-cta-transition 0.15s. Code only." },
+      "easing": { "$type": "cubicBezier", "$value": "{easing.default}", "$description": "LEGACY-NAMED: ease-in-out. Code only." }
+    }
+  }
+}

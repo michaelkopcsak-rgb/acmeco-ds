@@ -1,0 +1,81 @@
+/* Link. Every value comes from --link-* component tokens (tokens/components/link.json).
+   Font size and weight are inherited, so a link inside a bold card title stays bold. */
+
+.link {
+  font: inherit;
+  text-decoration-thickness: var(--link-underline-thickness);
+  text-underline-offset: var(--link-underline-offset);
+  border-radius: var(--link-focus-ring-radius);
+  cursor: pointer;
+  outline: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link {
+    transition-property: color, text-decoration-thickness;
+    transition-duration: var(--link-transition-duration);
+    transition-timing-function: var(--link-transition-easing);
+  }
+}
+
+.link[data-focus-visible] {
+  outline: var(--link-focus-ring-width) solid var(--link-focus-ring-color);
+  outline-offset: var(--link-focus-ring-offset);
+}
+
+/* inline: always underlined. Link blue is only 2.50:1 against ink body text,
+   so colour alone can't mark it (WCAG 1.4.1, decision 22). */
+.inline {
+  color: var(--link-inline-text-default);
+  text-decoration-line: underline;
+}
+.inline[data-hovered] {
+  color: var(--link-inline-text-hover);
+  text-decoration-thickness: var(--link-underline-thickness-hover);
+}
+
+.standalone {
+  color: var(--link-standalone-text-default);
+  text-decoration-line: none;
+}
+.standalone[data-hovered] {
+  color: var(--link-standalone-text-hover);
+  text-decoration-line: underline;
+}
+
+.subtle {
+  color: var(--link-subtle-text-default);
+  text-decoration-line: none;
+}
+.subtle[data-hovered] {
+  text-decoration-line: underline;
+}
+
+.inverse {
+  color: var(--link-inverse-text-default);
+  text-decoration-line: underline;
+}
+.inverse[data-hovered] {
+  text-decoration-thickness: var(--link-underline-thickness-hover);
+}
+.inverse[data-focus-visible] {
+  outline-color: var(--link-focus-ring-inverse-color);
+}
+
+/* The current page in a navigation: underlined (aria-current), so it isn't marked by colour alone. */
+.link[aria-current='page'] {
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--link-underline-thickness-hover);
+}
+
+/* Sized to the text around it. */
+.externalIcon {
+  width: 0.875em;
+  height: 0.875em;
+  margin-inline-start: 0.25em;
+  vertical-align: -0.0625em;
+}
+
+/* An icon before the text, sized to it. */
+.startIcon { display: inline-flex; margin-inline-end: 0.375em; vertical-align: -0.125em; }
+.startIcon > svg { width: 1em; height: 1em; }

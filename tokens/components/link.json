@@ -1,0 +1,48 @@
+{
+  "link": {
+    "$description": "Link component tokens. Font size and weight are inherited from the surrounding text, so links add no type styles. Evidence: audit family F01 (3,295 instances, 21 variants, 44 designs; link text in 4 blues, one failing AA).",
+    "underline": {
+      "$type": "dimension",
+      "thickness": { "$value": "{border.width.default}", "$description": "PROPOSED: 1px underline." },
+      "thickness-hover": { "$value": "{border.width.strong}", "$description": "PROPOSED: 2px underline on hover for always-underlined links, so hover is visible without a colour change." },
+      "offset": { "$value": "3px", "$description": "PROPOSED: gap between text and underline, clear of descenders." }
+    },
+    "focus-ring": {
+      "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: the system focus ring." },
+      "inverse-color": { "$type": "color", "$value": "{color.focus.ring.inverse}", "$description": "PROPOSED: white ring on dark surfaces (blue is 1.87:1 on navy)." },
+      "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px." },
+      "offset": { "$type": "dimension", "$value": "{focus.ring.offset}", "$description": "PROPOSED: 2px." },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}", "$description": "PROPOSED: softens the ring's corners around text." }
+    },
+    "transition": {
+      "duration": { "$type": "duration", "$value": "{duration.fast}", "$description": "LEGACY-NAMED: --legacy-cta-transition 0.15s. Code only." },
+      "easing": { "$type": "cubicBezier", "$value": "{easing.default}", "$description": "LEGACY-NAMED: ease-in-out. Code only." }
+    },
+    "inline": {
+      "$type": "color",
+      "text": {
+        "default": { "$value": "{color.text.link.default}", "$description": "OBSERVED: blue #0559b3 (1,007 el / 11 exp), the one link blue. Absorbs #0888ba (fails AA), #0c6cc4, #0056b6. Only 2.50:1 against ink body text, below the 3:1 needed to mark a link by colour alone, so inline links are always underlined (decision 22)." },
+        "hover": { "$value": "{color.text.link.hover}", "$description": "PROPOSED: not observed." }
+      }
+    },
+    "standalone": {
+      "$type": "color",
+      "text": {
+        "default": { "$value": "{color.text.link.default}", "$description": "OBSERVED: blue standalone links (15 and 16px)." },
+        "hover": { "$value": "{color.text.link.hover}", "$description": "PROPOSED: not observed." }
+      }
+    },
+    "subtle": {
+      "$type": "color",
+      "text": {
+        "default": { "$value": "{color.text.default}", "$description": "OBSERVED: near-black bold links (listing titles, navigation), the most common link look. Absorbs #000000 and #212529 (decision 22)." }
+      }
+    },
+    "inverse": {
+      "$type": "color",
+      "text": {
+        "default": { "$value": "{color.text.inverse}", "$description": "OBSERVED: white links on dark surfaces (16 and 18px)." }
+      }
+    }
+  }
+}

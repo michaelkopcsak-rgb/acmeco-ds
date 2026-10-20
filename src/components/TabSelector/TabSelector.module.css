@@ -1,0 +1,73 @@
+/* TabSelector: AcmeCo's grey folder tabs. Every value comes from --tab-selector-*
+   tokens (tokens/components/tab-selector.json), measured from AcmeCo's own CSS.
+   Each tab is a React Aria Radio (a <label> with a hidden radio input) with
+   data-selected, data-hovered, data-pressed, data-focus-visible and data-disabled. */
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-gap);
+}
+
+/* The tab row sits on the panel's top line. */
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--tab-selector-gap);
+  border-bottom: var(--tab-selector-border-width) solid var(--tab-selector-line);
+}
+.fullWidth .tab { flex: 1; }
+
+.tab {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tab-selector-height);
+  padding-inline: var(--tab-selector-padding-x);
+  /* Top and sides only: the bottom is the panel's line. */
+  border: var(--tab-selector-border-width) solid var(--tab-selector-tab-border);
+  border-bottom: 0;
+  border-radius: var(--tab-selector-radius) var(--tab-selector-radius) 0 0;
+  background-color: var(--tab-selector-tab-background);
+  color: var(--tab-selector-tab-text);
+  font-size: var(--tab-selector-font-size);
+  line-height: var(--tab-selector-line-height);
+  font-weight: var(--tab-selector-font-weight);
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tab {
+    transition-property: background-color;
+    transition-duration: var(--tab-selector-transition-duration);
+    transition-timing-function: var(--tab-selector-transition-easing);
+  }
+}
+
+.tab[data-hovered] { background-color: var(--tab-selector-tab-background-hover); }
+
+/* Selected: white, opening into the panel below. It reaches 1px down over the
+   panel's line so the two join, as on AcmeCo. The darker edge and semibold
+   label make the state clear without relying on white vs grey (1.10:1). */
+.tab[data-selected] {
+  margin-bottom: calc(var(--tab-selector-border-width) * -1);
+  padding-bottom: var(--tab-selector-border-width);
+  border-color: var(--tab-selector-selected-border);
+  background-color: var(--tab-selector-selected-background);
+  font-weight: var(--tab-selector-selected-font-weight);
+}
+
+.tab[data-focus-visible] {
+  outline: var(--tab-selector-focus-ring-width) solid var(--tab-selector-focus-ring-color);
+  outline-offset: var(--tab-selector-focus-ring-offset);
+}
+
+.tab[data-disabled] {
+  background-color: var(--tab-selector-disabled-background);
+  color: var(--tab-selector-disabled-text);
+  border-color: var(--tab-selector-disabled-border);
+  cursor: not-allowed;
+}
+.tab[data-disabled][data-selected] { background-color: var(--tab-selector-selected-background); }

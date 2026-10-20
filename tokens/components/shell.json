@@ -1,0 +1,72 @@
+{
+  "shell": {
+    "$description": "Tokens for the page shell: GlobalHeader and NavigationBar (and, next, Footer). Measured from the audit's F33 / F32 data and crops (docs/proposals/PHASE-6-SHELL.md). Decision 35.",
+    "header": {
+      "height": { "$type": "dimension", "$value": "64px", "$description": "OBSERVED: 64px on every core-site header (the inventory rounds it to 60; LEGACY-NAMED --legacy-site-header-height says 60)." },
+      "padding-x": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 16px padding." },
+      "gap": { "$type": "dimension", "$value": "{space.5}", "$description": "OBSERVED: 24px between the logo, the links and the actions (16px on search results desktop); became 24px everywhere." },
+      "gap-compact": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px between the header's items on phones (768px and below), so the logo, Sign In, Advertise and Menu fit on a 360px screen." },
+      "background": { "$type": "color", "$value": "{color.surface.default}", "$description": "OBSERVED: white (22 of 30)." },
+      "text": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: #1c1c1c, 17.04:1 on white." },
+      "stripe-color": { "$type": "color", "$value": "{color.brand.700}", "$description": "OBSERVED, LEGACY-NAMED: a 2px #123a7a (--legacy-color-brand) line along the top on 25 of 30 headers (3 put it along the bottom: folded in, decision 35). Decorative." },
+      "stripe-width": { "$type": "dimension", "$value": "{border.width.strong}", "$description": "OBSERVED: 2px." },
+      "divider-color": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: on a phone listing, a thin vertical line between the back arrow and the logo (a phone recording, 2026-10-11); the system's default border. Decorative." },
+      "divider-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px." }
+    },
+    "logo": {
+      "mark-size": { "$type": "dimension", "$value": "32px", "$description": "OBSERVED: the logo image is 32px tall (135 × 32). The placeholder mark is a 32px circle (decision 35: AcmeCo's logo stays out)." },
+      "mark-border": { "$type": "color", "$value": "{color.border.control.default}", "$description": "PROPOSED: the neutral placeholder mark's outline, like the sign-in options' marks (decision 31)." },
+      "mark-border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "PROPOSED: 1px, as on the sign-in marks." },
+      "mark-text": { "$type": "color", "$value": "{color.text.default}", "$description": "PROPOSED: ink." },
+      "mark-font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "PROPOSED: 14px initials in the mark." },
+      "gap": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px between the mark and the name." },
+      "font-size": { "$type": "dimension", "$value": "{typography.body-large.font-size}", "$description": "PROPOSED: the name \"AcmeCo\" in plain Outfit at 18px, standing in for the logo's wordmark." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body-large.line-height}", "$description": "PROPOSED: 27px." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "PROPOSED: semibold, so the name reads as a mark, not a link." }
+    },
+    "nav": {
+      "gap": { "$type": "dimension", "$value": "{space.5}", "$description": "OBSERVED: 16–24px between the search links; became 24px." },
+      "gap-vertical": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px between links listed vertically (the phone menu)." },
+      "font-size": { "$type": "dimension", "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16px (14px on phones; the phone menu keeps 16px, decision 35)." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body.line-height}", "$description": "OBSERVED: 24px." },
+      "item-min-height": { "$type": "dimension", "$value": "40px", "$description": "PROPOSED: each link in the phone menu is a 40px row (observed phone header links were 21px tall, under the 24px target)." }
+    },
+    "skip": {
+      "background": { "$type": "color", "$value": "{color.surface.default}", "$description": "PROPOSED: the skip link shows on white over the header when it has focus." },
+      "padding-x": { "$type": "dimension", "$value": "{space.4}", "$description": "PROPOSED: 16px." },
+      "padding-y": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px." },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}", "$description": "PROPOSED: 4px, something to act on (decision 26)." },
+      "inset": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px from the top-left corner." },
+      "shadow": { "$type": "shadow", "$value": "{shadow.raised}", "$description": "PROPOSED: raised, so it reads above the header." }
+    },
+    "footer": {
+      "background": { "$type": "color", "$value": "{color.surface.subtle}", "$description": "OBSERVED: #f3f3f3 (the 'dark #4f5254' and 'transparent' variants are wrappers covered by this one; one footer in practice)." },
+      "line-color": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: a 2px #e5e5e5 line along the top. Decorative." },
+      "line-width": { "$type": "dimension", "$value": "{border.width.strong}", "$description": "OBSERVED: 2px." },
+      "padding": { "$type": "dimension", "$value": "{space.7}", "$description": "OBSERVED: 48px on desktop (live site, 2026-10-10)." },
+      "padding-y-compact": { "$type": "dimension", "$value": "{space.5}", "$description": "OBSERVED: 24px top and bottom on phones." },
+      "padding-x-compact": { "$type": "dimension", "$value": "{space.6}", "$description": "OBSERVED: 32px at the sides on phones." },
+      "column-gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 16px between the five 256px columns." },
+      "row-gap": { "$type": "dimension", "$value": "{space.6}", "$description": "PROPOSED: 32px between rows of columns when they wrap (on AcmeCo's phones they don't, and Company goes off screen)." },
+      "heading-gap": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: about 8px from a column's heading to its first link." },
+      "link-gap": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: links on a 32px pitch (24px lines, 8px apart)." },
+      "font-size": { "$type": "dimension", "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16px headings, links and text." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body.line-height}", "$description": "OBSERVED: 24px." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: 400 for headings and links, 300 for 'Connect with us' and the copyright; all 400 (decision 4)." },
+      "heading-text": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: #1c1c1c, ink; the colour (not a heavier weight) sets headings apart." },
+      "link-text": { "$type": "color", "$value": "{color.text.subtle}", "$description": "OBSERVED: #63666a (LEGACY-NAMED --legacy-palette-dark-gray), 5.20:1 on #f3f3f3." },
+      "brand-gap": { "$type": "dimension", "$value": "{space.7}", "$description": "OBSERVED: about 48px from the columns to the logo below them (live site, 2026-10-10)." },
+      "brand-item-gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: about 16px between the logo, 'Connect with us', the social links, the copyright and the app links." },
+      "social-size": { "$type": "dimension", "$value": "32px", "$description": "PROPOSED: 32px round placeholder marks with names (decision 35, E); AcmeCo's are 24px brand icons with no names." },
+      "social-gap": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: 8px between the social icons." },
+      "social-border": { "$type": "color", "$value": "{color.border.control.default}", "$description": "PROPOSED: the placeholder marks' outline, like the sign-in options' (decision 31)." },
+      "social-font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "PROPOSED: 14px letters in the marks." },
+      "phone-links": {
+        "padding-block": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: on phones (a phone recording, 2026-10-11) the footer is one list of links about 34px apart (21px text); became 8px above and below each link (38px rows), a comfortable touch target." },
+        "line-color": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: a thin light grey line between the links on the phone, edge to edge; the system's default border (#e5e5e5). Decorative." },
+        "line-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px." },
+        "padding-inline": { "$type": "dimension", "$value": "{layout.gutter}", "$description": "OBSERVED: the links start about 15px from the screen's edge on the phone (the lines run edge to edge); became the page gutter (16px)." }
+      }
+    }
+  }
+}

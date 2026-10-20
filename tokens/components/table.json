@@ -1,0 +1,28 @@
+{
+  "table": {
+    "$description": "Tokens for Table: rows of the same facts, compared column by column (decision 47). Measured from the audit's capture of the office property page's All Available Spaces (F24 Data table; desktop 1700px).",
+    "font-size": { "$type": "dimension", "$value": "{typography.body-large.font-size}", "$description": "OBSERVED: 18px headings and values." },
+    "line-height": { "$type": "dimension", "$value": "{typography.body-large.line-height}", "$description": "OBSERVED: 28px; became 27px, the system's 1.5x rhythm (decision 9)." },
+    "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: column headings at 400, values at 100; both 400 now (decision 4)." },
+    "text": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: black; became ink (#1c1c1c)." },
+    "padding-block": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: 44px rows (28px text, 3px padding, centred in the row); became 8px above and below, giving 43px rows plus the 1px line." },
+    "padding-block-action": { "$type": "dimension", "$value": "{space.1}", "$description": "PROPOSED: 4px above and below a cell that holds a button (Details, 32px), so its row stays 44px like the others, as AcmeCo's chevron cell does." },
+    "padding-inline": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 20px at the row's ends; became 16px, the page gutter, as on Breadcrumbs." },
+    "header": {
+      "background": { "$type": "color", "$value": "{color.gray.150}", "$description": "OBSERVED: a #ebebeb header bar; became #ededed, the nearest grey on the scale." },
+      "radius": { "$type": "dimension", "$value": "{radius.sm}", "$description": "OBSERVED: 4px corners on the header bar." }
+    },
+    "row": {
+      "border": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: 1px #dddddd lines left, right and under each row; became the system's default border (#e5e5e5). Decorative." },
+      "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px." },
+      "background": {
+        "default": { "$type": "color", "$value": "{color.surface.default}", "$description": "OBSERVED: white rows." },
+        "hover": { "$type": "color", "$value": "{color.surface.hover}", "$description": "PROPOSED: a grey row on hover, as the site menu's rows, so a row that opens its details looks pressable. Not observed." }
+      }
+    },
+    "focus-ring": {
+      "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: the system's focus ring, inside the row or cell (AcmeCo's rows can't take focus)." },
+      "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px." }
+    }
+  }
+}

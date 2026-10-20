@@ -1,0 +1,12 @@
+{
+  "popover": {
+    "$description": "Tokens for Popover: a panel that opens from a button and sits next to it (AcmeCo's header menu; later the filter dropdowns, audit F17). Measured from AcmeCo's menu (live site, 2026-10-10); the look matches the Select's list so every panel in the system is one style. Decision 36.",
+    "background": { "$type": "color", "$value": "{color.surface.default}", "$description": "OBSERVED: white." },
+    "border": { "$type": "color", "$value": "{color.border.default}", "$description": "PROPOSED: the 1px line the Select's list has (AcmeCo's menu has none, only a shadow); kept so every panel matches. Decorative." },
+    "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "PROPOSED: 1px." },
+    "radius": { "$type": "dimension", "$value": "{radius.md}", "$description": "OBSERVED: 8px, a surface (decision 26)." },
+    "shadow": { "$type": "shadow", "$value": "{shadow.raised}", "$description": "OBSERVED: 1px 0 25px 2px at 30% black on the menu; became shadow.raised, the system's one level for menus, popovers and dialogs." },
+    "padding": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: 8px inside the panel (the menu's rows sat about 4px from its top)." },
+    "offset": { "$type": "dimension", "$value": "{space.1}", "$description": "OBSERVED: the menu opens about 5px under its button; became 4px." }
+  }
+}

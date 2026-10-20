@@ -1,0 +1,35 @@
+{
+  "choice-cards": {
+    "$description": "Tokens for ChoiceCards: one choice from a few options, drawn as cards (a radio group). Measured from AcmeCo's Language and Region dialog (live site, 2026-10-10). Decision 36.",
+    "gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: about 21px between columns and 15px between rows (160px cards in a 532px area); became 16px both ways." },
+    "padding": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: 8px." },
+    "radius": { "$type": "dimension", "$value": "{radius.sm}", "$description": "OBSERVED: 4px, something to act on (decision 26)." },
+    "min-height": { "$type": "dimension", "$value": "70px", "$description": "OBSERVED: 70px cards (two 24px lines, padding and the border)." },
+    "border-width": { "$type": "dimension", "$value": "{border.width.strong}", "$description": "OBSERVED: a 2px border on the selected card and none on the others, so the text moved 2px when selected; every card now keeps a 2px border (transparent unless selected), so nothing moves." },
+    "font-size": { "$type": "dimension", "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16px." },
+    "line-height": { "$type": "dimension", "$value": "{typography.body.line-height}", "$description": "OBSERVED: 24px." },
+    "label-font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "OBSERVED: the language at 400 over the region at 100; with two weights (decision 4) that becomes 600 over 400, keeping the label the heavier line." },
+    "description-font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: 100 (thin); became 400 (decision 4)." },
+    "text": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: black (#000) for both lines; became ink." },
+    "text-disabled": { "$type": "color", "$value": "{color.text.disabled}", "$description": "PROPOSED: a choice that isn't available (not observed); the system's disabled grey." },
+    "background": {
+      "$type": "color",
+      "default": { "$value": "{color.surface.default}", "$description": "OBSERVED: no fill (white dialog)." },
+      "hover": { "$value": "{color.surface.hover}", "$description": "PROPOSED: a grey fill on hover (not observed)." },
+      "selected": { "$value": "{color.blue.100}", "$description": "OBSERVED: #dbedff on the selected card; became the system's light blue #cbe5ff (blue.100, the chip's), 14.0:1 with ink." }
+    },
+    "border": {
+      "$type": "color",
+      "selected": { "$value": "{color.blue.700}", "$description": "OBSERVED: 2px #0874e7; became the one link blue #0559b3 (6.80:1 on white), which AcmeCo's other blues fold into." }
+    },
+    "focus-ring": {
+      "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: the system's focus ring, offset outside the card." },
+      "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px." },
+      "offset": { "$type": "dimension", "$value": "{focus.ring.offset}", "$description": "PROPOSED: 2px." }
+    },
+    "label": {
+      "font-size": { "$type": "dimension", "$value": "{typography.label.font-size}", "$description": "PROPOSED: the group's label, when shown, matches field labels." },
+      "font-weight": { "$type": "fontWeight", "$value": "{typography.label.font-weight}", "$description": "PROPOSED: as field labels." }
+    }
+  }
+}

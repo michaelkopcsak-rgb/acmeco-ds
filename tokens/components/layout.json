@@ -1,0 +1,140 @@
+{
+  "layout": {
+    "$description": "Tokens for the layout primitives (PageContainer, Stack, Grid, Section): the only way screens set width, gaps and columns, so layout stays on the 4px grid and AcmeCo's own layout values. Decision 34.",
+    "container": {
+      "$type": "dimension",
+      "max-width": {
+        "$value": "{layout.container-max}",
+        "$description": "LEGACY-NAMED: --legacy-container-max, 1440px."
+      },
+      "gutter": {
+        "$value": "{layout.gutter}",
+        "$description": "LEGACY-NAMED: --legacy-container-gutter, 15px; became 16px (4px grid, decision 5)."
+      },
+      "gallery-max-width": {
+        "$value": "1064px",
+        "$description": "OBSERVED: AcmeCo's gallery results are two cards about 506px wide with a 20px gap, about 1,032px in all, centred (a reference screenshot at a 1,524px window, 2026-10-11): 1,064px with the 16px gutters either side. PageContainer width=\"gallery\" (decision 45)."
+      }
+    },
+    "gap": {
+      "$type": "dimension",
+      "$description": "Named steps of the 4px spacing scale for Stack and Grid gaps. PROPOSED names; values from space.* (decision 5).",
+      "none": {
+        "$value": "{space.0}",
+        "$description": "PROPOSED: no gap."
+      },
+      "2xs": {
+        "$value": "{space.1}",
+        "$description": "PROPOSED: 4px, e.g. an icon beside its label."
+      },
+      "xs": {
+        "$value": "{space.2}",
+        "$description": "PROPOSED: 8px, e.g. a pair of fields."
+      },
+      "sm": {
+        "$value": "{space.3}",
+        "$description": "PROPOSED: 12px, e.g. items in a card."
+      },
+      "md": {
+        "$value": "{space.4}",
+        "$description": "PROPOSED: 16px, the default; AcmeCo's most used padding (15px, 4,332 elements)."
+      },
+      "lg": {
+        "$value": "{space.5}",
+        "$description": "PROPOSED: 24px, e.g. cards in a list."
+      },
+      "xl": {
+        "$value": "{space.6}",
+        "$description": "PROPOSED: 32px, e.g. columns of a page."
+      },
+      "2xl": {
+        "$value": "{space.7}",
+        "$description": "PROPOSED: 48px."
+      },
+      "3xl": {
+        "$value": "{space.8}",
+        "$description": "PROPOSED: 64px."
+      },
+      "block": {
+        "$value": "{layout.block-gap}",
+        "$description": "LEGACY-NAMED: --legacy-block-gap, clamp(40px, 5vw, 72px): between blocks inside a section."
+      },
+      "section": {
+        "$value": "{layout.section-gap}",
+        "$description": "LEGACY-NAMED: --legacy-section-gap, clamp(48px, 8vw, 96px): between the sections of a page."
+      }
+    },
+    "split": {
+      "$type": "dimension",
+      "main-width": {
+        "$value": "670px",
+        "$description": "OBSERVED: AcmeCo's results column is 670px wide at 1440px, with the map taking the rest (audit capture and live site, 2026-10-10). SplitView's list column (decision 40)."
+      },
+      "main-padding": {
+        "$value": "{space.4}",
+        "$description": "PROPOSED: 16px around the list column's content, the page gutter."
+      },
+      "aside-height-compact": {
+        "$value": "240px",
+        "$description": "PROPOSED: below 1024px the aside (the map) is a 240px band above the list."
+      },
+      "aside-height-top": {
+        "$value": "360px",
+        "$description": "PROPOSED, BENCHMARK-INFORMED: with the map on top (decision 45), a 360px band above the results that stays in view while the cards scroll beneath it, about the benchmark's horizontal layout."
+      },
+      "main-background": {
+        "$type": "color",
+        "$value": "{color.surface.subtle}",
+        "$description": "OBSERVED: AcmeCo's map-view list column is light grey (#f3f3f3) behind white cards, its title and Sort sitting on the grey (a reference screenshot, 2026-10-11; decision 45)."
+      }
+    },
+    "dock": {
+      "bar-height": {
+        "$type": "dimension",
+        "$value": "72px",
+        "$description": "OBSERVED: AcmeCo's phone listing keeps Call and Message in a bar about 72px tall fixed to the bottom (a phone recording, 2026-10-11): 48px buttons with 12px above and below."
+      },
+      "bar-padding": {
+        "$type": "dimension",
+        "$value": "{space.3}",
+        "$description": "OBSERVED: about 12px above and below the buttons."
+      }
+    },
+    "divider": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "OBSERVED: AcmeCo's thin grey lines (around the phone results title, between Save and Map)."
+      },
+      "width": {
+        "$type": "dimension",
+        "$value": "{border.width.default}",
+        "$description": "OBSERVED: 1px."
+      },
+      "height": {
+        "$type": "dimension",
+        "$value": "{space.5}",
+        "$description": "PROPOSED: a vertical divider 24px tall, a line of text's height (\"Save | Map\")."
+      }
+    },
+    "aside": {
+      "$type": "dimension",
+      "width": {
+        "$value": "340px",
+        "$description": "OBSERVED: the property detail page's contact sidebar is 340px wide (audit capture; ContactModule, decision 30). Grid's main + aside template uses it."
+      }
+    },
+    "band": {
+      "color-subtle": {
+        "$type": "color",
+        "$value": "{color.surface.subtle}",
+        "$description": "OBSERVED: AcmeCo's grey results bar (\"157 Results\" and Sort) under the gallery's filter bar is #f3f3f3 (a reference screenshot, 2026-10-11; decision 45)."
+      },
+      "color-default": {
+        "$type": "color",
+        "$value": "{color.surface.default}",
+        "$description": "OBSERVED: the gallery's title band and filter bar are white, each with a thin grey line below."
+      }
+    }
+  }
+}

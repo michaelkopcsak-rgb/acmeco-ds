@@ -1,0 +1,128 @@
+{
+  "color": {
+    "$type": "color",
+    "$description": "Semantic colours, light theme. Names carry intent; components use these (or component tokens), never primitives. States move away from the page background (darker in light mode).",
+    "text": {
+      "default": { "$value": "{color.gray.900}", "$description": "PROPOSED: one off-black for all text (BENCHMARK-INFORMED lesson 4). Replaces #000000, #212529 and #333333. 17.04:1 on white." },
+      "subtle": { "$value": "{color.gray.600}", "$description": "OBSERVED: secondary text. 5.77:1 on white, 5.20:1 on surface.subtle." },
+      "inverse": { "$value": "{color.gray.0}", "$description": "OBSERVED: text on dark surfaces. 12.71:1 on navy, 17.04:1 on ink." },
+      "disabled": { "$value": "{color.gray.500}", "$description": "PROPOSED: disabled text (decision 12). Exempt from WCAG contrast, kept readable anyway: 3.25:1 on surface.disabled." },
+      "link": {
+        "default": { "$value": "{color.blue.700}", "$description": "OBSERVED: the one link colour (BENCHMARK-INFORMED lesson 3). 6.80:1 on white." },
+        "hover": { "$value": "{color.blue.800}", "$description": "PROPOSED: not observed. 8.65:1 on white." }
+      }
+    },
+    "surface": {
+      "default": { "$value": "{color.gray.0}", "$description": "OBSERVED: page and card background (14 exp)." },
+      "subtle": { "$value": "{color.gray.100}", "$description": "OBSERVED: grey sections and fills (14 exp)." },
+      "hover": { "$value": "{color.gray.100}", "$description": "PROPOSED: hover fill for secondary, tertiary and plain controls. Not observed." },
+      "pressed": { "$value": "{color.gray.200}", "$description": "PROPOSED: pressed fill, one step darker than hover. Not observed." },
+      "disabled": { "$value": "{color.gray.150}", "$description": "PROPOSED: disabled fill (decision 12). Not observed." },
+      "inverse": { "$value": "{color.gray.900}", "$description": "OBSERVED: dark surfaces (#232323, #242a2a) consolidated to ink." },
+      "brand-dark": { "$value": "{color.navy.700}", "$description": "OBSERVED: auction and promo banners." },
+      "overlay-control": { "$value": "{color.alpha.white-85}", "$description": "OBSERVED: translucent controls and labels over photos. Ink on it stays at 12.07:1 or more even over a black photo." }
+    },
+    "overlay": { "$value": "{color.alpha.black-60}", "$description": "OBSERVED: behind dialogs." },
+    "border": {
+      "default": { "$value": "{color.gray.200}", "$description": "OBSERVED: decorative dividers and card outlines. No contrast requirement." },
+      "control": {
+        "default": { "$value": "{color.gray.500}", "$description": "PROPOSED: field, checkbox and select boundaries (decision 5). Observed #b1b3b0 at 2.11:1 became 3.81:1 on white, 3.43:1 on surface.subtle." },
+        "hover": { "$value": "{color.gray.600}", "$description": "PROPOSED: not observed. 5.77:1 on white." }
+      },
+      "disabled": { "$value": "{color.gray.300}", "$description": "PROPOSED: disabled boundary (decision 12). Exempt from contrast." }
+    },
+    "action": {
+      "$description": "Dark blue for all actions, checked and selected states (decision 1).",
+      "background": {
+        "default": { "$value": "{color.brand.700}", "$description": "OBSERVED, LEGACY-NAMED: --legacy-color-brand. White text 10.98:1." },
+        "hover": { "$value": "{color.brand.800}", "$description": "LEGACY-NAMED: --legacy-color-brand-hover. White text 13.65:1." },
+        "pressed": { "$value": "{color.brand.900}", "$description": "PROPOSED: not observed. White text 16.23:1." }
+      },
+      "foreground": {
+        "default": { "$value": "{color.brand.700}", "$description": "OBSERVED: dark blue text and outlines (secondary button). 10.98:1 on white, 9.90:1 on surface.subtle." },
+        "hover": { "$value": "{color.brand.800}", "$description": "LEGACY-NAMED: --legacy-color-brand-hover. 12.30:1 on surface.hover." },
+        "pressed": { "$value": "{color.brand.900}", "$description": "PROPOSED: not observed. 12.89:1 on surface.pressed." }
+      },
+      "text": {
+        "default": { "$value": "{color.gray.0}", "$description": "OBSERVED: white on dark blue buttons." }
+      }
+    },
+    "focus": {
+      "ring": {
+        "default": { "$value": "{color.blue.700}", "$description": "PROPOSED: not observed; required. 6.80:1 on white, 6.13:1 on surface.subtle. Always offset from the control." },
+        "inverse": { "$value": "{color.gray.0}", "$description": "PROPOSED: on dark surfaces, where the blue ring is only 1.87:1 on navy. White is 12.71:1." }
+      }
+    },
+    "feedback": {
+      "error": { "$value": "{color.red.700}", "$description": "PROPOSED: error text, icons and borders (decision 7). 7.37:1 on white. Only 1.49:1 from the action dark blue, so always paired with an icon and a message." },
+      "success": { "$value": "{color.green.700}", "$description": "PROPOSED: not observed. 5.32:1 on white, 4.80:1 on surface.subtle." }
+    },
+    "promo": {
+      "feature": { "$value": "{color.brand.700}", "$description": "OBSERVED: dark blue 'Virtual Tour' label (64 el)." },
+      "auction": { "$value": "{color.navy.700}", "$description": "OBSERVED: auction banner (146 el)." }
+    }
+  },
+  "typography": {
+    "$description": "12 type styles (decision 4), down from 76 observed on the core journey (the benchmark: 37). Each style is size, line height and weight as separate tokens, so CSS and Figma can bind them individually. Line heights keep AcmeCo's 1.5x rhythm up to 20px (decision 9).",
+    "display": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.48}", "$description": "OBSERVED: hero headings." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.56}", "$description": "PROPOSED: 48/56." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: headings at regular weight." }
+    },
+    "display-mobile": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.32}", "$description": "PROPOSED: hero on small screens." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.40}", "$description": "PROPOSED: 32/40." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: headings at regular weight." }
+    },
+    "heading-1": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.32}", "$description": "OBSERVED: section headings (28 to 34px)." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.40}", "$description": "PROPOSED: 32/40." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: headings at regular weight." }
+    },
+    "heading-2": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.24}", "$description": "OBSERVED: h3 at 24px (65 el)." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.32}", "$description": "PROPOSED: 24/32." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: headings at regular weight." }
+    },
+    "heading-3": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.20}", "$description": "OBSERVED: h3 at 20px (82 el)." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.30}", "$description": "OBSERVED: 20/30, 1.5x." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "PROPOSED: the bold role (decision 4)." }
+    },
+    "body-large": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.18}", "$description": "OBSERVED: 18px in 14 exp." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.27}", "$description": "OBSERVED: 18/27, 1.5x." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: body text at regular weight." }
+    },
+    "body": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.16}", "$description": "OBSERVED: 16/400/24 is the most common style (11 exp)." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.24}", "$description": "OBSERVED: 16/24, 1.5x." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: body text at regular weight." }
+    },
+    "body-small": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.14}", "$description": "OBSERVED: 14/400/21 (11 exp)." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.21}", "$description": "OBSERVED: 14/21, 1.5x." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: body text at regular weight." }
+    },
+    "label": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.14}", "$description": "PROPOSED: form labels and UI labels." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.21}", "$description": "OBSERVED: 1.5x rhythm (decision 9)." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "PROPOSED: the bold role (decision 4)." }
+    },
+    "caption": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.12}", "$description": "OBSERVED: 12px (8 exp)." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.18}", "$description": "OBSERVED: 12/18, 1.5x." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: body text at regular weight." }
+    },
+    "price": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.20}", "$description": "OBSERVED: prices shown at 12 to 20px across 11 variants; one prominent size." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.30}", "$description": "OBSERVED: 1.5x rhythm (decision 9)." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "PROPOSED: the bold role (decision 4)." }
+    },
+    "price-compact": {
+      "font-size": { "$type": "dimension", "$value": "{font.size.16}", "$description": "PROPOSED: prices on compact cards." },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.24}", "$description": "OBSERVED: 1.5x rhythm (decision 9)." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "PROPOSED: the bold role (decision 4)." }
+    }
+  }
+}

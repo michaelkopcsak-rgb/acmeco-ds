@@ -1,0 +1,45 @@
+/* Tabs. Every value comes from --tabs-* tokens (tokens/components/tabs.json). States are
+   React Aria data attributes on each tab (data-selected, data-hovered, data-focus-visible,
+   data-disabled). */
+
+.tabs { display: flex; flex-direction: column; }
+
+.list {
+  display: flex;
+  gap: var(--tabs-gap);
+  border-bottom: var(--tabs-line-width) solid var(--tabs-line-color);
+}
+
+.tab {
+  position: relative;
+  padding-block: var(--tabs-padding-y);
+  font-size: var(--tabs-font-size);
+  line-height: var(--tabs-line-height);
+  font-weight: var(--tabs-font-weight);
+  color: var(--tabs-text-default);
+  cursor: pointer;
+  outline: none;
+  /* The current tab's underline sits on the line, so it overlaps it by the line's width. */
+  margin-bottom: calc(-1 * var(--tabs-line-width));
+  border-bottom: var(--tabs-indicator-width) solid transparent;
+}
+.tab[data-hovered] { color: var(--tabs-text-hover); }
+.tab[data-selected] {
+  color: var(--tabs-text-selected);
+  border-bottom-color: var(--tabs-indicator-color);
+}
+.tab[data-focus-visible] {
+  outline: var(--tabs-focus-ring-width) solid var(--tabs-focus-ring-color);
+  outline-offset: var(--tabs-focus-ring-offset);
+}
+.tab[data-disabled] { cursor: not-allowed; }
+
+.panel {
+  padding-top: var(--tabs-panel-gap);
+  outline: none;
+}
+/* A panel with nothing focusable inside takes focus itself (React Aria), so it shows the ring. */
+.panel[data-focus-visible] {
+  outline: var(--tabs-focus-ring-width) solid var(--tabs-focus-ring-color);
+  outline-offset: var(--tabs-focus-ring-offset);
+}

@@ -1,0 +1,16 @@
+{
+  "map": {
+    "$description": "Tokens for MapPlaceholder: a drawn stand-in where a screen shows a map, with listing pins (decision 39, amending decision 32). No live map provider in the prototype; map tiles are licensed artwork.",
+    "background": { "$type": "color", "$value": "{color.surface.subtle}", "$description": "PROPOSED: the light grey behind the drawing while it loads, or with no drawing." },
+    "border": { "$type": "color", "$value": "{color.border.default}", "$description": "PROPOSED: a 1px line where the map meets the list, as AcmeCo's map edge." },
+    "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "PROPOSED: 1px." },
+    "height-compact": { "$type": "dimension", "$value": "240px", "$description": "PROPOSED: the map's smallest height (240px), its height as a band above the list below 1024px. Beside a list, SplitView sets its height: the window below the StickyTop (OBSERVED: AcmeCo's map fills the window's height beside the list and stays put)." },
+    "pin": {
+      "size": { "$type": "dimension", "$value": "{space.5}", "$description": "OBSERVED: AcmeCo's map pins are about 24px tall." },
+      "color": { "$type": "color", "$value": "{color.action.background.default}", "$description": "OBSERVED: dark blue pins (#123a7a)." },
+      "border": { "$type": "color", "$value": "{color.surface.default}", "$description": "PROPOSED: a white edge so a pin reads on any part of the drawing." },
+      "border-width": { "$type": "dimension", "$value": "{border.width.strong}", "$description": "PROPOSED: 2px." }
+    },
+    "label-inset": { "$type": "dimension", "$value": "{space.3}", "$description": "PROPOSED: the \"Map placeholder\" badge sits 12px from the corner." }
+  }
+}

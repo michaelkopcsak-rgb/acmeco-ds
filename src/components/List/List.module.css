@@ -1,0 +1,33 @@
+/* List. Every value comes from --list-* tokens (tokens/components/list.json). */
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: var(--list-columns);
+  column-gap: var(--list-column-gap);
+  font-size: var(--list-font-size);
+  line-height: var(--list-line-height);
+  font-weight: var(--list-font-weight);
+  color: var(--list-text);
+}
+@media (min-width: 768px) { .list { columns: var(--list-columns-md); } }
+
+/* Each point keeps together in its column; the space under it is padding, so columns line up at the top. */
+.item {
+  position: relative;
+  padding-inline-start: calc(var(--list-bullet-size) + var(--list-bullet-gap));
+  padding-block-end: var(--list-item-gap);
+  break-inside: avoid;
+}
+/* The dark blue dot, centred on the first line. Decorative: the list already says "list item". */
+.item::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: calc((var(--list-line-height) - var(--list-bullet-size)) / 2);
+  width: var(--list-bullet-size);
+  height: var(--list-bullet-size);
+  border-radius: 50%;
+  background-color: var(--list-bullet-color);
+}

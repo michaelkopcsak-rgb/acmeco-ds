@@ -1,0 +1,43 @@
+{
+  "sign-in": {
+    "$description": "Tokens for SignInDialog, AcmeCo's 'Log In/Sign Up' dialog (audit capture of the sign-in page and a reference screenshot): a promo carousel beside an email form, in the 768px dialog. Decision 31.",
+    "gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 16px between the email field, Continue and the divider (576 - 560 = 16)." },
+    "intro": {
+      "font-size": { "$type": "dimension", "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16px, centred." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body.line-height}", "$description": "OBSERVED: 24px." },
+      "color": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: #1c1c1c at weight 300; ink at 400 (decision 4)." }
+    },
+    "divider": {
+      "line": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: thin grey lines either side of 'or continue with'. Decorative." },
+      "text": { "$type": "color", "$value": "{color.text.subtle}", "$description": "OBSERVED: #63666a (5.77:1)." },
+      "font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "OBSERVED: 16px light; became 14px regular, secondary like the contact form's notes." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body-small.line-height}", "$description": "OBSERVED: 1.5x." }
+    },
+    "provider": {
+      "size": { "$type": "dimension", "$value": "48px", "$description": "OBSERVED: 50 x 48px round buttons; 48px circles (4px grid)." },
+      "gap": { "$type": "dimension", "$value": "{space.5}", "$description": "OBSERVED: 21px between the circles (947 + 50 = 997, next at 1018); became 24px." },
+      "background": { "$type": "color", "$value": "{color.surface.default}", "$description": "OBSERVED: white circles." },
+      "hover-background": { "$type": "color", "$value": "{color.surface.hover}", "$description": "PROPOSED: the system hover grey (hover wasn't captured)." },
+      "border": { "$type": "color", "$value": "{color.border.control.default}", "$description": "OBSERVED: a thin light-grey outline (a reference screenshot); the 3:1 control grey, since each circle is a button." },
+      "text": { "$type": "color", "$value": "{color.text.default}", "$description": "PROPOSED: the neutral placeholder mark in ink. AcmeCo shows each provider's logo, licensed only for real sign-in integrations (decision 31)." }
+    },
+    "promo": {
+      "background": { "$type": "color", "$value": "{color.surface.subtle}", "$description": "OBSERVED: #f3f3f3 panel, the left half of the dialog." },
+      "padding": { "$type": "dimension", "$value": "{space.5}", "$description": "PROPOSED: 24px, the dialog's padding (the panel reaches the dialog's edges)." },
+      "gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 16-20px between title, picture, text and dots." },
+      "title-font-size": { "$type": "dimension", "$value": "{typography.body-large.font-size}", "$description": "OBSERVED: 18px, centred ('Never miss a deal')." },
+      "title-line-height": { "$type": "dimension", "$value": "{typography.body-large.line-height}", "$description": "OBSERVED: 24px; 27px on our scale." },
+      "title-font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "OBSERVED: 400; semibold so each slide has a clear title." },
+      "text-color": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: #1c1c1c at weight 300; ink at 400." },
+      "image-width": { "$type": "dimension", "$value": "272px", "$description": "OBSERVED: 275 x 250px pictures; 272px (4px grid)." },
+      "image-height": { "$type": "dimension", "$value": "248px", "$description": "OBSERVED: 250px; 248px (4px grid)." }
+    },
+    "dot": {
+      "size": { "$type": "dimension", "$value": "8px", "$description": "OBSERVED: 8px dots." },
+      "current-width": { "$type": "dimension", "$value": "{space.4}", "$description": "PROPOSED: the current slide's dot is a 16px pill, so it differs by shape as well as colour (WCAG 1.4.1)." },
+      "target": { "$type": "dimension", "$value": "{space.5}", "$description": "PROPOSED: a 24px target around each 8px dot (WCAG 2.5.8; AcmeCo's are 8px buttons)." },
+      "color": { "$type": "color", "$value": "{color.border.control.default}", "$description": "OBSERVED: #b2b2b2 (1.9:1 on the grey panel); became the 3:1 control grey, since each dot is a button." },
+      "current-color": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: #4f5254; became ink." }
+    }
+  }
+}

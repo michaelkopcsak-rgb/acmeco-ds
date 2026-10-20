@@ -1,0 +1,18 @@
+/* On Docs pages, each example sits in a Storybook-owned box with a fixed
+   white background. Give it the theme's surface so dark-theme components
+   aren't shown on white, a combination the real app never has. */
+.docs-story {
+  background: var(--color-surface-default);
+}
+
+/* The "not affiliated" label at the top of the Welcome page. Storybook's own
+   UI, not a library component, so raw values are fine here. */
+.prototype-label {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 4px 12px;
+  border: 1px solid #1c1c1c;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}

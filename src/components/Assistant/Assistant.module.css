@@ -1,0 +1,215 @@
+/* The AI Assistant. Every value comes from --assistant-* tokens
+   (tokens/components/assistant.json): the reference product's measurements in AcmeCo's
+   navy and blue, on AcmeCo's shape rule (decision 29). */
+
+.assistant {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* ---- Launcher: a white pill with a navy-to-blue gradient border ---- */
+.launcher {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--assistant-launcher-gap);
+  padding-inline: var(--assistant-launcher-padding-start) var(--assistant-launcher-padding-end);
+  border: var(--assistant-edge-width) solid transparent;
+  border-radius: var(--assistant-launcher-radius);
+  /* Two backgrounds: white inside the padding, the gradient showing through the transparent border. */
+  background:
+    linear-gradient(var(--assistant-launcher-background), var(--assistant-launcher-background)) padding-box,
+    linear-gradient(109deg, var(--assistant-accent-start), var(--assistant-accent-end)) border-box;
+  color: var(--assistant-launcher-text);
+  font-family: inherit;
+  font-size: var(--assistant-message-font-size);
+  line-height: var(--assistant-message-line-height);
+  font-weight: var(--assistant-launcher-font-weight);
+  cursor: pointer;
+  outline: none;
+}
+.launcher[data-hovered] { box-shadow: var(--assistant-edge-glow); }
+.launcher[data-focus-visible], .control[data-focus-visible] {
+  outline: var(--assistant-focus-ring-width) solid var(--assistant-focus-ring-color);
+  outline-offset: var(--assistant-focus-ring-offset);
+}
+.md { height: var(--assistant-launcher-height-md); }
+.lg { height: var(--assistant-launcher-height-lg); }
+.launcherIcon {
+  width: var(--assistant-launcher-icon-size);
+  height: var(--assistant-launcher-icon-size);
+  color: var(--assistant-accent-end);
+}
+
+/* ---- Connecting bar: a pill with a moving gradient edge ---- */
+.bar {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--assistant-bar-width);
+  max-width: 100%;
+  min-height: var(--assistant-launcher-height-lg);
+  padding-inline: var(--assistant-launcher-padding-start) var(--assistant-launcher-padding-end);
+  border-radius: var(--assistant-bar-radius);
+}
+/* The edge: a wide gradient behind a transparent border, sliding back and forth. */
+.edge {
+  border: var(--assistant-edge-width) solid transparent;
+  background:
+    linear-gradient(var(--assistant-panel-background), var(--assistant-panel-background)) padding-box,
+    linear-gradient(90deg, var(--assistant-accent-end), var(--assistant-edge-light), var(--assistant-accent-start), var(--assistant-edge-light), var(--assistant-accent-end)) border-box;
+  background-size: 100% 100%, 400% 100%;
+  box-shadow: var(--assistant-edge-glow);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .edge { animation: orbit var(--assistant-edge-duration) var(--assistant-transition-easing) infinite; }
+}
+@keyframes orbit {
+  0%, 100% { background-position: 0 0, 0 0; }
+  50% { background-position: 0 0, 100% 0; }
+}
+
+/* ---- Thinking dots ---- */
+.dots { display: inline-flex; gap: var(--assistant-dots-gap); align-items: center; }
+.dots > span {
+  width: var(--assistant-dots-size);
+  height: var(--assistant-dots-size);
+  border-radius: var(--assistant-launcher-radius);
+  background-color: var(--assistant-dots-color);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .dots > span { animation: bounce var(--assistant-dots-duration) var(--assistant-transition-easing) infinite; }
+  .dots > span:nth-child(2) { animation-delay: calc(var(--assistant-dots-duration) / 6); }
+  .dots > span:nth-child(3) { animation-delay: calc(var(--assistant-dots-duration) / 3); }
+}
+@keyframes bounce {
+  0%, 20%, 80%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(-1 * var(--assistant-dots-travel))); }
+}
+
+/* ---- Panel ---- */
+.panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--assistant-panel-gap);
+  width: var(--assistant-bar-width);
+  max-width: 100%;
+  padding: var(--assistant-panel-padding);
+  border-radius: var(--assistant-panel-radius);
+  background-color: var(--assistant-panel-background);
+}
+/* The docked panel keeps the edge's gradient, still: it moves only while connecting. */
+.edgeStatic {
+  border: var(--assistant-edge-width) solid transparent;
+  background:
+    linear-gradient(var(--assistant-panel-background), var(--assistant-panel-background)) padding-box,
+    linear-gradient(109deg, var(--assistant-accent-start), var(--assistant-edge-light), var(--assistant-accent-end)) border-box;
+  box-shadow: var(--assistant-panel-shadow), var(--assistant-edge-glow);
+}
+
+/* Expanded: taller, with a header over a gradient line; the conversation fills the
+   middle and the text box and controls stay pinned at the bottom. */
+.expanded {
+  height: min(var(--assistant-panel-expanded-height), calc(100dvh - 2 * var(--assistant-panel-padding)));
+}
+.expanded .top { flex: 1; min-height: 0; }
+.expanded .log { max-height: none; height: 100%; }
+.expanded .composer {
+  margin-inline: calc(-1 * var(--assistant-panel-padding));
+  padding: var(--assistant-panel-padding) var(--assistant-panel-padding) 0;
+  border-top: var(--assistant-toggle-border-width) solid var(--assistant-panel-divider);
+}
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: var(--assistant-panel-header-height);
+  margin: calc(-1 * var(--assistant-panel-padding)) calc(-1 * var(--assistant-panel-padding)) 0;
+  padding-inline: var(--assistant-panel-padding);
+  background: linear-gradient(90deg, var(--assistant-accent-start), var(--assistant-edge-light), var(--assistant-accent-end)) bottom / 100% var(--assistant-panel-header-line) no-repeat;
+}
+.headerTitle {
+  grid-column: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--assistant-launcher-gap);
+  margin: 0;
+  font-size: var(--assistant-message-font-size);
+  line-height: var(--assistant-message-line-height);
+  font-weight: var(--assistant-launcher-font-weight);
+  color: var(--assistant-launcher-text);
+}
+.headerEnd { grid-column: 3; justify-self: end; }
+
+.top { display: flex; align-items: flex-start; gap: var(--assistant-panel-gap); }
+.log {
+  flex: 1;
+  min-width: 0;
+  max-height: var(--assistant-panel-conversation-max-height);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--assistant-message-gap);
+  font-size: var(--assistant-message-font-size);
+  line-height: var(--assistant-message-line-height);
+  color: var(--assistant-message-color);
+  outline: none;
+}
+.log:focus-visible {
+  outline: var(--assistant-focus-ring-width) solid var(--assistant-focus-ring-color);
+  outline-offset: calc(-1 * var(--assistant-focus-ring-width));
+}
+.reply { margin: 0; }
+.user {
+  align-self: flex-end;
+  max-width: calc(var(--assistant-message-user-max-width) * 1%);
+  margin: 0;
+  padding: var(--assistant-message-user-padding-y) var(--assistant-message-user-padding-x);
+  border-radius: var(--assistant-message-user-radius);
+  background-color: var(--assistant-message-user-background);
+}
+
+.composer { display: flex; align-items: flex-end; gap: var(--assistant-toggle-gap); }
+.field { flex: 1; min-width: 0; }
+
+.controls { display: flex; align-items: center; gap: var(--assistant-panel-gap); }
+.spacer { flex: 1; }
+
+/* Voice Mode and End chat: 32px outlined controls, 4px (decision 26). */
+.control {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--assistant-toggle-gap);
+  height: var(--assistant-toggle-height);
+  padding-inline: var(--assistant-toggle-padding-x);
+  border: var(--assistant-toggle-border-width) solid var(--assistant-toggle-border);
+  border-radius: var(--assistant-toggle-radius);
+  background: var(--assistant-panel-background);
+  color: var(--assistant-toggle-text);
+  font-family: inherit;
+  font-size: var(--assistant-toggle-font-size);
+  line-height: var(--assistant-toggle-line-height);
+  font-weight: var(--assistant-launcher-font-weight);
+  cursor: pointer;
+  outline: none;
+}
+.control[data-hovered] { background: var(--assistant-toggle-hover-background); }
+/* Voice Mode on: filled with the accent, white text. */
+.control[data-selected] {
+  border-color: transparent;
+  background: linear-gradient(109deg, var(--assistant-accent-start), var(--assistant-accent-end));
+  color: var(--assistant-accent-text);
+}
+.controlIcon { width: var(--assistant-toggle-icon-size); height: var(--assistant-toggle-icon-size); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .panel { animation: appear var(--assistant-transition-duration) var(--assistant-transition-easing); }
+}
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

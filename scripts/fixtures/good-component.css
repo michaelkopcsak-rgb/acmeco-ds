@@ -1,0 +1,16 @@
+/* Deliberately right: the token check's self-test must find nothing here.
+   Spacing, radius and border width reach a component through its own component
+   tokens (--good-*), which point at the primitive scales in tokens/components/.
+   Comments may mention #123a7a or 15px without tripping the check. */
+.good {
+  color: var(--color-text-default);
+  padding: var(--good-padding);
+  border: var(--good-border-width) solid var(--color-border-control-default);
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .good { padding: var(--good-padding-compact); }
+}
+@container (max-width: 400px) {
+  .good { padding: var(--good-padding-compact); }
+}

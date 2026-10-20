@@ -1,0 +1,13 @@
+{
+  "fact-list": {
+    "$description": "Tokens for FactList: label / value rows (decision 47). Measured from the audit's capture of the retail property page's facts (F21 Key-value fact row; desktop 1700px, phone 400px).",
+    "font-size": { "$type": "dimension", "$value": "{typography.body-large.font-size}", "$description": "OBSERVED: 20px labels and values, on desktop and phone; became 18px, the nearest size on the system's scale." },
+    "line-height": { "$type": "dimension", "$value": "{typography.body-large.line-height}", "$description": "OBSERVED: 24px; became 27px, the system's 1.5x rhythm (decision 9)." },
+    "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: labels at weight 100 and values at 400; both 400 now (decision 4: two weights), so the label's colour marks it, as on Tabs." },
+    "label": { "$type": "color", "$value": "{color.text.subtle}", "$description": "OBSERVED: black labels in a thin weight; became the secondary grey (#63666a, 5.77:1 on white) at regular weight, so labels read lighter than values without a thin font." },
+    "value": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: black values; became ink (#1c1c1c)." },
+    "column-gap": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: 8px after each label (padding-right)." },
+    "row-gap": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: 8px under each row (32px rows of 24px text)." },
+    "pair-gap": { "$type": "dimension", "$value": "{space.5}", "$description": "PROPOSED: 24px between the two pairs on a row. AcmeCo's pairs touch (two 628px halves), and a long value runs into the next label." }
+  }
+}

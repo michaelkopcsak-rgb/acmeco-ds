@@ -1,0 +1,44 @@
+/* Heading. Every value comes from --heading-* tokens (tokens/components/heading.json). No
+   margins: Stack and Section set the space around a heading. */
+
+.heading {
+  margin: 0;
+  color: var(--heading-color);
+}
+.display {
+  font-size: var(--heading-size-display-font-size);
+  line-height: var(--heading-size-display-line-height);
+  font-weight: var(--heading-size-display-font-weight);
+}
+.heading-1 {
+  font-size: var(--heading-size-heading-1-font-size);
+  line-height: var(--heading-size-heading-1-line-height);
+  font-weight: var(--heading-size-heading-1-font-weight);
+}
+.heading-2 {
+  font-size: var(--heading-size-heading-2-font-size);
+  line-height: var(--heading-size-heading-2-line-height);
+  font-weight: var(--heading-size-heading-2-font-weight);
+}
+.heading-3 {
+  font-size: var(--heading-size-heading-3-font-size);
+  line-height: var(--heading-size-heading-3-line-height);
+  font-weight: var(--heading-size-heading-3-font-weight);
+}
+/* A hero heading steps down on phones, so it fits. */
+@media (max-width: 768px) {
+  .display {
+    font-size: var(--heading-size-display-font-size-compact);
+    line-height: var(--heading-size-display-line-height-compact);
+  }
+}
+
+.center { text-align: center; }
+
+/* A size from 768px up, for a heading that's smaller on phones (size={{ base, md }}). */
+@media (min-width: 768px) {
+  .md-display { font-size: var(--heading-size-display-font-size); line-height: var(--heading-size-display-line-height); font-weight: var(--heading-size-display-font-weight); }
+  .md-heading-1 { font-size: var(--heading-size-heading-1-font-size); line-height: var(--heading-size-heading-1-line-height); font-weight: var(--heading-size-heading-1-font-weight); }
+  .md-heading-2 { font-size: var(--heading-size-heading-2-font-size); line-height: var(--heading-size-heading-2-line-height); font-weight: var(--heading-size-heading-2-font-weight); }
+  .md-heading-3 { font-size: var(--heading-size-heading-3-font-size); line-height: var(--heading-size-heading-3-line-height); font-weight: var(--heading-size-heading-3-font-weight); }
+}

@@ -1,0 +1,183 @@
+{
+  "filter": {
+    "$description": "Tokens for FilterButton and FilterMenu: the search bar's pill filters (Space Use, Rent, Size, All Filters). Measured from the audit's search results capture (quick-search-filters) and a reference screenshot of the live bar (2026-10-10). Same height, shape and type as the compact Select beside them, so the bar is one family. Found missing by the search results screen (gaps 1-3).",
+    "height": {
+      "$type": "dimension",
+      "$value": "40px",
+      "$description": "OBSERVED: 40px pills with 16px text on AcmeCo's desktop results (reference screenshots, 2026-10-11). Decision 40 made them 32px to match the compact Select; decision 45 restores 40px, the Select's compact pill with it."
+    },
+    "height-touch": {
+      "$type": "dimension",
+      "$value": "40px",
+      "$description": "OBSERVED: on AcmeCo's phone the pills are 40px tall with 16px text and no chevrons (a reference screenshot, 2026-10-11); below 768px they grow to it, a comfortable touch target (decision 42)."
+    },
+    "font-size-touch": {
+      "$type": "dimension",
+      "$value": "{typography.body.font-size}",
+      "$description": "OBSERVED: 16px pill text on AcmeCo's phone."
+    },
+    "line-height-touch": {
+      "$type": "dimension",
+      "$value": "{typography.body.line-height}",
+      "$description": "OBSERVED: 16/24."
+    },
+    "padding-x-touch": {
+      "$type": "dimension",
+      "$value": "{space.4}",
+      "$description": "OBSERVED: about 16px either side on AcmeCo's phone pills."
+    },
+    "padding-x": {
+      "$type": "dimension",
+      "$value": "{space.4}",
+      "$description": "OBSERVED: about 16px either side (decision 45; was 12px)."
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{space.1}",
+      "$description": "OBSERVED: 4px between a pill's icon, label, count and chevron."
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{radius.pill}",
+      "$description": "OBSERVED: fully rounded (20px on a 40px pill)."
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{typography.body.font-size}",
+      "$description": "OBSERVED: 16px pill text on AcmeCo's desktop results (reference screenshots, 2026-10-11; decision 45, was 14px)."
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{typography.body.line-height}",
+      "$description": "OBSERVED: 16/24."
+    },
+    "font-weight": {
+      "$type": "fontWeight",
+      "$value": "{font.weight.regular}",
+      "$description": "OBSERVED: 100 (the legacy brand typeface thin); became 400 (decision 4)."
+    },
+    "text": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "OBSERVED: #1c1c1c."
+    },
+    "background": {
+      "$type": "color",
+      "$value": "{color.surface.default}",
+      "$description": "OBSERVED: white."
+    },
+    "background-hover": {
+      "$type": "color",
+      "$value": "{color.surface.hover}",
+      "$description": "PROPOSED: grey on hover, as the system's other quiet controls."
+    },
+    "background-active": {
+      "$type": "color",
+      "$value": "{color.surface.subtle}",
+      "$description": "OBSERVED: a set filter is light grey (#f3f3f3)."
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{color.border.control.default}",
+      "$description": "OBSERVED: 1px #b2b2b2; became the control border (#808386, decision 5), as on the compact Select, for 3:1."
+    },
+    "border-hover": {
+      "$type": "color",
+      "$value": "{color.border.control.hover}",
+      "$description": "PROPOSED: darker on hover, as the compact Select."
+    },
+    "border-active": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "OBSERVED: a set filter has a 1px #1c1c1c border."
+    },
+    "border-width": {
+      "$type": "dimension",
+      "$value": "{border.width.default}",
+      "$description": "OBSERVED: 1px."
+    },
+    "icon-size": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "PROPOSED: the sliders icon and chevron at 16px, as the compact Select's chevron."
+    },
+    "count": {
+      "inset": {
+        "$type": "dimension",
+        "$value": "-4px",
+        "$description": "OBSERVED: on the round phone filter button the count sits over its top-right edge (a reference screenshot)."
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{space.5}",
+        "$description": "OBSERVED: a round count about 20-24px beside All Filters (a reference screenshot)."
+      },
+      "background": {
+        "$type": "color",
+        "$value": "{color.text.link.default}",
+        "$description": "OBSERVED: a blue count; the system's one blue (6.80:1 against white text)."
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.text.inverse}",
+        "$description": "OBSERVED: a white number."
+      },
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{typography.caption.font-size}",
+        "$description": "PROPOSED: 12px."
+      }
+    },
+    "clear": {
+      "size": {
+        "$type": "dimension",
+        "$value": "{space.5}",
+        "$description": "PROPOSED: a 24px clear button inside the pill (the 24px target minimum, WCAG 2.5.8), as the chip's remove button."
+      },
+      "icon-size": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "OBSERVED: the x after \"Office, Coworking\"."
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "{color.surface.pressed}",
+        "$description": "PROPOSED: a darker grey on hover, on the set pill's light grey."
+      }
+    },
+    "panel": {
+      "width": {
+        "$type": "dimension",
+        "$value": "280px",
+        "$description": "PROPOSED: the filter panels' width, as the site menu's panel."
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": "{space.4}",
+        "$description": "PROPOSED: 16px between a panel's fields."
+      },
+      "padding": {
+        "$type": "dimension",
+        "$value": "{space.2}",
+        "$description": "PROPOSED: 8px inside the panel's own 8px padding, so fields sit 16px from its edge."
+      }
+    },
+    "focus-ring": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.focus.ring.default}",
+        "$description": "PROPOSED: the system focus ring."
+      },
+      "width": {
+        "$type": "dimension",
+        "$value": "{focus.ring.width}",
+        "$description": "PROPOSED: 2px."
+      },
+      "offset": {
+        "$type": "dimension",
+        "$value": "{focus.ring.offset}",
+        "$description": "PROPOSED: 2px."
+      }
+    }
+  }
+}

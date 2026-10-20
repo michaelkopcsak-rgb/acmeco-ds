@@ -1,0 +1,60 @@
+/* SearchField: the shared field styles plus the clear button.
+   Every value comes from --field-* tokens. */
+
+/* AcmeCo's clear button: a filled dark circle with a white cross. */
+.clear {
+  box-sizing: border-box;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--field-control-clear-size);
+  height: var(--field-control-clear-size);
+  padding: 0;
+  border: 0;
+  border-radius: var(--field-control-pill-radius);
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.clear[data-focus-visible] {
+  outline: var(--field-control-focus-ring-width) solid var(--field-control-focus-ring-color);
+  outline-offset: 0;
+}
+.clearIcon {
+  width: var(--field-control-clear-icon-size);
+  height: var(--field-control-clear-icon-size);
+  fill: var(--field-control-clear-background);
+  stroke: var(--field-control-clear-icon);
+}
+/* Nothing to clear when the field is empty. */
+.searchField[data-empty] .clear { display: none; }
+
+/* The dark blue Search button sits inside the field's end edge: the same 4px inset
+   (measured from the outer edge, border included) on the right as top and bottom. */
+.submit { display: inline-flex; }
+[data-size='md'] .submit { margin-inline-end: calc(var(--field-control-md-padding-x) * -1 + var(--field-gap) - var(--field-control-border-width)); }
+[data-size='lg'] .submit { margin-inline-end: calc(var(--field-control-lg-padding-x) * -1 + var(--field-gap) - var(--field-control-border-width)); }
+
+/* The results search (as AcmeCo's): a location arrow before the text, and a plain dark blue
+   magnifier at the end instead of the filled button. */
+.startIcon { display: inline-flex; flex: none; color: var(--field-control-start-icon-color); }
+.startIcon > svg { width: var(--field-control-start-icon-size); height: var(--field-control-start-icon-size); }
+.searchIcon {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--field-control-clear-size);
+  height: var(--field-control-clear-size);
+  padding: 0;
+  border: 0;
+  border-radius: var(--field-control-pill-radius);
+  background: transparent;
+  color: var(--field-control-search-icon-color);
+  cursor: pointer;
+  outline: none;
+}
+.searchIcon > svg { width: var(--field-control-search-icon-size); height: var(--field-control-search-icon-size); }
+.searchIcon[data-focus-visible] {
+  outline: var(--field-control-focus-ring-width) solid var(--field-control-focus-ring-color);
+  outline-offset: 0;
+}

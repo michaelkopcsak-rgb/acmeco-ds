@@ -1,0 +1,16 @@
+// A screen that breaks every screen rule (self-test fixture for check-boundaries.mjs).
+import { Button as AriaButton } from 'react-aria-components'
+import styles from './Fixture.module.css'
+import { Hero } from '../Other/Other'
+import { Button } from '../../components/Button/Button'
+
+export function Fixture() {
+  return (
+    <div className={styles.page}>
+      <h1 style={{ fontSize: 40 }}>Title</h1>
+      <Hero />
+      <AriaButton>Raw</AriaButton>
+      <Button>Fine</Button>
+    </div>
+  )
+}

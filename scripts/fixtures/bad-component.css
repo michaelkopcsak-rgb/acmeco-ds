@@ -1,0 +1,7 @@
+/* Deliberately wrong: the token check's self-test must flag every rule below. */
+.bad {
+  color: #123a7a;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-color: var(--color-brand-700);
+}

@@ -1,0 +1,115 @@
+/* Footer. Values from --shell-footer-* (and the logo's --shell-logo-*) tokens
+   (tokens/components/shell.json); links bring their own. */
+
+.footer {
+  border-top: var(--shell-footer-line-width) solid var(--shell-footer-line-color);
+  background-color: var(--shell-footer-background);
+  font-size: var(--shell-footer-font-size);
+  line-height: var(--shell-footer-line-height);
+  font-weight: var(--shell-footer-font-weight);
+}
+.inner {
+  box-sizing: border-box;
+  max-width: var(--layout-container-max-width);
+  margin-inline: auto;
+  padding: var(--shell-footer-padding);
+}
+
+/* Five columns on wide screens, three on tablets, two on phones: nothing goes off screen. */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: var(--shell-footer-column-gap);
+  row-gap: var(--shell-footer-row-gap);
+}
+@media (max-width: 1023px) { .columns { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 767px) {
+  .inner { padding: var(--shell-footer-padding-y-compact) var(--shell-footer-padding-x-compact); }
+  .columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.column { display: flex; flex-direction: column; gap: var(--shell-footer-heading-gap); }
+.heading {
+  margin: 0;
+  font: inherit;
+  color: var(--shell-footer-heading-text);
+}
+.links, .social, .apps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--shell-footer-link-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Footer links are AcmeCo's secondary grey, not ink. */
+.links a, .apps a { color: var(--shell-footer-link-text); }
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--shell-footer-brand-item-gap);
+  margin-top: var(--shell-footer-brand-gap);
+}
+.text { margin: 0; color: var(--shell-footer-heading-text); }
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--shell-logo-gap);
+  margin: 0;
+  font-size: var(--shell-logo-font-size);
+  line-height: var(--shell-logo-line-height);
+  font-weight: var(--shell-logo-font-weight);
+  color: var(--shell-footer-heading-text);
+}
+.mark, .socialMark {
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  border: var(--shell-logo-mark-border-width) solid var(--shell-logo-mark-border);
+  color: var(--shell-footer-heading-text);
+}
+.mark {
+  width: var(--shell-logo-mark-size);
+  height: var(--shell-logo-mark-size);
+  border-radius: var(--shell-logo-mark-size);
+  font-size: var(--shell-logo-mark-font-size);
+}
+
+/* Social: a row of round placeholder marks; the new-tab icon is left to screen readers
+   ("opens in a new tab"), the circles are the visual. */
+.social { flex-direction: row; gap: var(--shell-footer-social-gap); }
+.socialMark {
+  width: var(--shell-footer-social-size);
+  height: var(--shell-footer-social-size);
+  border-color: var(--shell-footer-social-border);
+  border-radius: var(--shell-footer-social-size);
+  background-color: var(--shell-header-background);
+  font-size: var(--shell-footer-social-font-size);
+}
+.social a > svg { display: none; }
+.social a { display: inline-flex; border-radius: var(--shell-footer-social-size); }
+.apps { flex-direction: row; flex-wrap: wrap; column-gap: var(--shell-footer-column-gap); }
+
+/* Phones (decision 51): AcmeCo's one list of links, lines between them edge to edge, in place
+   of the columns; then the brand block centred, with the disclaimer last. */
+.phoneLinks { display: none; }
+@media (max-width: 767px) {
+  .columns[data-phone-links] { display: none; }
+  .phoneLinks {
+    display: block;
+    margin: 0 calc(var(--shell-footer-padding-x-compact) * -1);
+    padding: 0;
+    list-style: none;
+  }
+  .phoneLinks li {
+    padding: var(--shell-footer-phone-links-padding-block) var(--shell-footer-phone-links-padding-inline);
+    border-bottom: var(--shell-footer-phone-links-line-width) solid var(--shell-footer-phone-links-line-color);
+  }
+  .phoneLinks a { color: var(--shell-footer-link-text); }
+  .brand { align-items: center; text-align: center; }
+  .social, .apps { justify-content: center; }
+  .disclaimer { order: 1; text-align: start; }
+}

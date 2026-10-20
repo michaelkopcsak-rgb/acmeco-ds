@@ -1,0 +1,1405 @@
+{
+  "$description": "Every colour pairing the semantic tokens are designed for, with the minimum it must reach. text = 4.5:1 (WCAG 1.4.3), ui = 3:1 for boundaries, focus rings and states (WCAG 1.4.11), exempt = disabled content, held to 3:1 by our own choice. Checked in CI by scripts/check-contrast.mjs and shown on the Storybook Contrast page.",
+  "pairs": [
+    {
+      "fg": "color.text.default",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.default",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.default",
+      "bg": "color.surface.pressed",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Tertiary and plain controls while pressed"
+    },
+    {
+      "fg": "color.text.default",
+      "bg": "color.surface.overlay-control",
+      "backdrop": "#000000",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Label over the darkest possible photo"
+    },
+    {
+      "fg": "color.text.subtle",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.subtle",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.inverse",
+      "bg": "color.surface.inverse",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.inverse",
+      "bg": "color.surface.brand-dark",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.inverse",
+      "bg": "color.promo.feature",
+      "min": 4.5,
+      "kind": "text",
+      "note": "'Virtual Tour' label"
+    },
+    {
+      "fg": "color.text.inverse",
+      "bg": "color.promo.auction",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Auction label"
+    },
+    {
+      "fg": "color.text.link.default",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.link.default",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.link.hover",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.text.link.hover",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.action.text.default",
+      "bg": "color.action.background.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Primary button"
+    },
+    {
+      "fg": "color.action.text.default",
+      "bg": "color.action.background.hover",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Primary button, hover"
+    },
+    {
+      "fg": "color.action.text.default",
+      "bg": "color.action.background.pressed",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Primary button, pressed"
+    },
+    {
+      "fg": "color.action.foreground.default",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Secondary button"
+    },
+    {
+      "fg": "color.action.foreground.default",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Secondary button on a grey section"
+    },
+    {
+      "fg": "color.action.foreground.hover",
+      "bg": "color.surface.hover",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Secondary button, hover"
+    },
+    {
+      "fg": "color.action.foreground.pressed",
+      "bg": "color.surface.pressed",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Secondary button, pressed"
+    },
+    {
+      "fg": "color.feedback.error",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Error message"
+    },
+    {
+      "fg": "color.feedback.error",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.feedback.success",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Success message"
+    },
+    {
+      "fg": "color.feedback.success",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text"
+    },
+    {
+      "fg": "color.border.control.default",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Field and checkbox boundary"
+    },
+    {
+      "fg": "color.border.control.default",
+      "bg": "color.surface.subtle",
+      "min": 3,
+      "kind": "ui"
+    },
+    {
+      "fg": "color.border.control.hover",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui"
+    },
+    {
+      "fg": "color.feedback.error",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Error field border"
+    },
+    {
+      "fg": "color.action.background.default",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Checked checkbox, selected state"
+    },
+    {
+      "fg": "color.action.background.default",
+      "bg": "color.surface.subtle",
+      "min": 3,
+      "kind": "ui"
+    },
+    {
+      "fg": "color.focus.ring.default",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Focus ring"
+    },
+    {
+      "fg": "color.focus.ring.default",
+      "bg": "color.surface.subtle",
+      "min": 3,
+      "kind": "ui"
+    },
+    {
+      "fg": "color.focus.ring.inverse",
+      "bg": "color.surface.brand-dark",
+      "min": 3,
+      "kind": "ui",
+      "note": "Focus ring on the auction banner"
+    },
+    {
+      "fg": "color.focus.ring.inverse",
+      "bg": "color.surface.inverse",
+      "min": 3,
+      "kind": "ui"
+    },
+    {
+      "fg": "color.text.disabled",
+      "bg": "color.surface.disabled",
+      "min": 3,
+      "kind": "exempt",
+      "note": "Disabled control"
+    },
+    {
+      "fg": "color.text.disabled",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "exempt"
+    },
+    {
+      "fg": "button.primary.text.default",
+      "bg": "button.primary.background.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button primary"
+    },
+    {
+      "fg": "button.primary.text.default",
+      "bg": "button.primary.background.hover",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button primary, hover"
+    },
+    {
+      "fg": "button.primary.text.default",
+      "bg": "button.primary.background.pressed",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button primary, pressed"
+    },
+    {
+      "fg": "button.secondary.text.default",
+      "bg": "button.secondary.background.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button secondary"
+    },
+    {
+      "fg": "button.secondary.text.hover",
+      "bg": "button.secondary.background.hover",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button secondary, hover"
+    },
+    {
+      "fg": "button.secondary.text.pressed",
+      "bg": "button.secondary.background.pressed",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button secondary, pressed"
+    },
+    {
+      "fg": "button.secondary.border.default",
+      "bg": "button.secondary.background.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Button secondary outline"
+    },
+    {
+      "fg": "button.tertiary.text.default",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button tertiary (no fill) on the page"
+    },
+    {
+      "fg": "button.tertiary.text.default",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button tertiary on a grey section"
+    },
+    {
+      "fg": "button.tertiary.text.default",
+      "bg": "button.tertiary.background.hover",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button tertiary, hover"
+    },
+    {
+      "fg": "button.tertiary.text.default",
+      "bg": "button.tertiary.background.pressed",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Button tertiary, pressed"
+    },
+    {
+      "fg": "button.focus-ring.color",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Button focus ring"
+    },
+    {
+      "fg": "button.disabled.text",
+      "bg": "button.disabled.background",
+      "min": 3,
+      "kind": "exempt",
+      "note": "Button disabled"
+    },
+    {
+      "fg": "icon-button.plain.icon",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton plain on the page"
+    },
+    {
+      "fg": "icon-button.plain.icon",
+      "bg": "color.surface.subtle",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton plain on a grey section"
+    },
+    {
+      "fg": "icon-button.plain.icon",
+      "bg": "icon-button.plain.background.hover",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton plain, hover"
+    },
+    {
+      "fg": "icon-button.plain.icon",
+      "bg": "icon-button.plain.background.pressed",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton plain, pressed"
+    },
+    {
+      "fg": "icon-button.selected.icon",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton selected (saved)"
+    },
+    {
+      "fg": "icon-button.selected.icon",
+      "bg": "icon-button.plain.background.hover",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton selected, hover"
+    },
+    {
+      "fg": "icon-button.selected.icon",
+      "bg": "icon-button.overlay.background.default",
+      "backdrop": "#000000",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton overlay selected, over the darkest photo"
+    },
+    {
+      "fg": "icon-button.overlay.icon",
+      "bg": "icon-button.overlay.background.default",
+      "backdrop": "#000000",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton overlay over the darkest photo"
+    },
+    {
+      "fg": "icon-button.overlay.icon",
+      "bg": "icon-button.overlay.background.hover",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton overlay, hover"
+    },
+    {
+      "fg": "icon-button.overlay.icon",
+      "bg": "icon-button.overlay.background.pressed",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton overlay, pressed"
+    },
+    {
+      "fg": "icon-button.primary.icon",
+      "bg": "icon-button.primary.background.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton primary"
+    },
+    {
+      "fg": "icon-button.primary.icon",
+      "bg": "icon-button.primary.background.hover",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton primary, hover"
+    },
+    {
+      "fg": "icon-button.primary.icon",
+      "bg": "icon-button.primary.background.pressed",
+      "min": 3,
+      "kind": "ui",
+      "note": "IconButton primary, pressed"
+    },
+    {
+      "fg": "icon-button.overlay-focus-ring.outer",
+      "bg": "icon-button.overlay-focus-ring.inner",
+      "min": 3,
+      "kind": "ui",
+      "note": "Overlay double focus ring: the two rings contrast with each other, so one always shows on any photo"
+    },
+    {
+      "fg": "icon-button.disabled.icon",
+      "bg": "icon-button.disabled.background",
+      "min": 3,
+      "kind": "exempt",
+      "note": "IconButton disabled"
+    },
+    {
+      "fg": "link.inline.text.default",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Link inline"
+    },
+    {
+      "fg": "link.inline.text.default",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Link inline on a grey section"
+    },
+    {
+      "fg": "link.inline.text.hover",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Link inline, hover"
+    },
+    {
+      "fg": "link.standalone.text.default",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Link standalone"
+    },
+    {
+      "fg": "link.standalone.text.hover",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Link standalone, hover, on grey"
+    },
+    {
+      "fg": "link.subtle.text.default",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Link subtle (card titles)"
+    },
+    {
+      "fg": "link.subtle.text.default",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Link subtle on grey"
+    },
+    {
+      "fg": "link.inverse.text.default",
+      "bg": "color.surface.brand-dark",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Link inverse on the auction banner"
+    },
+    {
+      "fg": "link.inverse.text.default",
+      "bg": "color.surface.inverse",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Link inverse on ink"
+    },
+    {
+      "fg": "link.focus-ring.inverse-color",
+      "bg": "color.surface.brand-dark",
+      "min": 3,
+      "kind": "ui",
+      "note": "Link inverse focus ring"
+    },
+    {
+      "fg": "field.label.color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Field label"
+    },
+    {
+      "fg": "field.label.color",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Field label on a grey section"
+    },
+    {
+      "fg": "field.hint.color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Field hint"
+    },
+    {
+      "fg": "field.error.color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Field error message"
+    },
+    {
+      "fg": "field.control.text.default",
+      "bg": "field.control.background.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Typed text"
+    },
+    {
+      "fg": "field.control.text.placeholder",
+      "bg": "field.control.background.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Placeholder"
+    },
+    {
+      "fg": "field.control.text.default",
+      "bg": "field.control.background.read-only",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Read-only value"
+    },
+    {
+      "fg": "field.control.border.default",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Field boundary on the page"
+    },
+    {
+      "fg": "field.control.border.default",
+      "bg": "color.surface.subtle",
+      "min": 3,
+      "kind": "ui",
+      "note": "Field boundary on a grey section"
+    },
+    {
+      "fg": "field.control.border.hover",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Field boundary, hover"
+    },
+    {
+      "fg": "field.control.border.invalid",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Field boundary, invalid"
+    },
+    {
+      "fg": "field.control.focus-ring.color",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Field focus ring"
+    },
+    {
+      "fg": "field.control.clear.background",
+      "bg": "field.control.background.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Clear button circle"
+    },
+    {
+      "fg": "field.control.clear.icon",
+      "bg": "field.control.clear.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Clear button cross on its circle"
+    },
+    {
+      "fg": "field.control.text.disabled",
+      "bg": "field.control.background.disabled",
+      "min": 3,
+      "kind": "exempt",
+      "note": "Disabled field"
+    },
+    {
+      "fg": "checkbox.unchecked.border.default",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Checkbox unchecked boundary"
+    },
+    {
+      "fg": "checkbox.unchecked.border.default",
+      "bg": "color.surface.subtle",
+      "min": 3,
+      "kind": "ui",
+      "note": "Checkbox unchecked on a grey section"
+    },
+    {
+      "fg": "checkbox.unchecked.border.hover",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Checkbox unchecked, hover"
+    },
+    {
+      "fg": "checkbox.checked.background.default",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Checkbox checked fill"
+    },
+    {
+      "fg": "checkbox.checked.background.default",
+      "bg": "color.surface.subtle",
+      "min": 3,
+      "kind": "ui",
+      "note": "Checkbox checked on a grey section"
+    },
+    {
+      "fg": "checkbox.checked.icon",
+      "bg": "checkbox.checked.background.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Check mark"
+    },
+    {
+      "fg": "checkbox.checked.icon",
+      "bg": "checkbox.checked.background.hover",
+      "min": 3,
+      "kind": "ui",
+      "note": "Check mark, hover"
+    },
+    {
+      "fg": "checkbox.checked.icon",
+      "bg": "checkbox.checked.background.pressed",
+      "min": 3,
+      "kind": "ui",
+      "note": "Check mark, pressed"
+    },
+    {
+      "fg": "checkbox.invalid.border",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Checkbox invalid boundary"
+    },
+    {
+      "fg": "checkbox.label.color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Checkbox label"
+    },
+    {
+      "fg": "checkbox.label.color",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Checkbox label on grey"
+    },
+    {
+      "fg": "checkbox.disabled.label",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "exempt",
+      "note": "Checkbox disabled label"
+    },
+    {
+      "fg": "checkbox.disabled.icon",
+      "bg": "checkbox.disabled.background",
+      "min": 3,
+      "kind": "exempt",
+      "note": "Checkbox disabled check mark"
+    },
+    {
+      "fg": "select.option.text",
+      "bg": "select.popover.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Select option"
+    },
+    {
+      "fg": "select.option.text",
+      "bg": "select.option.background-focused",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Select option, focused or hovered"
+    },
+    {
+      "fg": "select.option.text",
+      "bg": "select.option.background-pressed",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Select option, pressed"
+    },
+    {
+      "fg": "select.option.text-disabled",
+      "bg": "select.popover.background",
+      "min": 3,
+      "kind": "exempt",
+      "note": "Select option, disabled"
+    },
+    {
+      "fg": "tab-selector.tab.text",
+      "bg": "tab-selector.tab.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Tab label (grey tab)"
+    },
+    {
+      "fg": "tab-selector.tab.text",
+      "bg": "tab-selector.tab.background-hover",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Tab label, hover"
+    },
+    {
+      "fg": "tab-selector.tab.text",
+      "bg": "tab-selector.selected.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Selected tab label"
+    },
+    {
+      "fg": "tab-selector.selected.border",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Selected tab edge against the page"
+    },
+    {
+      "fg": "tab-selector.selected.border",
+      "bg": "tab-selector.tab.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Selected tab edge against a grey tab beside it (AcmeCo's white on grey alone is about 1.1:1)"
+    },
+    {
+      "fg": "tab-selector.focus-ring.color",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Focus ring"
+    },
+    {
+      "fg": "tab-selector.disabled.text",
+      "bg": "tab-selector.disabled.background",
+      "min": 3,
+      "kind": "exempt",
+      "note": "Disabled tab"
+    },
+    {
+      "fg": "badge.neutral.text",
+      "bg": "badge.neutral.background",
+      "backdrop": "#000000",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Photo badge over the darkest photo (AcmeCo's 50% white would be 4.31:1)"
+    },
+    {
+      "fg": "badge.subtle.text",
+      "bg": "badge.subtle.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Badge, subtle"
+    },
+    {
+      "fg": "badge.auction.text",
+      "bg": "badge.auction.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Badge, auction"
+    },
+    {
+      "fg": "badge.feature.text",
+      "bg": "badge.feature.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Feature label ('Virtual Tour')"
+    },
+    {
+      "fg": "chip.text",
+      "bg": "chip.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Chip label"
+    },
+    {
+      "fg": "chip.remove.icon",
+      "bg": "chip.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Chip remove icon"
+    },
+    {
+      "fg": "chip.remove.icon",
+      "bg": "chip.remove.background-hover",
+      "min": 3,
+      "kind": "ui",
+      "note": "Chip remove icon, hover"
+    },
+    {
+      "fg": "chip.focus-ring.color",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Chip focus ring"
+    },
+    {
+      "fg": "property.header.color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Card header (title, address, size, city)"
+    },
+    {
+      "fg": "property.facts.color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Card facts"
+    },
+    {
+      "fg": "property.facts.description-color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Card description"
+    },
+    {
+      "fg": "property.price.color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Price"
+    },
+    {
+      "fg": "property.price.muted-color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Price upon request"
+    },
+    {
+      "fg": "property.broker.name-color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Broker name"
+    },
+    {
+      "fg": "property.broker.avatar-text",
+      "bg": "property.broker.avatar-background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Placeholder avatar initials"
+    },
+    {
+      "fg": "property.header.color",
+      "bg": "property-card.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Card text on the card surface"
+    },
+    {
+      "fg": "property-card.focus-ring.color",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Card focus ring on a white page"
+    },
+    {
+      "fg": "property-card.focus-ring.color",
+      "bg": "color.surface.subtle",
+      "min": 3,
+      "kind": "ui",
+      "note": "Card focus ring on a grey page"
+    },
+    {
+      "fg": "dialog.title.color",
+      "bg": "dialog.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Dialog title"
+    },
+    {
+      "fg": "dialog.body.color",
+      "bg": "dialog.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Dialog body text"
+    },
+    {
+      "fg": "dialog.focus-ring.color",
+      "bg": "dialog.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Focus rings inside a dialog"
+    },
+    {
+      "fg": "assistant.launcher.text",
+      "bg": "assistant.launcher.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Assistant launcher label"
+    },
+    {
+      "fg": "assistant.accent.text",
+      "bg": "assistant.accent.start",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Voice Mode on: white on navy (gradient start)"
+    },
+    {
+      "fg": "assistant.accent.text",
+      "bg": "assistant.accent.end",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Voice Mode on: white on blue (gradient end)"
+    },
+    {
+      "fg": "assistant.message.color",
+      "bg": "assistant.panel.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Assistant replies"
+    },
+    {
+      "fg": "assistant.message.color",
+      "bg": "assistant.message.user-background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "User messages in bubbles"
+    },
+    {
+      "fg": "assistant.toggle.text",
+      "bg": "assistant.panel.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Voice Mode off"
+    },
+    {
+      "fg": "assistant.toggle.border",
+      "bg": "assistant.panel.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Voice Mode outline"
+    },
+    {
+      "fg": "assistant.focus-ring.color",
+      "bg": "assistant.panel.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Focus rings in the panel"
+    },
+    {
+      "fg": "contact-form.note.color",
+      "bg": "dialog.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Contact form terms and 'Already a member?'"
+    },
+    {
+      "fg": "contact-form.sent.color",
+      "bg": "dialog.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "'Message sent' confirmation"
+    },
+    {
+      "fg": "contact-module.heading.color",
+      "bg": "contact-module.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "ContactModule heading and phone number"
+    },
+    {
+      "fg": "sign-in.promo.text-color",
+      "bg": "sign-in.promo.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Sign-in promo text on the grey panel"
+    },
+    {
+      "fg": "sign-in.dot.color",
+      "bg": "sign-in.promo.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Sign-in carousel dot (a button) on the grey panel"
+    },
+    {
+      "fg": "sign-in.dot.current-color",
+      "bg": "sign-in.promo.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Current slide's dot"
+    },
+    {
+      "fg": "sign-in.divider.text",
+      "bg": "dialog.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "'or continue with'"
+    },
+    {
+      "fg": "color.focus.ring.default",
+      "bg": "sign-in.promo.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Focus ring on the grey promo panel"
+    },
+    {
+      "fg": "sign-in.provider.text",
+      "bg": "sign-in.provider.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Sign-in option placeholder mark"
+    },
+    {
+      "fg": "sign-in.provider.border",
+      "bg": "dialog.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Sign-in option circle outline"
+    },
+    {
+      "fg": "tabs.text.default",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Tab label (not selected)"
+    },
+    {
+      "fg": "tabs.text.selected",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Selected tab label"
+    },
+    {
+      "fg": "tabs.indicator.color",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Selected tab underline"
+    },
+    {
+      "fg": "choice-cards.text",
+      "bg": "choice-cards.background.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Choice card text"
+    },
+    {
+      "fg": "choice-cards.text",
+      "bg": "choice-cards.background.hover",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Choice card text, hovered"
+    },
+    {
+      "fg": "choice-cards.text",
+      "bg": "choice-cards.background.selected",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Choice card text, selected"
+    },
+    {
+      "fg": "choice-cards.border.selected",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Selected choice card border"
+    },
+    {
+      "fg": "choice-cards.text-disabled",
+      "bg": "choice-cards.background.default",
+      "min": 3,
+      "kind": "exempt",
+      "note": "Choice card, not available"
+    },
+    {
+      "fg": "disclosure.trigger.text",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Disclosure button"
+    },
+    {
+      "fg": "disclosure.trigger.text",
+      "bg": "disclosure.trigger.background-hover",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Disclosure button, hovered"
+    },
+    {
+      "fg": "color.text.default",
+      "bg": "popover.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Text in a popover"
+    },
+    {
+      "fg": "site-menu.login-text",
+      "bg": "popover.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Menu: Log In/Sign Up in dark blue"
+    },
+    {
+      "fg": "shell.header.text",
+      "bg": "shell.header.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Header text and links"
+    },
+    {
+      "fg": "shell.logo.mark-text",
+      "bg": "shell.header.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Header placeholder mark initials"
+    },
+    {
+      "fg": "shell.logo.mark-border",
+      "bg": "shell.header.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Header placeholder mark outline"
+    },
+    {
+      "fg": "link.standalone.text.default",
+      "bg": "shell.skip.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Skip link"
+    },
+    {
+      "fg": "shell.footer.link-text",
+      "bg": "shell.footer.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Footer links"
+    },
+    {
+      "fg": "shell.footer.heading-text",
+      "bg": "shell.footer.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Footer headings and text"
+    },
+    {
+      "fg": "shell.footer.social-border",
+      "bg": "shell.footer.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Footer social placeholder outline"
+    },
+    {
+      "fg": "heading.color",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Headings"
+    },
+    {
+      "fg": "heading.color",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Headings on the light grey"
+    },
+    {
+      "fg": "text.color.default",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Body text"
+    },
+    {
+      "fg": "text.color.subtle",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Secondary text"
+    },
+    {
+      "fg": "text.color.subtle",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Secondary text on the light grey"
+    },
+    {
+      "fg": "map.pin.color",
+      "bg": "map.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Map pin on the placeholder's grey"
+    },
+    {
+      "fg": "map.pin.border",
+      "bg": "map.pin.color",
+      "min": 3,
+      "kind": "ui",
+      "note": "Map pin's white edge"
+    },
+    {
+      "fg": "filter.text",
+      "bg": "filter.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Filter pill text"
+    },
+    {
+      "fg": "filter.text",
+      "bg": "filter.background-active",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Set filter pill text"
+    },
+    {
+      "fg": "filter.border",
+      "bg": "filter.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Filter pill outline"
+    },
+    {
+      "fg": "filter.border-active",
+      "bg": "filter.background-active",
+      "min": 3,
+      "kind": "ui",
+      "note": "Set filter pill outline"
+    },
+    {
+      "fg": "filter.count.text",
+      "bg": "filter.count.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "All Filters count"
+    },
+    {
+      "fg": "field.control.search-icon-color",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "The results search's dark blue magnifier"
+    },
+    {
+      "fg": "toggle-button-group.icon",
+      "bg": "toggle-button-group.background.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Toggle button icon"
+    },
+    {
+      "fg": "toggle-button-group.icon",
+      "bg": "toggle-button-group.background.hover",
+      "min": 3,
+      "kind": "ui",
+      "note": "Toggle button icon on hover"
+    },
+    {
+      "fg": "toggle-button-group.icon",
+      "bg": "toggle-button-group.background.selected",
+      "min": 3,
+      "kind": "ui",
+      "note": "Chosen toggle button's icon"
+    },
+    {
+      "fg": "toggle-button-group.border.selected",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "Chosen toggle button's border"
+    },
+    {
+      "fg": "text.color.default",
+      "bg": "layout.split.main-background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "The map-view list's title on its grey column"
+    },
+    {
+      "fg": "toggle-button-group.tooltip.text",
+      "bg": "toggle-button-group.tooltip.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Toggle button tooltip"
+    },
+    {
+      "fg": "color.text.link.default",
+      "bg": "breadcrumbs.strip.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Breadcrumb link on the strip"
+    },
+    {
+      "fg": "breadcrumbs.current",
+      "bg": "breadcrumbs.strip.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Current page on the strip"
+    },
+    {
+      "fg": "breadcrumbs.separator",
+      "bg": "breadcrumbs.strip.background",
+      "min": 3,
+      "kind": "ui",
+      "note": "Breadcrumb slash on the strip"
+    },
+    {
+      "fg": "fact-list.label",
+      "bg": "card.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Fact label on a card"
+    },
+    {
+      "fg": "fact-list.value",
+      "bg": "card.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Fact value on a card"
+    },
+    {
+      "fg": "fact-list.label",
+      "bg": "color.surface.subtle",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Fact label on the grey results band"
+    },
+    {
+      "fg": "table.text",
+      "bg": "table.header.background",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Column heading on the header bar"
+    },
+    {
+      "fg": "table.text",
+      "bg": "table.row.background.hover",
+      "min": 4.5,
+      "kind": "text",
+      "note": "Table value on a hovered row"
+    },
+    {
+      "fg": "table.focus-ring.color",
+      "bg": "table.row.background.hover",
+      "min": 3,
+      "kind": "ui",
+      "note": "Focus ring on a hovered row"
+    },
+    {
+      "fg": "list.text",
+      "bg": "color.surface.default",
+      "min": 4.5,
+      "kind": "text",
+      "note": "List item on white"
+    },
+    {
+      "fg": "list.bullet.color",
+      "bg": "color.surface.default",
+      "min": 3,
+      "kind": "ui",
+      "note": "List bullet on white (decorative, kept visible)"
+    }
+  ]
+}

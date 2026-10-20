@@ -1,0 +1,9 @@
+// Follows every boundary rule (used by the self-test only).
+import { useState } from 'react'
+import type { Listing } from '../../data/types'
+import { priceText } from '../../data/format'
+import { Heart } from '../../icons'
+import { useScrollableFocus } from '../../hooks/useScrollableFocus'
+import { IconButton } from '../IconButton/IconButton'
+import styles from './Fixture.module.css'
+import { Part } from './Part'

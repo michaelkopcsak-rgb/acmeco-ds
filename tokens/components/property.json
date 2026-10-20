@@ -1,0 +1,195 @@
+{
+  "property": {
+    "$description": "Tokens for the PropertyCard parts (media, header, facts, price, broker identity). Measured from the audit's captured DOM of AcmeCo's search-results and map cards (audit family F28: 742 instances, 23 variants, 54 designs). One type scale for list and map views, where AcmeCo changes size by page on the same card. Decision 27.",
+    "border-width": {
+      "$type": "dimension",
+      "$value": "{border.width.default}",
+      "$description": "OBSERVED: 1px lines (facts divider, logo outline)."
+    },
+    "header": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{typography.body-large.font-size}",
+        "$description": "OBSERVED: 14px bold in the full-width list, 19px bold in the map view, for the same listing; became 18px everywhere."
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "{typography.body-large.line-height}",
+        "$description": "OBSERVED: 1.5x rhythm (18/27)."
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.semibold}",
+        "$description": "OBSERVED: 700; became 600 (decision 4)."
+      },
+      "color": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "OBSERVED: #000000; became ink."
+      },
+      "gap": {
+        "$type": "dimension",
+        "$value": "{space.4}",
+        "$description": "PROPOSED: between the left (title, address) and right (size, city) columns."
+      }
+    },
+    "facts": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{typography.body-small.font-size}",
+        "$description": "OBSERVED: 12px in the list and 16px in the map view; became 14px everywhere."
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "{typography.body-small.line-height}",
+        "$description": "OBSERVED: 14/21."
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}",
+        "$description": "OBSERVED: 100 (thin); became 400 (decision 4)."
+      },
+      "color": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "OBSERVED: #000000; became ink."
+      },
+      "description-color": {
+        "$type": "color",
+        "$value": "{color.text.subtle}",
+        "$description": "PROPOSED: the listing description in secondary grey, 5.77:1, so the facts lead."
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "OBSERVED: a thin vertical line between facts and description."
+      }
+    },
+    "price": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{typography.price-compact.font-size}",
+        "$description": "PROPOSED: price lifted as the first fact, semibold (decision 27)."
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "{typography.price-compact.line-height}",
+        "$description": "PROPOSED: 16/24."
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": "{typography.price-compact.font-weight}",
+        "$description": "PROPOSED: semibold."
+      },
+      "prominent-font-size": {
+        "$type": "dimension",
+        "$value": "{typography.price.font-size}",
+        "$description": "PROPOSED: the larger price on the property detail page."
+      },
+      "prominent-line-height": {
+        "$type": "dimension",
+        "$value": "{typography.price.line-height}",
+        "$description": "PROPOSED: 20/30."
+      },
+      "color": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "PROPOSED: ink."
+      },
+      "muted-color": {
+        "$type": "color",
+        "$value": "{color.text.subtle}",
+        "$description": "OBSERVED: 'Price Upon Request' is common; shown in secondary grey (5.77:1) so real prices stand out."
+      }
+    },
+    "media": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.surface.subtle}",
+        "$description": "OBSERVED: grey shows while photos load (several photos hadn't loaded when captured)."
+      },
+      "inset": {
+        "$type": "dimension",
+        "$value": "{space.3}",
+        "$description": "PROPOSED: 12px from the photo edges to the save button and labels."
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{radius.sm}",
+        "$description": "PROPOSED: 4px on thumbnails (tier 3); larger photos follow the card's corners."
+      },
+      "action-gap": {
+        "$type": "dimension",
+        "$value": "{space.2}",
+        "$description": "PROPOSED: 8px between the buttons on a photo (Ask AcmeCo beside Save; decision 45)."
+      }
+    },
+    "broker": {
+      "gap": {
+        "$type": "dimension",
+        "$value": "{space.4}",
+        "$description": "OBSERVED: logo and broker photos in one row."
+      },
+      "avatar-size": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": "OBSERVED: 50px square broker photos; became 48px (4px grid)."
+      },
+      "avatar-size-lg": {
+        "$type": "dimension",
+        "$value": "80px",
+        "$description": "OBSERVED: 80px broker photos in the property detail page's contact box (ContactModule)."
+      },
+      "avatar-radius": {
+        "$type": "dimension",
+        "$value": "{radius.sm}",
+        "$description": "OBSERVED: square photos; 4px softens them (decision 26: images are content, not surfaces)."
+      },
+      "avatar-text": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "PROPOSED: initials on the placeholder avatar (no real people)."
+      },
+      "avatar-background": {
+        "$type": "color",
+        "$value": "{color.surface.subtle}",
+        "$description": "PROPOSED: placeholder avatar background."
+      },
+      "logo-height": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "OBSERVED: logos up to 34-40px tall (tier 3: 80 x 34px); 40px maximum, the first rule for third-party marks (the benchmark lesson 8)."
+      },
+      "name-font-size": {
+        "$type": "dimension",
+        "$value": "{typography.body-small.font-size}",
+        "$description": "OBSERVED: broker names at 14px."
+      },
+      "name-line-height": {
+        "$type": "dimension",
+        "$value": "{typography.body-small.line-height}",
+        "$description": "OBSERVED: 14/21."
+      },
+      "name-font-size-lg": {
+        "$type": "dimension",
+        "$value": "{typography.body-large.font-size}",
+        "$description": "OBSERVED: 18px broker names in the contact box."
+      },
+      "name-line-height-lg": {
+        "$type": "dimension",
+        "$value": "{typography.body-large.line-height}",
+        "$description": "OBSERVED: 24px; 27px on our 1.5x scale."
+      },
+      "name-color": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "OBSERVED: #000000; became ink."
+      },
+      "logo-border": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "PROPOSED: outline of the placeholder logo mark (no real company logos)."
+      }
+    }
+  }
+}

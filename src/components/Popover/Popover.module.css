@@ -1,0 +1,15 @@
+/* Popover. Every value comes from --popover-* tokens (tokens/components/popover.json). */
+
+.popover {
+  box-sizing: border-box;
+  padding: var(--popover-padding);
+  border: var(--popover-border-width) solid var(--popover-border);
+  border-radius: var(--popover-radius);
+  background-color: var(--popover-background);
+  box-shadow: var(--popover-shadow);
+  overflow: auto;
+}
+/* The gap from the button, on whichever side React Aria placed the panel. */
+.popover[data-placement='bottom'] { margin-top: var(--popover-offset); }
+.popover[data-placement='top'] { margin-bottom: var(--popover-offset); }
+.dialog { outline: none; }

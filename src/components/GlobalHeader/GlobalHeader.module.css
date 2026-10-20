@@ -1,0 +1,90 @@
+/* GlobalHeader. Values from --shell-header-*, --shell-logo-* and --shell-skip-* tokens
+   (tokens/components/shell.json); links, buttons and the menu bring their own. */
+
+.header {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--shell-header-gap);
+  height: var(--shell-header-height);
+  padding-inline: var(--shell-header-padding-x);
+  border-top: var(--shell-header-stripe-width) solid var(--shell-header-stripe-color);
+  background-color: var(--shell-header-background);
+  color: var(--shell-header-text);
+}
+.start, .end {
+  display: flex;
+  align-items: center;
+  gap: var(--shell-header-gap);
+  min-width: 0;
+}
+
+/* The placeholder mark and the name, standing in for the logo. */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--shell-logo-gap);
+  font-size: var(--shell-logo-font-size);
+  line-height: var(--shell-logo-line-height);
+  font-weight: var(--shell-logo-font-weight);
+  white-space: nowrap;
+}
+.mark {
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: var(--shell-logo-mark-size);
+  height: var(--shell-logo-mark-size);
+  border: var(--shell-logo-mark-border-width) solid var(--shell-logo-mark-border);
+  border-radius: var(--shell-logo-mark-size);
+  color: var(--shell-logo-mark-text);
+  font-size: var(--shell-logo-mark-font-size);
+}
+
+/* Skip link: off screen until it has focus, then over the header's top-left corner. */
+.skip {
+  position: absolute;
+  inset-inline-start: var(--shell-skip-inset);
+  top: var(--shell-skip-inset);
+  z-index: 1;
+  padding: var(--shell-skip-padding-y) var(--shell-skip-padding-x);
+  border-radius: var(--shell-skip-radius);
+  background-color: var(--shell-skip-background);
+  box-shadow: var(--shell-skip-shadow);
+  transform: translateY(-200%);
+}
+.skip:focus-within { transform: none; }
+
+/* Phones (768px and below): the search links leave the header; they're in the menu's Search
+   group, as on AcmeCo. */
+@media (max-width: 768px) {
+  .header, .start, .end { gap: var(--shell-header-gap-compact); }
+  .wide { display: none; }
+}
+/* Phones (450px and below): Sign In and Advertise go to the menu (Log In/Sign Up and
+   Advertise are there), leaving the logo, the globe and the menu, as on AcmeCo's phones
+   (a reference screenshot, decision 42). */
+.wideAction { display: inline-flex; }
+@media (max-width: 450px) {
+  .wideAction { display: none; }
+}
+
+/* A listing on phones (decision 51, a phone recording): a back arrow before the logo,
+   with a thin line after it; once the page's actions row has scrolled under the header, the
+   page's save and share take the place of the globe and menu. Desktop is unchanged. */
+.back, .pageActions { display: none; }
+.menu { display: inline-flex; }
+@media (max-width: 768px) {
+  .back {
+    display: inline-flex;
+    align-self: stretch;
+    align-items: center;
+    padding-inline-end: var(--shell-header-gap-compact);
+    border-inline-end: var(--shell-header-divider-width) solid var(--shell-header-divider-color);
+  }
+  .header[data-page-actions] .pageActions { display: inline-flex; gap: var(--shell-header-gap-compact); }
+  .header[data-page-actions] .globe,
+  .header[data-page-actions] .menu { display: none; }
+}

@@ -1,0 +1,25 @@
+/* Breadcrumbs. Every value comes from --breadcrumbs-* tokens (tokens/components/breadcrumbs.json). */
+
+.breadcrumbs { font-size: var(--breadcrumbs-font-size); line-height: var(--breadcrumbs-line-height); }
+.breadcrumbs[data-appearance='strip'] {
+  padding: var(--breadcrumbs-strip-padding-block) var(--breadcrumbs-strip-padding-inline);
+  border-block: var(--breadcrumbs-strip-border-width) solid var(--breadcrumbs-strip-border);
+  background-color: var(--breadcrumbs-strip-background);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--breadcrumbs-gap);
+  row-gap: var(--breadcrumbs-row-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Each link and its slash stay together; the trail breaks between them. */
+.item { display: inline-flex; align-items: baseline; gap: var(--breadcrumbs-gap); white-space: nowrap; }
+/* The slash: drawn by CSS with empty alternative text, so screen readers skip it. */
+.item:not(:last-child)::after { content: '/' / ''; color: var(--breadcrumbs-separator); }
+.item:last-child { white-space: normal; }
+.current { color: var(--breadcrumbs-current); }

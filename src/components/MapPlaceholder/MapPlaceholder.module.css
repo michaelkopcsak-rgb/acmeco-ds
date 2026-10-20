@@ -1,0 +1,32 @@
+/* MapPlaceholder. Every value comes from --map-* tokens (tokens/components/map.json). */
+
+.map {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: var(--map-height-compact);
+  overflow: hidden;
+  border: var(--map-border-width) solid var(--map-border);
+  background-color: var(--map-background);
+  background-size: cover;
+  background-position: center;
+}
+
+/* A pin: a dark blue teardrop (a rotated square with one sharp corner) whose point marks the place. */
+.pin {
+  position: absolute;
+  width: var(--map-pin-size);
+  height: var(--map-pin-size);
+  box-sizing: border-box;
+  border: var(--map-pin-border-width) solid var(--map-pin-border);
+  border-radius: 50% 50% 50% 0;
+  background-color: var(--map-pin-color);
+  transform: translate(-50%, -100%) rotate(-45deg);
+  transform-origin: center;
+}
+
+.label {
+  position: absolute;
+  top: var(--map-label-inset);
+  left: var(--map-label-inset);
+}

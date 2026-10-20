@@ -1,0 +1,37 @@
+{
+  "badge": {
+    "$description": "Badge component tokens: non-interactive labels on listings. Measured from the audit's captured CSS: the homepage photo label ('Office', 'Coworking'; class 'pill', audit F13, 48 instances) and the dark blue 'Virtual Tour' label (class 'tag tag-virtual-tour', 64 instances, filed by the audit under F14 chip but not interactive). Decision 25.",
+    "font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "OBSERVED: 14px photo labels." },
+    "line-height": { "$type": "dimension", "$value": "{typography.body-small.line-height}", "$description": "OBSERVED: 14/21." },
+    "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: 400." },
+    "padding-y": { "$type": "dimension", "$value": "{space.1}", "$description": "OBSERVED: 4px." },
+    "padding-x": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: 8px." },
+    "radius": { "$type": "dimension", "$value": "{radius.pill}", "$description": "OBSERVED: pill (57px on a 29px label). Pills are for things that float over content (decision 25 reverses decision 23's 4px)." },
+    "neutral": {
+      "$type": "color",
+      "background": { "$value": "{color.surface.overlay-control}", "$description": "OBSERVED: white at 50% over photos; became the 85% overlay. At 50%, ink drops to 4.31:1 over a dark photo (below 4.5); at 85% it stays 12.07:1 or more." },
+      "text": { "$value": "{color.text.default}", "$description": "OBSERVED: ink #1c1c1c." }
+    },
+    "subtle": {
+      "$type": "color",
+      "background": { "$value": "{color.surface.subtle}", "$description": "PROPOSED: grey label on white surfaces (not over photos)." },
+      "text": { "$value": "{color.text.default}", "$description": "PROPOSED: ink, 15.35:1." }
+    },
+    "auction": {
+      "$type": "color",
+      "background": { "$value": "{color.promo.auction}", "$description": "OBSERVED: navy auction banner colour (146 el)." },
+      "text": { "$value": "{color.text.inverse}", "$description": "OBSERVED: white on navy, 12.71:1." }
+    },
+    "feature": {
+      "$description": "The edge-attached label ('Virtual Tour'): square, uppercase, sits flush in a photo corner.",
+      "background": { "$type": "color", "$value": "{color.promo.feature}", "$description": "OBSERVED: dark blue #123a7a 'Virtual Tour' label (64 el)." },
+      "text": { "$type": "color", "$value": "{color.text.inverse}", "$description": "OBSERVED: white on dark blue, 10.98:1." },
+      "font-size": { "$type": "dimension", "$value": "{typography.caption.font-size}", "$description": "OBSERVED: 10px; became 12px, the system's smallest size (decision 25)." },
+      "line-height": { "$type": "dimension", "$value": "{typography.caption.line-height}", "$description": "OBSERVED: 14px; became 18px, the 1.5x rhythm." },
+      "padding-y": { "$type": "dimension", "$value": "{space.1}", "$description": "OBSERVED: 5 and 6px; became 4px." },
+      "padding-x": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 15px; became 16px (4px grid)." },
+      "radius": { "$type": "dimension", "$value": "{radius.none}", "$description": "OBSERVED: square: it's attached to the photo's edge (decision 25)." },
+      "letter-spacing": { "$type": "dimension", "$value": "0.04em", "$description": "PROPOSED: a little tracking keeps small uppercase text legible (observed: none)." }
+    }
+  }
+}

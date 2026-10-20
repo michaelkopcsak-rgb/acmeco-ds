@@ -1,0 +1,40 @@
+{
+  "tab-selector": {
+    "$description": "TabSelector component tokens: AcmeCo's grey folder tabs (For Sale / For Lease / Auctions) at the top of the expanded filters panel, used as a single choice. Measured from the audit's captured CSS (styles 268 and 269 on 03-search-results-filters-open/02-search-results-filters-expanded-open-desktop). Audit family F16 listing-type selector: 34 instances, built 3 ways (these tabs, failing blue #0888ba text links, and a dropdown that Select now covers). Decision 24.",
+    "height": { "$type": "dimension", "$value": "{space.7}", "$description": "OBSERVED: 46px unselected and 48px selected tabs; became 48px for the 4px grid." },
+    "padding-x": { "$type": "dimension", "$value": "{space.5}", "$description": "OBSERVED: 21px; became 24px on the spacing scale." },
+    "gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 20px between tabs; became 16px on the spacing scale." },
+    "radius": { "$type": "dimension", "$value": "{radius.sm}", "$description": "OBSERVED: 4px top corners, square bottom." },
+    "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px tab outlines and panel line." },
+    "font-size": { "$type": "dimension", "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16px." },
+    "line-height": { "$type": "dimension", "$value": "{typography.body.line-height}", "$description": "OBSERVED: 19.2px; became 24px, the 1.5x rhythm (decision 9)." },
+    "line": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: 1px #dddddd line along the top of the panel; consolidated to the default border (#e5e5e5). Decorative." },
+    "tab": {
+      "$type": "color",
+      "background": { "$value": "{color.surface.subtle}", "$description": "OBSERVED: #f3f3f3 unselected tabs." },
+      "background-hover": { "$value": "{color.surface.pressed}", "$description": "PROPOSED: one step darker on hover. Not observed." },
+      "border": { "$value": "{color.border.default}", "$description": "OBSERVED: #dddddd outlines; consolidated to the default border (#e5e5e5)." },
+      "text": { "$value": "{color.text.default}", "$description": "OBSERVED: #000000 labels; became ink (decision 5). 15.35:1 on the grey tab." }
+    },
+    "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: 300 (light) unselected; became 400, the system's regular weight (decision 4)." },
+    "selected": {
+      "background": { "$type": "color", "$value": "{color.surface.default}", "$description": "OBSERVED: white selected tab that opens into the panel below." },
+      "border": { "$type": "color", "$value": "{color.border.control.default}", "$description": "PROPOSED: observed #dddddd; darkened so the selected tab's edge is 3.81:1 against the page and 3.43:1 against the grey tabs. AcmeCo's white-on-grey alone is about 1.1:1, below the 3:1 a selected state needs (WCAG 1.4.11; carried over from decision 21)." },
+      "font-weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}", "$description": "OBSERVED: 400 selected (vs 300 unselected); became 600, keeping a clear weight step (decision 4)." }
+    },
+    "focus-ring": {
+      "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: the system focus ring." },
+      "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px." },
+      "offset": { "$type": "dimension", "$value": "{focus.ring.offset}", "$description": "PROPOSED: 2px." }
+    },
+    "disabled": {
+      "background": { "$type": "color", "$value": "{color.surface.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." },
+      "text": { "$type": "color", "$value": "{color.text.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." },
+      "border": { "$type": "color", "$value": "{color.border.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." }
+    },
+    "transition": {
+      "duration": { "$type": "duration", "$value": "{duration.fast}", "$description": "LEGACY-NAMED: --legacy-cta-transition 0.15s. Code only." },
+      "easing": { "$type": "cubicBezier", "$value": "{easing.default}", "$description": "LEGACY-NAMED: ease-in-out. Code only." }
+    }
+  }
+}

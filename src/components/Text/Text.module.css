@@ -1,0 +1,27 @@
+/* Text. Every value comes from --text-* tokens (tokens/components/text.json). No margins:
+   Stack and Section set the space between paragraphs. */
+
+.text {
+  margin: 0;
+  font-weight: var(--text-font-weight);
+}
+/* Bold inside text uses the loaded semibold; the browser's default "bolder" would draw a faux 700. */
+.text :is(strong, b) { font-weight: var(--text-emphasis-weight); }
+
+.body-large { font-size: var(--text-size-body-large-font-size); line-height: var(--text-size-body-large-line-height); }
+.body { font-size: var(--text-size-body-font-size); line-height: var(--text-size-body-line-height); }
+.body-small { font-size: var(--text-size-body-small-font-size); line-height: var(--text-size-body-small-line-height); }
+.caption { font-size: var(--text-size-caption-font-size); line-height: var(--text-size-caption-line-height); }
+
+.default { color: var(--text-color-default); }
+.subtle { color: var(--text-color-subtle); }
+
+.center { text-align: center; }
+
+/* A size from 768px up (size={{ base, md }}). */
+@media (min-width: 768px) {
+  .md-body-large { font-size: var(--text-size-body-large-font-size); line-height: var(--text-size-body-large-line-height); }
+  .md-body { font-size: var(--text-size-body-font-size); line-height: var(--text-size-body-line-height); }
+  .md-body-small { font-size: var(--text-size-body-small-font-size); line-height: var(--text-size-body-small-line-height); }
+  .md-caption { font-size: var(--text-size-caption-font-size); line-height: var(--text-size-caption-line-height); }
+}

@@ -1,0 +1,88 @@
+{
+  "button": {
+    "$description": "Button component tokens. Colours point at semantic tokens; sizes at the primitive scales. The tertiary variant has no background token on purpose: at rest it has no fill. Evidence: audit family F03 (207 instances, 12 variants, 26 designs) and AcmeCo's own --legacy-cta-* properties.",
+    "radius": { "$type": "dimension", "$value": "{radius.sm}", "$description": "LEGACY-NAMED: --legacy-cta-radius 4px. Observed 2px (152 small Auctions buttons) and 4px became 4px." },
+    "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px outlines on outlined buttons." },
+    "gap": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: space between icon and label." },
+    "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "LEGACY-NAMED: --legacy-cta-font-weight 400 (decision 17)." },
+    "transition": {
+      "duration": { "$type": "duration", "$value": "{duration.fast}", "$description": "LEGACY-NAMED: --legacy-cta-transition 0.15s. Code only: Figma has no motion variables (decision 15)." },
+      "easing": { "$type": "cubicBezier", "$value": "{easing.default}", "$description": "LEGACY-NAMED: ease-in-out from --legacy-cta-transition. Code only." }
+    },
+    "spinner-width": { "$type": "dimension", "$value": "{border.width.strong}", "$description": "PROPOSED: loading spinner stroke (decision 18)." },
+    "focus-ring": {
+      "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: not observed on the core site; required (WCAG 2.4.7)." },
+      "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px ring." },
+      "offset": { "$type": "dimension", "$value": "{focus.ring.offset}", "$description": "PROPOSED: 2px gap, so the ring sits on the page background, never touching dark blue (link blue on dark blue is 1.61:1)." }
+    },
+    "sm": {
+      "$type": "dimension",
+      "height": { "$value": "32px", "$description": "OBSERVED: 33px small dark blue buttons; became 32px for the 4px grid (decision 5)." },
+      "padding-x": { "$value": "{space.3}", "$description": "PROPOSED: 12px, scaled down from the legacy-named 16px." },
+      "font-size": { "$value": "{typography.body-small.font-size}", "$description": "OBSERVED: 14px labels on small buttons." },
+      "line-height": { "$value": "{typography.body-small.line-height}", "$description": "OBSERVED: 14/21, 1.5x." },
+      "icon-size": { "$value": "16px", "$description": "PROPOSED: icon size for small buttons." }
+    },
+    "md": {
+      "$type": "dimension",
+      "height": { "$value": "40px", "$description": "OBSERVED: 43px medium dark blue buttons; became 40px for the 4px grid (decision 5)." },
+      "padding-x": { "$value": "{space.4}", "$description": "LEGACY-NAMED: --legacy-cta-padding-inline 16px." },
+      "font-size": { "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16px, the most common size." },
+      "line-height": { "$value": "{typography.body.line-height}", "$description": "OBSERVED: 16/24, 1.5x (--legacy-cta-line-height 1.5)." },
+      "icon-size": { "$value": "20px", "$description": "PROPOSED: icon size for medium buttons." }
+    },
+    "lg": {
+      "$type": "dimension",
+      "height": { "$value": "{space.7}", "$description": "OBSERVED: 48px large dark blue buttons, kept." },
+      "padding-x": { "$value": "{space.5}", "$description": "PROPOSED: 24px for the largest size." },
+      "font-size": { "$value": "{typography.body-large.font-size}", "$description": "LEGACY-NAMED: --legacy-cta-font-size 18px." },
+      "line-height": { "$value": "{typography.body-large.line-height}", "$description": "LEGACY-NAMED: --legacy-cta-line-height 1.5 (18/27)." },
+      "icon-size": { "$value": "20px", "$description": "PROPOSED: icon size for large buttons." }
+    },
+    "primary": {
+      "$type": "color",
+      "background": {
+        "default": { "$value": "{color.action.background.default}", "$description": "OBSERVED: dark blue fill #123a7a (292 el / 11 exp)." },
+        "hover": { "$value": "{color.action.background.hover}", "$description": "LEGACY-NAMED: --legacy-color-brand-hover." },
+        "pressed": { "$value": "{color.action.background.pressed}", "$description": "PROPOSED: not observed." }
+      },
+      "text": {
+        "default": { "$value": "{color.action.text.default}", "$description": "OBSERVED: white on dark blue, 10.98:1." }
+      }
+    },
+    "secondary": {
+      "$type": "color",
+      "background": {
+        "default": { "$value": "{color.surface.default}", "$description": "OBSERVED: white outlined button." },
+        "hover": { "$value": "{color.surface.hover}", "$description": "PROPOSED: not observed." },
+        "pressed": { "$value": "{color.surface.pressed}", "$description": "PROPOSED: not observed." }
+      },
+      "text": {
+        "default": { "$value": "{color.action.foreground.default}", "$description": "OBSERVED: dark blue outlined button text (35px, 4px radius)." },
+        "hover": { "$value": "{color.action.foreground.hover}", "$description": "LEGACY-NAMED: --legacy-color-brand-hover." },
+        "pressed": { "$value": "{color.action.foreground.pressed}", "$description": "PROPOSED: not observed." }
+      },
+      "border": {
+        "default": { "$value": "{color.action.foreground.default}", "$description": "OBSERVED: dark blue outline." },
+        "hover": { "$value": "{color.action.foreground.hover}", "$description": "LEGACY-NAMED: --legacy-color-brand-hover." },
+        "pressed": { "$value": "{color.action.foreground.pressed}", "$description": "PROPOSED: not observed." }
+      }
+    },
+    "tertiary": {
+      "$type": "color",
+      "background": {
+        "hover": { "$value": "{color.surface.hover}", "$description": "PROPOSED: grey on hover (decision 16). Absorbs the observed #efefef grey-filled button." },
+        "pressed": { "$value": "{color.surface.pressed}", "$description": "PROPOSED: not observed." }
+      },
+      "text": {
+        "default": { "$value": "{color.text.default}", "$description": "PROPOSED: neutral ink (decision 16). Absorbs the observed grey and near-black outlined buttons." }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "background": { "$value": "{color.surface.disabled}", "$description": "PROPOSED: explicit grey (decision 12). Not observed." },
+      "text": { "$value": "{color.text.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." },
+      "border": { "$value": "{color.border.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." }
+    }
+  }
+}

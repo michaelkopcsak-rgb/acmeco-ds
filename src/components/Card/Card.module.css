@@ -1,0 +1,20 @@
+/* Card. Every value comes from --card-* tokens (tokens/components/card.json). */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  padding: var(--card-padding-outline);
+  border: var(--card-border-width) solid var(--card-border);
+  border-radius: var(--card-radius);
+  background-color: var(--card-background);
+}
+.card[data-appearance='raised'] {
+  padding: var(--card-padding-raised);
+  box-shadow: var(--card-shadow);
+}
+@media (max-width: 767px) {
+  .card[data-appearance='raised'] { padding: var(--card-padding-raised-phone); }
+}
+.body { min-width: 0; }
+.actions { display: flex; flex-wrap: wrap; gap: var(--card-gap); }

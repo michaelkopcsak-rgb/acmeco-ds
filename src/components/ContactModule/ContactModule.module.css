@@ -1,0 +1,52 @@
+/* ContactModule. Every value comes from --contact-module-* tokens
+   (tokens/components/contact-module.json); the parts bring their own. */
+
+.module {
+  overflow: hidden; /* the actions row follows the corners */
+  background-color: var(--contact-module-background);
+  border: var(--contact-module-border-width) solid var(--contact-module-border-color);
+  border-radius: var(--contact-module-radius);
+  box-shadow: var(--contact-module-shadow);
+}
+.body {
+  display: grid;
+  gap: var(--contact-module-gap);
+  padding: var(--contact-module-padding);
+}
+
+/* The phone number, centred and large, as on AcmeCo. */
+.phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--contact-module-gap);
+  margin: 0;
+  font-size: var(--contact-module-phone-font-size);
+  line-height: var(--contact-module-phone-line-height);
+  font-weight: var(--contact-module-phone-font-weight);
+  color: var(--contact-module-heading-color);
+}
+.phoneIcon { width: var(--contact-module-phone-icon-size); height: var(--contact-module-phone-icon-size); flex: none; }
+
+.heading {
+  margin: 0;
+  font-size: var(--contact-module-heading-font-size);
+  line-height: var(--contact-module-heading-line-height);
+  font-weight: var(--contact-module-heading-font-weight);
+  color: var(--contact-module-heading-color);
+}
+
+/* Share | Save: two halves under a line, split by a line. */
+.actions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  border-top: var(--contact-module-border-width) solid var(--contact-module-divider);
+}
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--contact-module-action-height);
+}
+.action + .action { border-inline-start: var(--contact-module-border-width) solid var(--contact-module-divider); }

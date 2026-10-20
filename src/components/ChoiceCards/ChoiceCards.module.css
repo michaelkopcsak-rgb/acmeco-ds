@@ -1,0 +1,49 @@
+/* ChoiceCards. Every value comes from --choice-cards-* tokens
+   (tokens/components/choice-cards.json). States are React Aria data attributes on each
+   card (data-selected, data-hovered, data-focus-visible, data-disabled). */
+
+.group { display: flex; flex-direction: column; gap: var(--choice-cards-gap); }
+.label {
+  font-size: var(--choice-cards-label-font-size);
+  font-weight: var(--choice-cards-label-font-weight);
+  color: var(--choice-cards-text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--choice-columns), minmax(0, 1fr));
+  gap: var(--choice-cards-gap);
+}
+@media (max-width: 450px) {
+  .grid { grid-template-columns: repeat(var(--choice-columns-narrow), minmax(0, 1fr)); }
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: var(--choice-cards-min-height);
+  padding: var(--choice-cards-padding);
+  border: var(--choice-cards-border-width) solid transparent;
+  border-radius: var(--choice-cards-radius);
+  background-color: var(--choice-cards-background-default);
+  color: var(--choice-cards-text);
+  font-size: var(--choice-cards-font-size);
+  line-height: var(--choice-cards-line-height);
+  cursor: pointer;
+  outline: none;
+}
+.card[data-hovered] { background-color: var(--choice-cards-background-hover); }
+.card[data-selected] {
+  background-color: var(--choice-cards-background-selected);
+  border-color: var(--choice-cards-border-selected);
+}
+.card[data-focus-visible] {
+  outline: var(--choice-cards-focus-ring-width) solid var(--choice-cards-focus-ring-color);
+  outline-offset: var(--choice-cards-focus-ring-offset);
+}
+.card[data-disabled] { color: var(--choice-cards-text-disabled); cursor: not-allowed; }
+
+.cardLabel { font-weight: var(--choice-cards-label-font-weight); }
+.description { font-weight: var(--choice-cards-description-font-weight); }

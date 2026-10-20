@@ -1,0 +1,16 @@
+{
+  "card": {
+    "$description": "Tokens for Card: a surface that groups related content (decision 47). Measured from the audit's captures: AcmeCo's lnc-card on the broker page (desktop 1700px, phone 400px) and the outlined boxes on the property detail page (F26.4).",
+    "background": { "$type": "color", "$value": "{color.surface.default}", "$description": "OBSERVED: white (#ffffff) behind the broker page's cards; transparent on the property page's outlined boxes, which sit on white. White for both." },
+    "border": { "$type": "color", "$value": "{color.border.default}", "$description": "OBSERVED: 1px #e5e5e5 on the property page (F26.4), 1px #eeeeee on the broker page; one border grey now (#e5e5e5). Decorative: the content carries the meaning." },
+    "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px on every card." },
+    "radius": { "$type": "dimension", "$value": "{radius.md}", "$description": "OBSERVED: 8px on the property page, 4px on the broker page; became 8px for both, the system's surface radius (decision 26)." },
+    "shadow": { "$type": "shadow", "$value": "{shadow.card}", "$description": "OBSERVED: the broker page's cards float on a soft shadow (rgba(119,119,119,0.07) 0 2px 22px 10px), a second card shadow beside the property card's; became the one card shadow (decision 11), used by the raised appearance only." },
+    "gap": { "$type": "dimension", "$value": "{space.3}", "$description": "OBSERVED: 12.8px under the card's heading (Bio); became 12px between the heading, the content and the actions." },
+    "padding": {
+      "outline": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 16px inside the property page's outlined boxes (F26.4)." },
+      "raised": { "$type": "dimension", "$value": "{space.6}", "$description": "OBSERVED: 30px inside the broker page's cards at 1700px; became 32px (the 4px grid)." },
+      "raised-phone": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 20px inside the broker page's cards on the phone; became 16px, the page gutter, so text keeps its width at 375px." }
+    }
+  }
+}

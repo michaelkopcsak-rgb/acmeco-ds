@@ -1,0 +1,30 @@
+/* ContactForm. Spacing and the secondary text come from --contact-form-* tokens;
+   fields and the dialog bring their own. */
+
+.layout, .form, .about { display: grid; gap: var(--contact-form-gap); }
+.about { gap: var(--contact-form-column-gap); }
+
+/* First / last name side by side, as AcmeCo has them (OBSERVED 222px each). */
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--contact-form-column-gap);
+  align-items: start;
+}
+/* Phone wider than the extension (OBSERVED 302px and 142px). */
+.phone { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+
+.note {
+  margin: 0;
+  font-size: var(--contact-form-note-font-size);
+  line-height: var(--contact-form-note-line-height);
+  color: var(--contact-form-note-color);
+}
+
+.sent {
+  margin: 0;
+  font-size: var(--contact-form-sent-font-size);
+  line-height: var(--contact-form-sent-line-height);
+  color: var(--contact-form-sent-color);
+  outline: none;
+}

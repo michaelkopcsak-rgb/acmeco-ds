@@ -1,0 +1,87 @@
+/* IconButton. Every value comes from --icon-button-* component tokens
+   (tokens/components/icon-button.json). States come from React Aria's data
+   attributes. Later rules win: pressed after hover, disabled last. */
+
+.iconButton {
+  box-sizing: border-box;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: var(--icon-button-radius);
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .iconButton {
+    transition-property: background-color, color;
+    transition-duration: var(--icon-button-transition-duration);
+    transition-timing-function: var(--icon-button-transition-easing);
+  }
+}
+
+.icon { display: inline-flex; }
+
+/* Sizes */
+.sm { width: var(--icon-button-sm-size); height: var(--icon-button-sm-size); }
+.md { width: var(--icon-button-md-size); height: var(--icon-button-md-size); }
+.lg { width: var(--icon-button-lg-size); height: var(--icon-button-lg-size); }
+.sm svg { width: var(--icon-button-sm-icon-size); height: var(--icon-button-sm-icon-size); }
+.md svg { width: var(--icon-button-md-icon-size); height: var(--icon-button-md-icon-size); }
+.lg svg { width: var(--icon-button-lg-icon-size); height: var(--icon-button-lg-icon-size); }
+
+/* Focus: the system ring for plain and primary... */
+.iconButton[data-focus-visible] {
+  outline: var(--icon-button-focus-ring-width) solid var(--icon-button-focus-ring-color);
+  outline-offset: var(--icon-button-focus-ring-offset);
+}
+/* ...and AcmeCo's own double ring over photos: white inside, ink outside, so one
+   of them shows whatever the photo behind (decision 19). */
+.overlay[data-focus-visible] {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--icon-button-focus-ring-width) var(--icon-button-overlay-focus-ring-inner),
+    0 0 0 calc(var(--icon-button-focus-ring-width) * 2) var(--icon-button-overlay-focus-ring-outer);
+}
+
+/* Variants */
+.plain { color: var(--icon-button-plain-icon); }
+.plain[data-hovered] { background-color: var(--icon-button-plain-background-hover); }
+.plain[data-pressed] { background-color: var(--icon-button-plain-background-pressed); }
+
+.overlay {
+  color: var(--icon-button-overlay-icon);
+  background-color: var(--icon-button-overlay-background-default);
+}
+.overlay[data-hovered] { background-color: var(--icon-button-overlay-background-hover); }
+.overlay[data-pressed] { background-color: var(--icon-button-overlay-background-pressed); }
+
+.primary {
+  border-radius: var(--icon-button-primary-radius);
+  color: var(--icon-button-primary-icon);
+  background-color: var(--icon-button-primary-background-default);
+}
+.primary[data-hovered] { background-color: var(--icon-button-primary-background-hover); }
+.primary[data-pressed] { background-color: var(--icon-button-primary-background-pressed); }
+
+/* Circle: rounds the primary variant to fit a pill-shaped field. */
+.primary.circle { border-radius: var(--icon-button-radius); }
+
+/* Selected (a toggle that's on, e.g. saved): dark blue, and the icon fills, so the
+   state isn't shown by colour alone. Use outline icons that read when filled. */
+.iconButton[data-selected] { color: var(--icon-button-selected-icon); }
+.iconButton[data-selected] svg { fill: currentColor; }
+
+/* Disabled: explicit greys (decision 12). Plain keeps no container. */
+.iconButton[data-disabled] {
+  color: var(--icon-button-disabled-icon);
+  cursor: not-allowed;
+}
+.overlay[data-disabled],
+.primary[data-disabled] {
+  background-color: var(--icon-button-disabled-background);
+}
+.plain[data-disabled] { background-color: transparent; }

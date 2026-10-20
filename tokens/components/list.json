@@ -1,0 +1,16 @@
+{
+  "list": {
+    "$description": "Tokens for List: bullet lists with AcmeCo's dark blue bullets, in columns (decision 50). Measured from the audit's capture of the retail property page's Highlights (desktop 1700px, phone 400px).",
+    "font-size": { "$type": "dimension", "$value": "{typography.body-large.font-size}", "$description": "OBSERVED: 20px items; became 18px, the nearest size on the scale, as FactList (decision 47)." },
+    "line-height": { "$type": "dimension", "$value": "{typography.body-large.line-height}", "$description": "OBSERVED: 25px; became 27px, the system's 1.5x rhythm (decision 9)." },
+    "font-weight": { "$type": "fontWeight", "$value": "{font.weight.regular}", "$description": "OBSERVED: weight 100; became 400 (decision 4: two weights)." },
+    "text": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: black; became ink (#1c1c1c)." },
+    "bullet": {
+      "color": { "$type": "color", "$value": "{color.brand.700}", "$description": "OBSERVED, LEGACY-NAMED: a dark blue dot (--legacy-color-brand, #123a7a), 10.98:1 on white. Decorative: the list itself tells screen readers each item is a point." },
+      "size": { "$type": "dimension", "$value": "{space.2}", "$description": "OBSERVED: an 8px round dot, centred on the item's first line." },
+      "gap": { "$type": "dimension", "$value": "{space.3}", "$description": "OBSERVED: the text starts 20px in (padding-left), 12px after the 8px dot." }
+    },
+    "item-gap": { "$type": "dimension", "$value": "{space.4}", "$description": "OBSERVED: 15px under each item; became 16px (the 4px grid)." },
+    "column-gap": { "$type": "dimension", "$value": "{space.6}", "$description": "OBSERVED: 40px between the two lists; became 32px, the nearer step that keeps more of each line." }
+  }
+}

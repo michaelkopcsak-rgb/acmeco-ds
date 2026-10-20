@@ -1,0 +1,116 @@
+{
+  "toggle-button-group": {
+    "$description": "Tokens for ToggleButtonGroup: a few icon buttons where one is chosen (the map's placement on the search results, decision 45). BENCHMARK-INFORMED: the benchmark's layout switcher; drawn with AcmeCo's own selected style (ChoiceCards: light blue fill, 2px link-blue border).",
+    "size": {
+      "$type": "dimension",
+      "$value": "40px",
+      "$description": "BENCHMARK-INFORMED: the benchmark's 40px square layout buttons; also the height of the filter pills beside it."
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "{space.1}",
+      "$description": "BENCHMARK-INFORMED: about 4px between the buttons."
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "{radius.sm}",
+      "$description": "PROPOSED: 4px, something to act on (decision 26)."
+    },
+    "icon-size": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "PROPOSED: 20px icons, as IconButton's."
+    },
+    "border-width": {
+      "$type": "dimension",
+      "$value": "{border.width.strong}",
+      "$description": "OBSERVED: as on ChoiceCards, a 2px border marks the chosen one; the others keep a transparent 2px border, so nothing moves."
+    },
+    "icon": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "PROPOSED: ink icons."
+    },
+    "background": {
+      "$type": "color",
+      "default": {
+        "$value": "{color.surface.default}",
+        "$description": "PROPOSED: white."
+      },
+      "hover": {
+        "$value": "{color.surface.hover}",
+        "$description": "PROPOSED: grey on hover, as the system's other quiet controls."
+      },
+      "selected": {
+        "$value": "{color.blue.100}",
+        "$description": "OBSERVED: as on ChoiceCards, AcmeCo's light blue on a chosen option."
+      }
+    },
+    "border": {
+      "$type": "color",
+      "selected": {
+        "$value": "{color.blue.700}",
+        "$description": "OBSERVED: as on ChoiceCards, the link blue, 6.80:1 on white, so the chosen button is clear without colour alone (the fill changes too)."
+      }
+    },
+    "focus-ring": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.focus.ring.default}",
+        "$description": "PROPOSED: the system's focus ring."
+      },
+      "width": {
+        "$type": "dimension",
+        "$value": "{focus.ring.width}",
+        "$description": "PROPOSED: 2px."
+      },
+      "offset": {
+        "$type": "dimension",
+        "$value": "{focus.ring.offset}",
+        "$description": "PROPOSED: 2px."
+      }
+    },
+    "tooltip": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.surface.inverse}",
+        "$description": "BENCHMARK-INFORMED: the benchmark names each layout button in a small dark tooltip (\"Horizontal\"); here ink, the system's dark surface."
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.text.inverse}",
+        "$description": "PROPOSED: white text, 17.04:1 on ink."
+      },
+      "font-size": {
+        "$type": "dimension",
+        "$value": "{typography.body-small.font-size}",
+        "$description": "PROPOSED: 14px."
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "{typography.body-small.line-height}",
+        "$description": "PROPOSED: 14/21."
+      },
+      "padding-x": {
+        "$type": "dimension",
+        "$value": "{space.2}",
+        "$description": "PROPOSED: 8px."
+      },
+      "padding-y": {
+        "$type": "dimension",
+        "$value": "{space.1}",
+        "$description": "PROPOSED: 4px."
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{radius.sm}",
+        "$description": "PROPOSED: 4px."
+      },
+      "offset": {
+        "$type": "dimension",
+        "$value": "{space.2}",
+        "$description": "PROPOSED: 8px from the button."
+      }
+    }
+  }
+}

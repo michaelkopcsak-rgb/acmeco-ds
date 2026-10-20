@@ -1,0 +1,17 @@
+// A screen that keeps the rules (self-test fixture for check-boundaries.mjs): system
+// components, fixture data, layout primitives, and only the global "sr-only" class.
+import { useState } from 'react'
+import { Stack } from '../../components/Layout/Layout'
+import { PropertyCard } from '../../components/PropertyCard/PropertyCard'
+import { listings } from '../../data/fixtures'
+
+export function Fixture() {
+  const [saved] = useState(false)
+  return (
+    <Stack gap="md">
+      <h1>Results</h1>
+      <span className="sr-only">{saved ? 'Saved' : 'Not saved'}</span>
+      {listings.slice(0, 2).map((l) => <PropertyCard key={l.id} listing={l} brokers={[]} />)}
+    </Stack>
+  )
+}

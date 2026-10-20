@@ -1,0 +1,81 @@
+{
+  "field": {
+    "$description": "Shared tokens for every form control (TextField, SearchField, Select, Checkbox): label, hint, error, control border and sizes. One set, so form controls can't drift apart again. Evidence: audit families F08 text field (177 instances, 5 shapes), F19 search field, F11 select, F09 checkbox.",
+    "gap": { "$type": "dimension", "$value": "{space.1}", "$description": "PROPOSED: 4px between label, control and hint." },
+    "label": {
+      "font-size": { "$type": "dimension", "$value": "{typography.label.font-size}", "$description": "PROPOSED: label style, 14/21 semibold." },
+      "line-height": { "$type": "dimension", "$value": "{typography.label.line-height}", "$description": "OBSERVED: 1.5x rhythm (decision 9)." },
+      "font-weight": { "$type": "fontWeight", "$value": "{typography.label.font-weight}", "$description": "PROPOSED: the bold role (decision 4)." },
+      "color": { "$type": "color", "$value": "{color.text.default}", "$description": "PROPOSED: ink, 17.04:1." }
+    },
+    "hint": {
+      "font-size": { "$type": "dimension", "$value": "{typography.body-small.font-size}", "$description": "PROPOSED: 14px hints and errors; caption (12px) is too small for instructions people need." },
+      "line-height": { "$type": "dimension", "$value": "{typography.body-small.line-height}", "$description": "OBSERVED: 14/21." },
+      "color": { "$type": "color", "$value": "{color.text.subtle}", "$description": "OBSERVED: secondary grey, 5.77:1." }
+    },
+    "error": {
+      "color": { "$type": "color", "$value": "{color.feedback.error}", "$description": "PROPOSED: darker error red with an icon and a message (decision 7), 7.37:1." },
+      "icon-size": { "$type": "dimension", "$value": "16px", "$description": "PROPOSED: error icon beside the message." }
+    },
+    "control": {
+      "radius": { "$type": "dimension", "$value": "{radius.sm}", "$description": "OBSERVED: 4px fields; absorbs the observed 2px grey-outlined field (108 instances)." },
+      "pill-radius": { "$type": "dimension", "$value": "{radius.pill}", "$description": "OBSERVED: pill fields (40 and 48px). Kept only for the hero location search, as the brief proposes." },
+      "border-width": { "$type": "dimension", "$value": "{border.width.default}", "$description": "OBSERVED: 1px outlines." },
+      "border-width-invalid": { "$type": "dimension", "$value": "{border.width.strong}", "$description": "PROPOSED: a thicker border when invalid, so the error isn't shown by colour alone (with the icon and message)." },
+      "gap": { "$type": "dimension", "$value": "{space.2}", "$description": "PROPOSED: space between text and an end action (clear, submit)." },
+      "md": {
+        "$type": "dimension",
+        "height": { "$value": "40px", "$description": "OBSERVED: 38 and 40px fields; became 40px for the 4px grid." },
+        "padding-x": { "$value": "{space.3}", "$description": "PROPOSED: 12px." },
+        "font-size": { "$value": "{typography.body.font-size}", "$description": "OBSERVED: 16px. Also stops iOS zooming in on focus (it zooms below 16px)." },
+        "line-height": { "$value": "{typography.body.line-height}", "$description": "OBSERVED: 16/24." }
+      },
+      "lg": {
+        "$type": "dimension",
+        "height": { "$value": "{space.7}", "$description": "OBSERVED: 48px hero search field, kept." },
+        "padding-x": { "$value": "{space.4}", "$description": "PROPOSED: 16px." },
+        "font-size": { "$value": "{typography.body-large.font-size}", "$description": "OBSERVED: 18px in 14 experiences." },
+        "line-height": { "$value": "{typography.body-large.line-height}", "$description": "OBSERVED: 18/27." }
+      },
+      "border": {
+        "$type": "color",
+        "default": { "$value": "{color.border.control.default}", "$description": "PROPOSED: observed #b1b3b0 at 2.11:1 became #808386 at 3.81:1 (decision 5)." },
+        "hover": { "$value": "{color.border.control.hover}", "$description": "PROPOSED: not observed. 5.77:1." },
+        "invalid": { "$value": "{color.feedback.error}", "$description": "PROPOSED: error red border (decision 7), 7.37:1." },
+        "disabled": { "$value": "{color.border.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." }
+      },
+      "background": {
+        "$type": "color",
+        "default": { "$value": "{color.surface.default}", "$description": "OBSERVED: white fields. Absorbs the grey-filled #f3f3f3 field." },
+        "read-only": { "$value": "{color.surface.subtle}", "$description": "PROPOSED: grey for read-only values. Not observed." },
+        "disabled": { "$value": "{color.surface.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." }
+      },
+      "text": {
+        "$type": "color",
+        "default": { "$value": "{color.text.default}", "$description": "PROPOSED: ink, 17.04:1." },
+        "placeholder": { "$value": "{color.text.subtle}", "$description": "PROPOSED: placeholder at 5.77:1, so it's readable; never a substitute for the label." },
+        "disabled": { "$value": "{color.text.disabled}", "$description": "PROPOSED: explicit grey (decision 12)." }
+      },
+      "focus-ring": {
+        "color": { "$type": "color", "$value": "{color.focus.ring.default}", "$description": "PROPOSED: the system focus ring." },
+        "width": { "$type": "dimension", "$value": "{focus.ring.width}", "$description": "PROPOSED: 2px." },
+        "offset": { "$type": "dimension", "$value": "{focus.ring.offset}", "$description": "PROPOSED: 2px." }
+      },
+      "clear": {
+        "$type": "color",
+        "background": { "$value": "{color.text.default}", "$description": "OBSERVED: AcmeCo's clear button is a filled dark circle with a white cross." },
+        "icon": { "$value": "{color.surface.default}", "$description": "OBSERVED: white cross on the dark circle." }
+      },
+      "clear-size": { "$type": "dimension", "$value": "24px", "$description": "PROPOSED: the clear button's target, the 24px minimum (WCAG 2.5.8)." },
+      "clear-icon-size": { "$type": "dimension", "$value": "20px", "$description": "PROPOSED: the filled circle inside it." },
+      "start-icon-size": { "$type": "dimension", "$value": "20px", "$description": "OBSERVED: AcmeCo's location arrow at the start of the results search (a phone screenshot, 2026-10-11)." },
+      "start-icon-color": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: the location arrow in ink." },
+      "search-icon-size": { "$type": "dimension", "$value": "20px", "$description": "OBSERVED: AcmeCo's results search ends in a plain dark blue magnifier, not a filled button (a phone screenshot)." },
+      "search-icon-color": { "$type": "color", "$value": "{color.action.foreground.default}", "$description": "OBSERVED: the magnifier in AcmeCo dark blue (#123a7a, 10.98:1 on white)." }
+    },
+    "transition": {
+      "duration": { "$type": "duration", "$value": "{duration.fast}", "$description": "LEGACY-NAMED: --legacy-cta-transition 0.15s. Code only." },
+      "easing": { "$type": "cubicBezier", "$value": "{easing.default}", "$description": "LEGACY-NAMED: ease-in-out. Code only." }
+    }
+  }
+}

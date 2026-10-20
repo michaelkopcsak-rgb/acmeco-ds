@@ -1,0 +1,30 @@
+{
+  "heading": {
+    "$description": "Tokens for Heading: the page's and sections' headings in the system's type styles, with no margins (spacing comes from the layout primitives). Found missing by the page shell pilot (docs/screens/page-shell-gaps.md, gap 1). Decision 38.",
+    "color": { "$type": "color", "$value": "{color.text.default}", "$description": "OBSERVED: headings in the one off-black ink (17.04:1 on white)." },
+    "size": {
+      "display": {
+        "font-size": { "$type": "dimension", "$value": "{typography.display.font-size}", "$description": "OBSERVED: 48px hero headings." },
+        "line-height": { "$type": "dimension", "$value": "{typography.display.line-height}", "$description": "PROPOSED: 48/56." },
+        "font-weight": { "$type": "fontWeight", "$value": "{typography.display.font-weight}", "$description": "OBSERVED: headings at regular weight." },
+        "font-size-compact": { "$type": "dimension", "$value": "{typography.display-mobile.font-size}", "$description": "PROPOSED: 32px at 768px and below, so a hero heading fits a phone." },
+        "line-height-compact": { "$type": "dimension", "$value": "{typography.display-mobile.line-height}", "$description": "PROPOSED: 32/40 at 768px and below." }
+      },
+      "heading-1": {
+        "font-size": { "$type": "dimension", "$value": "{typography.heading-1.font-size}", "$description": "OBSERVED: 32px page and section headings (28 to 34px)." },
+        "line-height": { "$type": "dimension", "$value": "{typography.heading-1.line-height}", "$description": "PROPOSED: 32/40." },
+        "font-weight": { "$type": "fontWeight", "$value": "{typography.heading-1.font-weight}", "$description": "OBSERVED: headings at regular weight." }
+      },
+      "heading-2": {
+        "font-size": { "$type": "dimension", "$value": "{typography.heading-2.font-size}", "$description": "OBSERVED: 24px." },
+        "line-height": { "$type": "dimension", "$value": "{typography.heading-2.line-height}", "$description": "PROPOSED: 24/32." },
+        "font-weight": { "$type": "fontWeight", "$value": "{typography.heading-2.font-weight}", "$description": "OBSERVED: headings at regular weight." }
+      },
+      "heading-3": {
+        "font-size": { "$type": "dimension", "$value": "{typography.heading-3.font-size}", "$description": "OBSERVED: 20px." },
+        "line-height": { "$type": "dimension", "$value": "{typography.heading-3.line-height}", "$description": "OBSERVED: 20/30." },
+        "font-weight": { "$type": "fontWeight", "$value": "{typography.heading-3.font-weight}", "$description": "PROPOSED: semibold, the bold role (decision 4)." }
+      }
+    }
+  }
+}

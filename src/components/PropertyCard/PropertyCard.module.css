@@ -1,0 +1,81 @@
+/* PropertyCard: AcmeCo's card. Every value comes from --property-card-* tokens
+   (tokens/components/property-card.json). The parts bring their own styles. */
+
+/* The card is a size container, so its layout follows its own width (results
+   list, map sidebar, phone) rather than the window's. */
+.card {
+  position: relative; /* the title link's stretched ::after covers the card */
+  container-type: inline-size;
+  overflow: hidden; /* the photo follows the card's corners */
+  background-color: var(--property-card-background);
+  border: var(--property-card-border-width) solid var(--property-card-border-color);
+  border-radius: var(--property-card-radius);
+  box-shadow: var(--property-card-shadow);
+}
+/* One focus ring for the whole card when its title link has focus, instead of a
+   ring around the title text. The save toggle and arrows keep their own rings. */
+.card:has(h2 > a[data-focus-visible], h3 > a[data-focus-visible], h4 > a[data-focus-visible]) {
+  outline: var(--property-card-focus-ring-width) solid var(--property-card-focus-ring-color);
+  outline-offset: var(--property-card-focus-ring-offset);
+}
+.card :is(h2, h3, h4) > a[data-focus-visible] { outline: none; }
+
+/* Phones (below 768px): edge to edge and flat, a grey band under each card, as AcmeCo's. */
+@media (max-width: 767px) {
+  .card {
+    border: 0;
+    border-block-end: var(--property-card-band-width) solid var(--property-card-band-color);
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.layout { display: grid; }
+.header, .body, .logo { padding: var(--property-card-padding-block) var(--property-card-padding-inline); }
+.body { display: grid; align-content: start; gap: var(--property-card-gap); }
+.media { min-width: 0; }
+
+/* Descriptions are cut to a few lines; the full text is on the detail page. */
+.body p:last-child {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--property-card-description-max-lines);
+  line-clamp: var(--property-card-description-max-lines);
+  overflow: hidden;
+}
+
+/* Tier 1: header, full-width photo, facts | description, then brokers. */
+.tier1 .layout { grid-template-areas: 'header' 'media' 'body'; }
+.tier1 .media { aspect-ratio: var(--property-card-media-aspect-ratio); }
+
+/* Tier 2: header, then photo | details and brokers. Stacks when the card is narrow. */
+.tier2 .layout {
+  grid-template-areas: 'header header' 'media body';
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+@container (max-width: 480px) {
+  .tier2 .layout { grid-template-areas: 'header' 'media' 'body'; grid-template-columns: minmax(0, 1fr); }
+  .tier2 .media { aspect-ratio: var(--property-card-media-aspect-ratio); }
+}
+
+/* Tier 3 (compact): photo | title, address, facts | company logo. */
+.tier3 .layout {
+  grid-template-areas: 'media header logo' 'media body logo';
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr) auto;
+  grid-template-rows: auto 1fr;
+}
+.tier3 .media { min-height: var(--property-card-compact-media-min-height); }
+.tier3 .body { padding-block-start: 0; }
+@container (max-width: 480px) {
+  .tier3 .layout {
+    grid-template-areas: 'media header' 'media body' 'media logo';
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: auto auto 1fr;
+  }
+  .tier3 .logo { padding-block-start: 0; }
+}
+
+.header { grid-area: header; }
+.media { grid-area: media; }
+.body { grid-area: body; }
+.logo { grid-area: logo; }

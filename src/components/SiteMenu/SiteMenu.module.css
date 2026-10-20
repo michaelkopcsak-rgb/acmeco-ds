@@ -1,0 +1,67 @@
+/* SiteMenu. Values from --site-menu-* tokens (tokens/components/site-menu.json); the
+   panel, the Search group and the links bring their own. */
+
+.root { display: inline-flex; }
+/* Rows run edge to edge, so the menu cancels the panel's own padding (sides) and keeps it
+   above and below. */
+.menu {
+  width: var(--site-menu-width);
+  margin-inline: calc(-1 * var(--popover-padding));
+}
+.list, .group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* A 1px line between groups, inset like the text, as on AcmeCo. */
+.group + .group::before {
+  content: '';
+  display: block;
+  height: var(--site-menu-divider-width);
+  margin: var(--site-menu-divider-gap) var(--site-menu-item-padding-x);
+  background-color: var(--site-menu-divider-color);
+}
+.item {
+  display: flex;
+  align-items: center;
+  min-height: var(--site-menu-item-min-height);
+  padding-inline: var(--site-menu-item-padding-x);
+  font-size: var(--site-menu-item-font-size);
+  line-height: var(--site-menu-item-line-height);
+  font-weight: var(--site-menu-item-font-weight);
+}
+.subItem { font-weight: var(--site-menu-sub-item-font-weight); }
+/* Each link fills its row, so the whole row is clickable and an external-link icon sits at
+   the row's end, centred, as on AcmeCo (Marketing Center). */
+.item > a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  /* The row's padding moves onto the link, so the hover fill covers the whole row. */
+  margin-inline: calc(-1 * var(--site-menu-item-padding-x));
+  padding-inline: var(--site-menu-item-padding-x);
+}
+/* Menu rows use AcmeCo's grey row on hover, not a text link's underline. */
+.item > a[data-hovered] {
+  background-color: var(--site-menu-item-background-hover);
+  text-decoration-line: none;
+}
+/* The focus ring sits just inside the row, so the panel's edge doesn't clip it. */
+.item > a[data-focus-visible] { outline-offset: calc(-1 * var(--link-focus-ring-width)); }
+/* The Search button: a full-width row like the links (its text at the same 16px). */
+.search button {
+  padding-inline: var(--site-menu-item-padding-x);
+  border-radius: 0;
+}
+.search button[data-hovered] { background-color: var(--site-menu-item-background-hover); }
+.search button[data-focus-visible] { outline-offset: calc(-1 * var(--disclosure-focus-ring-width)); }
+.item > a > svg {
+  width: var(--site-menu-external-icon-size);
+  height: var(--site-menu-external-icon-size);
+  margin: 0;
+  vertical-align: middle;
+}
+/* "Log In/Sign Up" is dark blue on AcmeCo: the link's own colour, set on its element. */
+.login a { color: var(--site-menu-login-text); }

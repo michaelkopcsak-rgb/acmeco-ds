@@ -1,0 +1,169 @@
+/* The layout primitives. Every value comes from --layout-* tokens
+   (tokens/components/layout.json); gaps and column counts arrive as custom properties set
+   by the components from named steps, never as raw values. */
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--layout-container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--layout-container-gutter);
+  padding-block: var(--container-padding-block);
+}
+.container[data-width='gallery'] { max-width: var(--layout-container-gallery-max-width); }
+
+/* Band: a strip across the window, white or light grey, with an optional line under it. */
+.band { background-color: var(--layout-band-color-default); }
+.band[data-tone='subtle'] { background-color: var(--layout-band-color-subtle); }
+.band[data-divider] { border-bottom: var(--layout-divider-width) solid var(--layout-divider-color); }
+
+/* Main: the page's main landmark. The skip link focuses it to move the reading position;
+   it isn't a control, so it shows no focus ring. */
+.main {
+  display: block;
+  padding-block: var(--main-padding);
+  outline: none;
+}
+
+/* StickyTop: stays at the top of the window, over the page as it scrolls. */
+/* On phones (below 768px) it scrolls with the page, so the list has the whole screen, unless
+   it's fixedOnPhones (a listing's header and title bar). */
+.stickyTop { background-color: var(--color-surface-default); }
+.stickyTop[data-fixed-on-phones] { position: sticky; top: 0; z-index: 1; }
+@media (min-width: 768px) {
+  .stickyTop { position: sticky; top: 0; z-index: 1; }
+}
+
+/* SplitView: one column (aside band, then the list) until 1024px; then aside | 670px list,
+   the aside filling the window below the StickyTop and staying put. */
+.split { display: grid; grid-template-columns: minmax(0, 1fr); }
+.splitAside { height: var(--layout-split-aside-height-compact); }
+.splitMain { box-sizing: border-box; min-width: 0; padding: var(--layout-split-main-padding); }
+@media (max-width: 767px) {
+  .split[data-compact-aside='hidden'] .splitAside { display: none; }
+}
+@media (min-width: 1024px) {
+  .splitMain { background-color: var(--layout-split-main-background); }
+  .split[data-placement='start'] { grid-template-columns: minmax(0, 1fr) var(--layout-split-main-width); }
+  .split[data-placement='start'] .splitAside {
+    position: sticky;
+    top: var(--layout-sticky-top, var(--layout-gap-none));
+    align-self: start;
+    height: calc(100dvh - var(--layout-sticky-top, var(--layout-gap-none)));
+  }
+  /* Map on top: a band above the list that stays in view under the StickyTop while the
+     cards scroll beneath it (the owner's call, decision 45). */
+  .split[data-placement='top'] .splitAside {
+    position: sticky;
+    top: var(--layout-sticky-top, var(--layout-gap-none));
+    z-index: 1;
+    height: var(--layout-split-aside-height-top);
+  }
+}
+
+/* Sticky: in view below the StickyTop from 1024px, where it sits beside a scrolling column. */
+@media (min-width: 1024px) {
+  .sticky {
+    position: sticky;
+    top: calc(var(--layout-sticky-top, var(--layout-gap-none)) + var(--sticky-offset));
+    align-self: start;
+  }
+}
+
+/* Dock: the window's bottom-right corner, over the page. */
+.dock {
+  position: fixed;
+  right: var(--layout-container-gutter);
+  bottom: var(--layout-container-gutter);
+  z-index: 2;
+}
+/* The bar: across the bottom on phones only, white with a line on top, as AcmeCo's Call /
+   Message bar; the space before it keeps the page's end (the footer) clear of it. */
+.dockBar, .dockBarSpace { display: none; }
+@media (max-width: 767px) {
+  .dockBarSpace { display: block; height: var(--layout-dock-bar-height); }
+  .dockBar {
+    display: block;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    box-sizing: border-box;
+    min-height: var(--layout-dock-bar-height);
+    padding: var(--layout-dock-bar-padding) var(--layout-container-gutter);
+    border-top: var(--layout-divider-width) solid var(--layout-divider-color);
+    background-color: var(--color-surface-default);
+  }
+  .dock[data-clear-bar] { bottom: calc(var(--layout-dock-bar-height) + var(--layout-container-gutter)); }
+}
+
+/* Hide: no box of its own; out of the page at the given widths. */
+.hide { display: contents; }
+@media (max-width: 767px) { .hide[data-below='md'] { display: none; } }
+@media (max-width: 1023px) { .hide[data-below='lg'] { display: none; } }
+@media (min-width: 768px) { .hide[data-above='md'] { display: none; } }
+@media (min-width: 1024px) { .hide[data-above='lg'] { display: none; } }
+
+/* Divider: a line across, or a short line between items in a row. */
+.divider { display: block; flex: none; background-color: var(--layout-divider-color); }
+.divider[data-orientation='horizontal'] { align-self: stretch; height: var(--layout-divider-width); }
+.divider[data-orientation='vertical'] { width: var(--layout-divider-width); height: var(--layout-divider-height); }
+
+/* Bleed: through the page gutter on phones. */
+@media (max-width: 767px) {
+  .bleed { margin-inline: calc(-1 * var(--layout-split-main-padding)); }
+}
+
+/* Stack (and Section) */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.stack[data-direction='horizontal'] { flex-direction: row; }
+@media (min-width: 768px) { .stack { gap: var(--stack-gap-md); } }
+.stack[data-fill='first'] > :first-child, .stack[data-fill='last'] > :last-child { flex: 1 1 auto; min-width: 0; }
+/* A phone's row of pills: one line that scrolls sideways (the scroll bar hidden, as AcmeCo's). */
+@media (max-width: 767px) {
+  .stack[data-scroll-below='md'] { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .stack[data-scroll-below='md'] > * { flex: none; }
+}
+.stack[data-wrap] { flex-wrap: wrap; }
+.stack[data-align='start'] { align-items: flex-start; }
+.stack[data-align='center'] { align-items: center; }
+.stack[data-align='end'] { align-items: flex-end; }
+.stack[data-align='stretch'] { align-items: stretch; }
+.stack[data-align='baseline'] { align-items: baseline; }
+.stack[data-justify='start'] { justify-content: flex-start; }
+.stack[data-justify='center'] { justify-content: center; }
+.stack[data-justify='end'] { justify-content: flex-end; }
+.stack[data-justify='between'] { justify-content: space-between; }
+
+/* Grid: equal columns per breakpoint (AcmeCo's observed breakpoints: 450, 768, 1024, 1280px). */
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(var(--grid-cols-base), minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 450px) { .grid { grid-template-columns: repeat(var(--grid-cols-sm), minmax(0, 1fr)); } }
+@media (min-width: 768px) { .grid { grid-template-columns: repeat(var(--grid-cols-md), minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .grid { grid-template-columns: repeat(var(--grid-cols-lg), minmax(0, 1fr)); } }
+@media (min-width: 1280px) { .grid { grid-template-columns: repeat(var(--grid-cols-xl), minmax(0, 1fr)); } }
+
+/* main-aside: one column (sidebar after the content) until 1024px, then content | 340px sidebar. */
+.grid[data-template='main-aside'] { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1024px) {
+  .grid[data-template='main-aside'] { grid-template-columns: minmax(0, 1fr) var(--layout-aside-width); }
+}
+
+.grid[data-align='start'] { align-items: start; }
+.grid[data-align='center'] { align-items: center; }
+.grid[data-align='end'] { align-items: end; }
+.grid[data-align='stretch'] { align-items: stretch; }

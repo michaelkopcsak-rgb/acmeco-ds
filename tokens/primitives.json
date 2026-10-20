@@ -1,0 +1,163 @@
+{
+  "color": {
+    "$type": "color",
+    "$description": "Raw palette. Never used directly by components; semantic tokens point here. Evidence: the original audit",
+    "brand": {
+      "700": { "$value": "#123a7a", "$description": "PROPOSED: AcmeCo's dark blue, the one brand and action colour. White text 10.98:1." },
+      "800": { "$value": "#0d2c5e", "$description": "PROPOSED: dark blue hover, one step away from the page background. White text 13.65:1." },
+      "900": { "$value": "#091f45", "$description": "PROPOSED: dark blue pressed, one step past hover. White text 16.23:1." }
+    },
+    "red": {
+      "700": { "$value": "#b00000", "$description": "PROPOSED: error red (decision 7). 7.37:1 with white. Used only for errors, always with an icon and a message." }
+    },
+    "blue": {
+      "50": { "$value": "#eef7ff", "$description": "OBSERVED: chip / info tint." },
+      "100": { "$value": "#cbe5ff", "$description": "OBSERVED: chip border, rgba(151,201,255,.4) composited onto the #eef7ff chip tint. Decorative." },
+      "700": { "$value": "#0559b3", "$description": "OBSERVED: the one link blue (1,007 el / 11 exp), 6.80:1 on white. Absorbs #0888ba (4.0:1, fails AA), #0c6cc4, #0056b6 and LEGACY-NAMED #0056b3." },
+      "800": { "$value": "#044a96", "$description": "PROPOSED: link hover. Not observed (hover wasn't captured)." }
+    },
+    "gray": {
+      "0": { "$value": "#ffffff", "$description": "OBSERVED: white surface (14 exp)." },
+      "50": { "$value": "#f9f9f9", "$description": "OBSERVED: 7 exp." },
+      "100": { "$value": "#f3f3f3", "$description": "OBSERVED: subtle surface (14 exp). Absorbs #f4f4f3 (--legacy-palette-lighter-gray) and #efefef." },
+      "150": { "$value": "#ededed", "$description": "LEGACY-NAMED: --legacy-color-surface-gray." },
+      "200": { "$value": "#e5e5e5", "$description": "OBSERVED: default border (12 exp). Absorbs #eaeaea, #e2e2e2 and #e7e8e7 (--legacy-palette-light-gray)." },
+      "300": { "$value": "#dddddd", "$description": "OBSERVED: outlined dialogs and selectors." },
+      "500": { "$value": "#808386", "$description": "PROPOSED: control border (decision 5). Observed #b1b3b0 (337 el / 8 exp) at 2.11:1 fails WCAG 1.4.11; became #808386 at 3.81:1 on white and 3.43:1 on #f3f3f3." },
+      "600": { "$value": "#63666a", "$description": "OBSERVED, LEGACY-NAMED: --legacy-palette-dark-gray. Secondary text (765 el / 13 exp), 5.77:1 on white." },
+      "700": { "$value": "#4f5254", "$description": "OBSERVED: footer and secondary text (492 el / 11 exp)." },
+      "800": { "$value": "#242a2a", "$description": "LEGACY-NAMED: --legacy-color-slate." },
+      "900": { "$value": "#1c1c1c", "$description": "OBSERVED, LEGACY-NAMED: --legacy-color-ink (1,090 el / 14 exp). Absorbs #000000, #212529 and #333333." }
+    },
+    "navy": {
+      "700": { "$value": "#283346", "$description": "OBSERVED: auction banner (146 el)." }
+    },
+    "green": {
+      "700": { "$value": "#1f7a4a", "$description": "PROPOSED: success. Not observed; needed for 'inquiry sent' feedback." }
+    },
+    "alpha": {
+      "black-60": { "$value": "#00000099", "$description": "OBSERVED: modal overlay, black at 60%." },
+      "white-85": { "$value": "#ffffffd9", "$description": "OBSERVED: translucent controls over photos (seen at 85% and 60%). 85% kept because it holds contrast over dark photos." }
+    }
+  },
+  "font": {
+    "family": {
+      "brand": {
+        "$type": "fontFamily",
+        "$value": "Outfit, ui-sans-serif, system-ui, sans-serif",
+        "$description": "PROPOSED: Outfit, AcmeCo's brand typeface, at 400 and 600 (decision 4). Swapping the brand font is this one value."
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "regular": { "$value": 400, "$description": "OBSERVED: most common weight." },
+      "semibold": { "$value": 600, "$description": "PROPOSED: the 'bold' role (decision 4). Observed bold is 700; Outfit 700 reads heavier than the legacy brand typeface bold, and 600 exists as a named style in Figma." }
+    },
+    "size": {
+      "$type": "dimension",
+      "12": { "$value": "12px", "$description": "OBSERVED: 1,284 el / 8 exp. Absorbs 10 and 11px (raised to 12px minimum for legibility)." },
+      "14": { "$value": "14px", "$description": "OBSERVED: 1,579 el / 12 exp. Absorbs 13px (sits between 12 and 14; rounded up for legibility)." },
+      "16": { "$value": "16px", "$description": "OBSERVED: the most used size, 3,679 el / 14 exp. Absorbs 15px (1,185 el; sits between 14 and 16; rounded up for legibility)." },
+      "18": { "$value": "18px", "$description": "OBSERVED: 1,315 el / 14 exp. Absorbs 19px." },
+      "20": { "$value": "20px", "$description": "OBSERVED: 1,063 el / 13 exp. 22px sits between 20 and 24, so each component decides." },
+      "24": { "$value": "24px", "$description": "OBSERVED: headings. Absorbs 26px." },
+      "32": { "$value": "32px", "$description": "OBSERVED: section headings (28 el). Absorbs 28, 30 and 34px." },
+      "48": { "$value": "48px", "$description": "OBSERVED: hero headings (48 el / 3 exp)." }
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$description": "Text up to 20px keeps AcmeCo's 1.5x rhythm (decision 9); larger headings use tighter values.",
+      "18": { "$value": "18px", "$description": "OBSERVED: 12/18, 1.5x." },
+      "21": { "$value": "21px", "$description": "OBSERVED: 14/21, 1.5x (11 exp)." },
+      "24": { "$value": "24px", "$description": "OBSERVED: 16/24, 1.5x, the most common text style." },
+      "27": { "$value": "27px", "$description": "OBSERVED: 18/27, 1.5x." },
+      "30": { "$value": "30px", "$description": "OBSERVED: 20/30, 1.5x." },
+      "32": { "$value": "32px", "$description": "PROPOSED: 24px headings (1.33x)." },
+      "40": { "$value": "40px", "$description": "PROPOSED: 32px headings (1.25x)." },
+      "56": { "$value": "56px", "$description": "PROPOSED: 48px display (1.17x)." }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "$description": "4px grid (decision 5). Observed: a 5px rhythm (5/10/15/20) beside an 8px one (8/16/24/32/48). Off-grid values move to the nearest step; 10px and 20px sit exactly between two steps, so each component decides.",
+    "0": { "$value": "0px", "$description": "BENCHMARK-INFORMED: 4px grid." },
+    "1": { "$value": "4px", "$description": "BENCHMARK-INFORMED: 4px grid. Absorbs 3 and 5px." },
+    "2": { "$value": "8px", "$description": "BENCHMARK-INFORMED: 4px grid. Absorbs 6, 7 and 9px." },
+    "3": { "$value": "12px", "$description": "BENCHMARK-INFORMED: 4px grid." },
+    "4": { "$value": "16px", "$description": "BENCHMARK-INFORMED: 4px grid. Absorbs 15px (4,332 el / 14 exp, the most used padding)." },
+    "5": { "$value": "24px", "$description": "BENCHMARK-INFORMED: 4px grid." },
+    "6": { "$value": "32px", "$description": "BENCHMARK-INFORMED: 4px grid." },
+    "7": { "$value": "48px", "$description": "BENCHMARK-INFORMED: 4px grid." },
+    "8": { "$value": "64px", "$description": "BENCHMARK-INFORMED: 4px grid." }
+  },
+  "radius": {
+    "$type": "dimension",
+    "$description": "One scale used everywhere (decision 5). Observed: 22 values; 8px on the homepage, 3px on results, 2px on detail.",
+    "none": { "$value": "0px", "$description": "BENCHMARK-INFORMED: radius scale." },
+    "sm": { "$value": "4px", "$description": "LEGACY-NAMED: --legacy-cta-radius. Controls. Absorbs 2 and 3px." },
+    "md": { "$value": "8px", "$description": "OBSERVED: 475 el / 8 exp. Cards and panels. Absorbs 6px." },
+    "lg": { "$value": "16px", "$description": "LEGACY-NAMED: --legacy-testimonial-radius. Not used by a v1 component: dialogs are 8px surfaces (decision 28)." },
+    "pill": { "$value": "999px", "$description": "OBSERVED: 34px filter chips (281 el), 9999px, circles. Chips and the hero search." }
+  },
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "default": { "$value": "1px", "$description": "OBSERVED: 14 exp." },
+      "strong": { "$value": "2px", "$description": "OBSERVED: 14 exp." }
+    }
+  },
+  "focus": {
+    "ring": {
+      "$type": "dimension",
+      "width": { "$value": "2px", "$description": "PROPOSED: not observed; required (WCAG 2.4.7)." },
+      "offset": { "$value": "2px", "$description": "PROPOSED: keeps the ring on the page background, never touching a dark blue control (link blue on dark blue is 1.61:1)." }
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "card": {
+      "$value": { "offsetX": "0px", "offsetY": "1px", "blur": "4px", "spread": "2px", "color": "#00000026" },
+      "$description": "OBSERVED: 474 el, kept exactly (decision 11)."
+    },
+    "raised": {
+      "$value": { "offsetX": "0px", "offsetY": "2px", "blur": "15px", "spread": "0px", "color": "#00000026" },
+      "$description": "OBSERVED: the most widespread shadow (5 exp). Menus, popovers and dialogs (exactly the sign-in modal's shadow, decision 28)."
+    },
+    "overlay": {
+      "$value": { "offsetX": "0px", "offsetY": "8px", "blur": "32px", "spread": "0px", "color": "#00000033" },
+      "$description": "PROPOSED: a deeper level, not used by a v1 component (dialogs use shadow.raised, decision 28). Observed 24 distinct shadows; the benchmark uses 3 levels."
+    },
+    "glow": {
+      "$value": { "offsetX": "0px", "offsetY": "4px", "blur": "20px", "spread": "0px", "color": "#0559b333" },
+      "$description": "REFERENCE-OBSERVED, PROPOSED: the reference product's AI glow (several soft green layers, up to 0 4px 20px) as one layer in link blue at 20%. The AI assistant only (decision 29)."
+    }
+  },
+  "duration": {
+    "$type": "duration",
+    "fast": { "$value": "150ms", "$description": "LEGACY-NAMED: --legacy-cta-transition (0.15s)." },
+    "base": { "$value": "200ms", "$description": "PROPOSED: larger movements (popovers, dialogs)." }
+  },
+  "easing": {
+    "default": {
+      "$type": "cubicBezier",
+      "$value": [0.42, 0, 0.58, 1],
+      "$description": "LEGACY-NAMED: ease-in-out from --legacy-cta-transition."
+    }
+  },
+  "layout": {
+    "$type": "dimension",
+    "container-max": { "$value": "1440px", "$description": "LEGACY-NAMED: --legacy-container-max." },
+    "gutter": { "$value": "16px", "$description": "LEGACY-NAMED: --legacy-container-gutter was 15px; became 16px for the 4px grid (decision 5)." },
+    "header-height": { "$value": "60px", "$description": "LEGACY-NAMED: --legacy-site-header-height. Every observed header is 60px." },
+    "block-gap": { "$value": "clamp(40px, 5vw, 72px)", "$description": "LEGACY-NAMED: --legacy-block-gap." },
+    "section-gap": { "$value": "clamp(48px, 8vw, 96px)", "$description": "LEGACY-NAMED: --legacy-section-gap." }
+  },
+  "breakpoint": {
+    "$type": "dimension",
+    "$description": "Reference values. CSS variables can't be used inside @media, so media queries use these numbers literally.",
+    "sm": { "$value": "450px", "$description": "OBSERVED: core-site max-width breakpoint." },
+    "md": { "$value": "768px", "$description": "OBSERVED: core-site max-width breakpoint (all three stacks)." },
+    "lg": { "$value": "1024px", "$description": "OBSERVED: core-site max-width breakpoint." },
+    "xl": { "$value": "1280px", "$description": "OBSERVED: core-site max-width breakpoint." }
+  }
+}

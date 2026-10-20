@@ -1,0 +1,88 @@
+/* Dialog. Every value comes from --dialog-* tokens (tokens/components/dialog.json),
+   measured from AcmeCo's sign-in, contact broker and filters dialogs. */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--dialog-viewport-margin);
+  background-color: var(--dialog-backdrop);
+}
+
+.modal {
+  display: flex;
+  width: 100%;
+  max-height: 100%;
+  background-color: var(--dialog-background);
+  border-radius: var(--dialog-radius);
+  box-shadow: var(--dialog-shadow);
+  overflow: hidden; /* the footer follows the corners */
+}
+.md { max-width: var(--dialog-width-md); }
+.lg { max-width: var(--dialog-width-lg); }
+
+/* Header and footer stay put; the body scrolls between them. */
+.dialog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  outline: none;
+}
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--dialog-header-gap);
+  padding: var(--dialog-padding) var(--dialog-padding) var(--dialog-header-padding-bottom);
+}
+.title {
+  margin: 0;
+  font-size: var(--dialog-title-font-size);
+  line-height: var(--dialog-title-line-height);
+  font-weight: var(--dialog-title-font-weight);
+  color: var(--dialog-title-color);
+}
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 var(--dialog-padding) var(--dialog-padding);
+  font-size: var(--dialog-body-font-size);
+  line-height: var(--dialog-body-line-height);
+  color: var(--dialog-body-color);
+  outline: none;
+}
+/* A scrolling body can take focus (for arrow-key scrolling); show where focus is. */
+.body:focus-visible {
+  outline: var(--dialog-focus-ring-width) solid var(--dialog-focus-ring-color);
+  outline-offset: calc(-1 * var(--dialog-focus-ring-width));
+}
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--dialog-footer-gap);
+  padding: var(--dialog-footer-padding-block) var(--dialog-padding);
+  background-color: var(--dialog-footer-background);
+  border-top: var(--dialog-footer-border-width) solid var(--dialog-footer-border-color);
+}
+
+/* Phones and small tablets: full screen for every size (decision 28). The footer's
+   buttons fill the width, as on AcmeCo's contact form. */
+@media (max-width: 768px) {
+  .overlay { padding: 0; }
+  .modal { max-width: none; height: 100%; border-radius: 0; }
+  .footer > * { flex: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .overlay[data-entering] { animation: fade var(--dialog-transition-duration) var(--dialog-transition-easing); }
+  .overlay[data-exiting] { animation: fade var(--dialog-transition-duration) var(--dialog-transition-easing) reverse; }
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

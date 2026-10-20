@@ -1,0 +1,129 @@
+/* Styles for the Foundations documentation pages. Documentation, not library
+   components, so the primitive scales are used directly here; colours still
+   come from semantic tokens wherever a meaning exists. */
+.fd-page {
+  max-width: 1120px;
+  padding: var(--space-6) var(--space-5) var(--space-8);
+  color: var(--color-text-default);
+}
+.fd-prototype {
+  display: inline-block;
+  margin: 0 0 var(--space-4);
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-width-default) solid var(--color-text-default);
+  border-radius: var(--radius-pill);
+  font-size: var(--typography-label-font-size);
+  line-height: var(--typography-label-line-height);
+  font-weight: var(--typography-label-font-weight);
+}
+.fd-title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--typography-heading-1-font-size);
+  line-height: var(--typography-heading-1-line-height);
+  font-weight: var(--typography-heading-1-font-weight);
+}
+.fd-intro {
+  max-width: 72ch;
+  color: var(--color-text-subtle);
+}
+.fd-intro p { margin: 0 0 var(--space-3); }
+.fd-section { margin-top: var(--space-7); }
+.fd-section-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--typography-heading-2-font-size);
+  line-height: var(--typography-heading-2-line-height);
+  font-weight: var(--typography-heading-2-font-weight);
+}
+.fd-section-intro {
+  margin: 0 0 var(--space-4);
+  max-width: 72ch;
+  color: var(--color-text-subtle);
+}
+
+/* Evidence labels: one quiet style each, all text at 4.5:1 or better. */
+.fd-labels { display: inline-flex; flex-wrap: wrap; gap: var(--space-1); }
+.fd-label {
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--typography-caption-font-size);
+  line-height: var(--typography-caption-line-height);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+}
+.fd-label--observed { background: var(--color-surface-subtle); color: var(--color-text-default); }
+.fd-label--named { background: var(--color-surface-inverse); color: var(--color-text-inverse); }
+.fd-label--proposed { background: var(--color-surface-default); color: var(--color-text-default); box-shadow: inset 0 0 0 var(--border-width-default) var(--color-border-control-default); }
+.fd-label--benchmark { background: var(--color-surface-brand-dark); color: var(--color-text-inverse); }
+.fd-label--acmeco { background: var(--color-surface-default); color: var(--color-text-link-default); box-shadow: inset 0 0 0 var(--border-width-default) var(--color-text-link-default); }
+
+/* Token table */
+.fd-table { width: 100%; border-collapse: collapse; font-size: var(--typography-body-small-font-size); line-height: var(--typography-body-small-line-height); }
+.fd-table th {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: var(--border-width-strong) solid var(--color-border-default);
+  font-weight: var(--typography-label-font-weight);
+}
+.fd-table td { padding: var(--space-3); border-bottom: var(--border-width-default) solid var(--color-border-default); vertical-align: top; }
+.fd-preview-cell { width: 120px; }
+.fd-token, .fd-var, .fd-ref, .fd-value { display: block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--typography-caption-font-size); line-height: var(--typography-caption-line-height); }
+.fd-token { font-weight: var(--font-weight-semibold); color: var(--color-text-default); }
+.fd-var, .fd-ref { color: var(--color-text-subtle); }
+.fd-note { margin: var(--space-1) 0 0; color: var(--color-text-subtle); max-width: 60ch; }
+.fd-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Previews */
+.fd-swatch {
+  width: 96px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 0 var(--border-width-default) var(--color-border-default);
+}
+.fd-swatch--photo { background-image: linear-gradient(135deg, var(--color-gray-900), var(--color-gray-600)); position: relative; }
+.fd-swatch--photo > span { position: absolute; inset: var(--space-2); border-radius: var(--radius-sm); }
+.fd-space-bar { height: var(--space-4); background: var(--color-action-background-default); border-radius: var(--radius-sm); }
+.fd-radius-box { width: 96px; height: 64px; background: var(--color-surface-subtle); border: var(--border-width-strong) solid var(--color-border-control-default); }
+.fd-shadow-box { width: 96px; height: 64px; margin: var(--space-3); background: var(--color-surface-default); border-radius: var(--radius-md); }
+
+/* Typography specimens */
+.fd-type-row { display: grid; grid-template-columns: 220px 1fr; gap: var(--space-5); padding: var(--space-4) 0; border-bottom: var(--border-width-default) solid var(--color-border-default); align-items: baseline; }
+.fd-type-meta { font-size: var(--typography-caption-font-size); line-height: var(--typography-caption-line-height); color: var(--color-text-subtle); }
+.fd-type-meta strong { display: block; color: var(--color-text-default); font-size: var(--typography-label-font-size); line-height: var(--typography-label-line-height); }
+.fd-type-sample { margin: 0; overflow-wrap: anywhere; }
+
+/* Motion demo: hover or focus the box to see the transition */
+.fd-motion-demo {
+  font: inherit;
+  padding: var(--space-3) var(--space-4);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-action-background-default);
+  color: var(--color-action-text-default);
+  cursor: pointer;
+}
+.fd-motion-demo:hover { background: var(--color-action-background-hover); }
+.fd-motion-demo:focus-visible { outline: var(--focus-ring-width) solid var(--color-focus-ring-default); outline-offset: var(--focus-ring-offset); }
+@media (prefers-reduced-motion: no-preference) {
+  .fd-motion-demo { transition: background-color var(--duration-fast) var(--easing-default); }
+}
+
+/* Contrast results */
+.fd-pass { color: var(--color-feedback-success); font-weight: var(--font-weight-semibold); }
+.fd-fail { color: var(--color-feedback-error); font-weight: var(--font-weight-semibold); }
+.fd-pair { display: inline-flex; align-items: center; justify-content: center; min-width: 96px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); font-weight: var(--font-weight-semibold); box-shadow: inset 0 0 0 var(--border-width-default) var(--color-border-default); }
+.fd-pair--ui { gap: var(--space-2); }
+.fd-pair--ui > span { width: 32px; height: 20px; border-radius: var(--radius-sm); border: var(--border-width-strong) solid; }
+
+/* Icons page */
+.fd-icon-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--space-4); }
+.fd-icon-cell { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); padding: var(--space-4); border: var(--border-width-default) solid var(--color-border-default); border-radius: var(--radius-md); }
+.fd-icon { width: var(--space-6); height: var(--space-6); color: var(--color-text-default); }
+
+/* Shape rule examples: plain boxes for surfaces that have no component yet. */
+.fd-shape-surface {
+  display: inline-block;
+  width: 96px;
+  height: 56px;
+  background: var(--color-surface-default);
+}
+.fd-shape-surface { border-radius: var(--radius-md); box-shadow: var(--shadow-card); }

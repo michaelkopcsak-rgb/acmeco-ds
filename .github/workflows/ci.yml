@@ -1,0 +1,129 @@
+# Continuous integration: checks every pull request (and every push to main)
+# on a fresh GitHub-hosted Linux machine. If any step fails, the check turns red.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# One run per branch at a time. A newer push to a pull request cancels the run
+# for the older commit (saves minutes, avoids queueing). Runs on main are never
+# cancelled, so every merge is checked.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      # Download the repo's code onto the machine. fetch-depth: 0 brings the
+      # full git history, which Chromatic uses to find the right baseline.
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # Install the same Node version as on the laptop (from .nvmrc),
+      # and cache downloaded packages so later runs are faster.
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      # Install exactly the versions in package-lock.json (never upgrades).
+      - name: Install
+        run: npm ci
+
+      # Catches likely bugs and bad patterns in the code.
+      - name: Lint
+        run: npm run lint
+
+      # Catches type mistakes, e.g. passing variant="dangr" to Button.
+      - name: Type check
+        run: npm run typecheck
+
+      # Rebuilds tokens.css from the JSON, then fails if the result differs
+      # from the committed file. Catches hand-edits to the generated CSS and
+      # JSON changes committed without re-running `npm run tokens`.
+      - name: Build tokens
+        run: |
+          npm run tokens
+          git diff --exit-code src/tokens.css
+
+      # Measures every colour pair in tokens/contrast-pairs.json (text 4.5:1,
+      # UI boundaries 3:1) and fails if any drops below its minimum.
+      - name: Contrast check
+        run: npm run check:contrast
+
+      # Fails if a token has no evidence label, or if component CSS uses a raw
+      # colour, a raw px value or a primitive token. Runs its self-test first,
+      # which proves each rule still catches a deliberately bad file.
+      - name: Token check
+        run: npm run check:tokens
+
+      # Fails if an AcmeCo component (stories under "AcmeCo/") imports anything
+      # but the system: no react-aria-components directly, no fixture data, no
+      # other packages. Exceptions are listed, with reasons, in
+      # scripts/boundary-exceptions.json. Runs its self-test first.
+      - name: Boundary check
+        run: npm run check:boundaries
+
+      # Rebuilds figma/payload.json (what the Figma file should contain) from the
+      # tokens and fails if the committed copy differs: a token changed without
+      # re-running `npm run figma:payload`, so Figma would be synced from stale data.
+      # Same for figma/components.json (icons and component pages, phase 5).
+      - name: Figma payload drift check
+        run: |
+          npm run figma:payload
+          git diff --exit-code figma/payload.json
+          npm run figma:components
+          git diff --exit-code figma/components.json
+
+      # Rebuilds the component catalogue (docs/catalog.json and docs/CATALOG.md, decision 37)
+      # from the components' TypeScript, guidance, stories and figma/components.json, and
+      # fails if the committed copy differs: a prop or guidance changed without re-running
+      # `npm run catalog`, so Claude Code would build screens from stale information.
+      - name: Catalogue drift check
+        run: |
+          npm run catalog
+          git diff --exit-code docs/catalog.json docs/CATALOG.md
+
+      # Catches stories or components that break the Storybook build.
+      # This is also what Chromatic uploads.
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      # Turns every story into a test in a real headless Chromium: renders it,
+      # runs its play function (clicks, keyboard) and its accessibility checks.
+      # Any failure or accessibility violation fails CI.
+      - name: Install test browser
+        run: npx playwright install --with-deps chromium
+      - name: Interaction and accessibility tests
+        run: npm test
+
+      # Checks whether the CHROMATIC_PROJECT_TOKEN secret has been added yet.
+      # Secrets can't be tested directly in `if:`, so this one step sees it
+      # (and only this step: install scripts in `npm ci` never do) and reports
+      # "enabled=true" or nothing.
+      - name: Check for Chromatic token
+        id: chromatic-token
+        env:
+          TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        run: if [ -n "$TOKEN" ]; then echo "enabled=true" >> "$GITHUB_OUTPUT"; fi
+
+      # Uploads the Storybook just built to Chromatic, which screenshots every
+      # story and compares it with the accepted baseline. Visual changes don't
+      # fail this job; they appear as a separate "UI Tests" check on the PR
+      # that stays pending until someone accepts or denies them in Chromatic.
+      # Skipped (not failed) until the secret exists.
+      - name: Chromatic
+        if: steps.chromatic-token.outputs.enabled == 'true'
+        uses: chromaui/action@v18
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: storybook-static
+          exitZeroOnChanges: true
+          # Merging to main means the change was reviewed, so main's
+          # snapshots become the new baseline automatically.
+          autoAcceptChanges: main

@@ -1,0 +1,38 @@
+/* Disclosure. Every value comes from --disclosure-* tokens (tokens/components/disclosure.json).
+   States are React Aria data attributes (data-expanded on the disclosure; data-hovered,
+   data-focus-visible on the button). */
+
+.disclosure { display: flex; flex-direction: column; }
+.heading { margin: 0; font: inherit; }
+
+.trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--disclosure-trigger-gap);
+  width: 100%;
+  min-height: var(--disclosure-trigger-min-height);
+  padding-inline: var(--disclosure-trigger-padding-x);
+  border: 0;
+  border-radius: var(--disclosure-trigger-radius);
+  background: none;
+  color: var(--disclosure-trigger-text);
+  font-family: inherit;
+  font-size: var(--disclosure-trigger-font-size);
+  line-height: var(--disclosure-trigger-line-height);
+  font-weight: var(--disclosure-trigger-font-weight);
+  text-align: start;
+  cursor: pointer;
+  outline: none;
+}
+.trigger[data-hovered] { background-color: var(--disclosure-trigger-background-hover); }
+.trigger[data-focus-visible] {
+  outline: var(--disclosure-focus-ring-width) solid var(--disclosure-focus-ring-color);
+  outline-offset: var(--disclosure-focus-ring-offset);
+}
+
+.chevron { flex: none; width: var(--disclosure-trigger-chevron-size); height: var(--disclosure-trigger-chevron-size); }
+.disclosure[data-expanded] .chevron { transform: rotate(180deg); }
+
+.panel { padding-inline-start: var(--disclosure-panel-padding-start); }
